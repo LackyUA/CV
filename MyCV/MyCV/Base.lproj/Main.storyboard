@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,61 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MyCV" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VBv-5U-YTO">
+                                <rect key="frame" x="87" y="333" width="240" height="240"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u3d-EI-TaY">
+                                        <rect key="frame" x="65" y="90" width="110" height="60"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="50"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.090485228192728751" green="0.72262874119718312" blue="0.93032020246478875" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="u3d-EI-TaY" firstAttribute="centerX" secondItem="VBv-5U-YTO" secondAttribute="centerX" id="I3B-zN-GHC"/>
+                                    <constraint firstAttribute="height" constant="240" id="cqK-yI-Ozf"/>
+                                    <constraint firstItem="u3d-EI-TaY" firstAttribute="centerY" secondItem="VBv-5U-YTO" secondAttribute="centerY" id="ls4-gF-zJC"/>
+                                    <constraint firstAttribute="width" constant="240" id="o9P-xt-Hkv"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zWO-Yg-w39">
+                                <rect key="frame" x="138.5" y="222" width="137.5" height="28"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Welcome To ">
+                                        <attributes>
+                                            <font key="NSFont" size="24" name=".SFNSDisplay"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="VBv-5U-YTO" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="AvK-qA-hUw"/>
+                            <constraint firstItem="VBv-5U-YTO" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="Tcc-MZ-Xbo"/>
+                            <constraint firstItem="zWO-Yg-w39" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="TsF-07-WVD"/>
+                            <constraint firstItem="VBv-5U-YTO" firstAttribute="top" secondItem="zWO-Yg-w39" secondAttribute="bottom" constant="83.25" id="pV1-Ej-QNG"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="labelConstraint" destination="pV1-Ej-QNG" id="bmO-FZ-1oE"/>
+                        <outlet property="startLabel" destination="u3d-EI-TaY" id="XQi-9E-bfZ"/>
+                        <outlet property="startView" destination="VBv-5U-YTO" id="rJv-OZ-ziv"/>
+                        <outlet property="welcomeLabel" destination="zWO-Yg-w39" id="gYo-Uq-KDt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="47.826086956521742" y="20.758928571428569"/>
         </scene>
     </scenes>
 </document>
