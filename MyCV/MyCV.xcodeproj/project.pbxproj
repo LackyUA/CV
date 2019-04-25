@@ -11,6 +11,9 @@
 		3235A7802271B3BA006CD7D3 /* SectionsImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3235A77C2271B3BA006CD7D3 /* SectionsImageView.swift */; };
 		3235A7812271B3BA006CD7D3 /* StackViewWithLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3235A77D2271B3BA006CD7D3 /* StackViewWithLabels.swift */; };
 		3235A7822271B3BA006CD7D3 /* SectionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3235A77E2271B3BA006CD7D3 /* SectionsView.swift */; };
+		3235A7862271D2BC006CD7D3 /* Content.json in Resources */ = {isa = PBXBuildFile; fileRef = 3235A7852271D2BC006CD7D3 /* Content.json */; };
+		3235A7882271D2CE006CD7D3 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3235A7872271D2CE006CD7D3 /* APIService.swift */; };
+		3235A78A2271F1EA006CD7D3 /* StructuralPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3235A7892271F1EA006CD7D3 /* StructuralPart.swift */; };
 		327A75E8227085F300F8957F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327A75E7227085F300F8957F /* AppDelegate.swift */; };
 		327A75EA227085F300F8957F /* StartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327A75E9227085F300F8957F /* StartVC.swift */; };
 		327A75ED227085F300F8957F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 327A75EB227085F300F8957F /* Main.storyboard */; };
@@ -35,6 +38,9 @@
 		3235A77C2271B3BA006CD7D3 /* SectionsImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionsImageView.swift; sourceTree = "<group>"; };
 		3235A77D2271B3BA006CD7D3 /* StackViewWithLabels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackViewWithLabels.swift; sourceTree = "<group>"; };
 		3235A77E2271B3BA006CD7D3 /* SectionsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionsView.swift; sourceTree = "<group>"; };
+		3235A7852271D2BC006CD7D3 /* Content.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Content.json; sourceTree = "<group>"; };
+		3235A7872271D2CE006CD7D3 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		3235A7892271F1EA006CD7D3 /* StructuralPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructuralPart.swift; sourceTree = "<group>"; };
 		327A75E4227085F300F8957F /* MyCV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		327A75E7227085F300F8957F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		327A75E9227085F300F8957F /* StartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartVC.swift; sourceTree = "<group>"; };
@@ -87,8 +93,18 @@
 		3235A7832271B801006CD7D3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3235A7892271F1EA006CD7D3 /* StructuralPart.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		3235A7842271D296006CD7D3 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				3235A7852271D2BC006CD7D3 /* Content.json */,
+				3235A7872271D2CE006CD7D3 /* APIService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		327A75DB227085F300F8957F = {
@@ -118,6 +134,7 @@
 				327A75F3227085F600F8957F /* LaunchScreen.storyboard */,
 				327A75F6227085F600F8957F /* Info.plist */,
 				327A75EE227085F300F8957F /* MyCV.xcdatamodeld */,
+				3235A7842271D296006CD7D3 /* Service */,
 				3235A7792271B2F8006CD7D3 /* MVC */,
 			);
 			path = MyCV;
@@ -227,6 +244,7 @@
 				327A75F5227085F600F8957F /* LaunchScreen.storyboard in Resources */,
 				327A75F2227085F600F8957F /* Assets.xcassets in Resources */,
 				327A75ED227085F300F8957F /* Main.storyboard in Resources */,
+				3235A7862271D2BC006CD7D3 /* Content.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +268,8 @@
 				3235A77F2271B3BA006CD7D3 /* StackViewWithButtons.swift in Sources */,
 				327A75E8227085F300F8957F /* AppDelegate.swift in Sources */,
 				327A75F0227085F300F8957F /* MyCV.xcdatamodeld in Sources */,
+				3235A78A2271F1EA006CD7D3 /* StructuralPart.swift in Sources */,
+				3235A7882271D2CE006CD7D3 /* APIService.swift in Sources */,
 				3235A7802271B3BA006CD7D3 /* SectionsImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

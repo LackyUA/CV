@@ -119,9 +119,9 @@ class StartVC: UIViewController {
     /// Third step of animation
     private func thirdStep() {
         self.view.subviews.forEach {
-            if let view = $0 as? UIView & Moveable {
+            if let view = $0 as? UIView & Movable {
                 view.move(translationX: 0, y: self.view.frame.height / 6 - self.view.frame.height)
-            } else if let view = $0 as? UIView & Scaleable {
+            } else if let view = $0 as? UIView & Scalable {
                 view.scale(x: 120, y: 120)
             }
         }

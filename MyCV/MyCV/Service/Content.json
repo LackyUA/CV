@@ -1,0 +1,78 @@
+{
+    "contacts" : {
+        "title" : "Contacts",
+        "address" : "Ivano-Frankivs'k, Dovzhenka St 3/75",
+        "email" : "ddmutro2@gmail.com",
+        "mobile" : "+380668422448",
+        "skype" : "bstatelacky",
+        "git" : "https://github.com/LackyUA",
+        "facebook" : "https://www.facebook.com/dima.dobrovolskyy.5"
+    },
+    "objective_and_summary" : {
+        "title": "Objective & summary",
+        "desription" : "I wish to begin my IOS developer career in your company and become team lead in 5 years. Experience in software development more than 3 years, I am working with swift and Xcode for 1.5 years. I also have experience in programming in C/C++, Java, SQL, worked in such graphic editors as Photoshop and Sketch. I have good analytical skills. Fast learning."
+    },
+    "skills" : {
+        "title" : "Skills",
+        "languages" : "Swift, Java, C/C++.",
+        "embedded_frameworks" : "Core Data, Core Location, Users notifications, Event Kit, UI Kit.",
+        "third_party_frameworks" : "Google places, Google maps, Google distances, Firebase, Facebook API, Alamofire, SwiftyJSON, Snap Kit.",
+        "operation_systems" : "Windews, Mac OS 10.x"
+    },
+    "education" : {
+        "title" : "Education",
+        "school" : "Ukrainian grammar school No1.",
+        "university" : {
+            "name" : "IFNTUOG",
+            "direction" : "Computer Engineering",
+            "qualification" : "Master Degree",
+            "gpa" : "4.91"
+        },
+        "courses" : [
+            "Online video-course UIKit Fundamentals by Udacity.",
+            "Online video-course Developing iOS 11 Apps with Swift by Paul Hegarty."
+        ]
+    },
+    "experience" : {
+        "title" : "Experience",
+        "iOS-developing" : [
+            {
+                "name" : "Gym",
+                "period" : "4 months",
+                "link" : "",
+                "description" : "Developed program for finding gyms, filtering obtained data and providing services from gyms that are part of our system, such as payment of subscriptions, etc. The startup failed and the project closed."
+            },
+            {
+                "name" : "Speechify",
+                "period" : "1 month",
+                "link" : "",
+                "description" : "Developed share extension for capturing text from sites/PDFs, transferring it to main application and saving it to Core Data and Firebase. Experienced with creating view and contstraints programmatically."
+            },
+            {
+                "name" : "On Rad",
+                "period" : "1 month",
+                "link" : "https://github.com/LackyUA/Radio",
+                "description" : "Developed design and functionality for application for sharing music and radio stations between app users. Experienced with REST API calls, Firebase, Alamofire, SwiftyJSON and Push Notifications."
+            },
+            {
+                "name" : "Road signs",
+                "period" : "2 months",
+                "link" : "https://github.com/LackyUA/Road-signs",
+                "description" : "Developed a program for learning road signs."
+            }
+        ]
+    },
+    "additional_information" : {
+        "title" : "Additional information",
+        "hobbies" : [
+            "Hill climbing",
+            "Playing volleyball",
+            "Riding a mountain bike",
+            "Walking to the gym",
+            "Psychology",
+            "Meditation"
+        ],
+        "english" : "~Intermediate",
+        "marital_status" : "Unmeried"
+    }
+}

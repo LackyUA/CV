@@ -8,9 +8,9 @@
 
 import UIKit
 
-protocol Scaleable { }
+protocol Scalable { }
 
-extension Scaleable where Self: UIView {
+extension Scalable where Self: UIView {
     
     func scale(x: CGFloat, y: CGFloat) {
         self.transform = CGAffineTransform(scaleX: x, y: y)
@@ -18,7 +18,7 @@ extension Scaleable where Self: UIView {
     
 }
 
-class SectionsImageView: UIView, Scaleable {
+class SectionsImageView: UIView, Scalable {
     
     // MARK: - Views
     var imageView: UIImageView {

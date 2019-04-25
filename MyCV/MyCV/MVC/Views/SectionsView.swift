@@ -8,9 +8,9 @@
 
 import UIKit
 
-protocol Moveable { }
+protocol Movable { }
 
-extension Moveable where Self: UIView {
+extension Movable where Self: UIView {
     
     func move(translationX x: CGFloat, y: CGFloat) {
         self.transform = CGAffineTransform(translationX: x, y: y )
@@ -18,7 +18,7 @@ extension Moveable where Self: UIView {
     
 }
 
-class SectionsView: UIView, Moveable {
+class SectionsView: UIView, Movable {
     
     // MARK: - Properties
     var bottomPadding: CGFloat {
