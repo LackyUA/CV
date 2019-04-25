@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3235A77F2271B3BA006CD7D3 /* StackViewWithButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3235A77B2271B3BA006CD7D3 /* StackViewWithButtons.swift */; };
+		3235A7802271B3BA006CD7D3 /* SectionsImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3235A77C2271B3BA006CD7D3 /* SectionsImageView.swift */; };
+		3235A7812271B3BA006CD7D3 /* StackViewWithLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3235A77D2271B3BA006CD7D3 /* StackViewWithLabels.swift */; };
+		3235A7822271B3BA006CD7D3 /* SectionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3235A77E2271B3BA006CD7D3 /* SectionsView.swift */; };
 		327A75E8227085F300F8957F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327A75E7227085F300F8957F /* AppDelegate.swift */; };
-		327A75EA227085F300F8957F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327A75E9227085F300F8957F /* ViewController.swift */; };
+		327A75EA227085F300F8957F /* StartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327A75E9227085F300F8957F /* StartVC.swift */; };
 		327A75ED227085F300F8957F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 327A75EB227085F300F8957F /* Main.storyboard */; };
 		327A75F0227085F300F8957F /* MyCV.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 327A75EE227085F300F8957F /* MyCV.xcdatamodeld */; };
 		327A75F2227085F600F8957F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 327A75F1227085F600F8957F /* Assets.xcassets */; };
@@ -27,9 +31,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3235A77B2271B3BA006CD7D3 /* StackViewWithButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackViewWithButtons.swift; sourceTree = "<group>"; };
+		3235A77C2271B3BA006CD7D3 /* SectionsImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionsImageView.swift; sourceTree = "<group>"; };
+		3235A77D2271B3BA006CD7D3 /* StackViewWithLabels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackViewWithLabels.swift; sourceTree = "<group>"; };
+		3235A77E2271B3BA006CD7D3 /* SectionsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionsView.swift; sourceTree = "<group>"; };
 		327A75E4227085F300F8957F /* MyCV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		327A75E7227085F300F8957F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		327A75E9227085F300F8957F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		327A75E9227085F300F8957F /* StartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartVC.swift; sourceTree = "<group>"; };
 		327A75EC227085F300F8957F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		327A75EF227085F300F8957F /* MyCV.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyCV.xcdatamodel; sourceTree = "<group>"; };
 		327A75F1227085F600F8957F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -58,6 +66,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3235A7792271B2F8006CD7D3 /* MVC */ = {
+			isa = PBXGroup;
+			children = (
+				3235A7832271B801006CD7D3 /* Models */,
+				327A76152270F86D00F8957F /* Views */,
+				3235A77A2271B33C006CD7D3 /* Controllers */,
+			);
+			path = MVC;
+			sourceTree = "<group>";
+		};
+		3235A77A2271B33C006CD7D3 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				327A75E9227085F300F8957F /* StartVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		3235A7832271B801006CD7D3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		327A75DB227085F300F8957F = {
 			isa = PBXGroup;
 			children = (
@@ -80,12 +113,12 @@
 			isa = PBXGroup;
 			children = (
 				327A75E7227085F300F8957F /* AppDelegate.swift */,
-				327A75E9227085F300F8957F /* ViewController.swift */,
 				327A75EB227085F300F8957F /* Main.storyboard */,
 				327A75F1227085F600F8957F /* Assets.xcassets */,
 				327A75F3227085F600F8957F /* LaunchScreen.storyboard */,
 				327A75F6227085F600F8957F /* Info.plist */,
 				327A75EE227085F300F8957F /* MyCV.xcdatamodeld */,
+				3235A7792271B2F8006CD7D3 /* MVC */,
 			);
 			path = MyCV;
 			sourceTree = "<group>";
@@ -97,6 +130,17 @@
 				327A7601227085F600F8957F /* Info.plist */,
 			);
 			path = MyCVTests;
+			sourceTree = "<group>";
+		};
+		327A76152270F86D00F8957F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3235A77C2271B3BA006CD7D3 /* SectionsImageView.swift */,
+				3235A77E2271B3BA006CD7D3 /* SectionsView.swift */,
+				3235A77B2271B3BA006CD7D3 /* StackViewWithButtons.swift */,
+				3235A77D2271B3BA006CD7D3 /* StackViewWithLabels.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,9 +244,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				327A75EA227085F300F8957F /* ViewController.swift in Sources */,
+				3235A7822271B3BA006CD7D3 /* SectionsView.swift in Sources */,
+				3235A7812271B3BA006CD7D3 /* StackViewWithLabels.swift in Sources */,
+				327A75EA227085F300F8957F /* StartVC.swift in Sources */,
+				3235A77F2271B3BA006CD7D3 /* StackViewWithButtons.swift in Sources */,
 				327A75E8227085F300F8957F /* AppDelegate.swift in Sources */,
 				327A75F0227085F300F8957F /* MyCV.xcdatamodeld in Sources */,
+				3235A7802271B3BA006CD7D3 /* SectionsImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
