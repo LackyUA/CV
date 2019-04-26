@@ -49,7 +49,6 @@ class StartVC: UIViewController {
     }
     
     private func configureConstraint() {
-        print(view.center.y / 4 - welcomeLabel.bounds.height / 2)
         labelConstraint.constant = view.center.y / 4 - welcomeLabel.bounds.height / 2
     }
     
@@ -63,16 +62,13 @@ class StartVC: UIViewController {
                 
             case .ended:
                 UIView.animate(withDuration: 0.5,
-                               animations: { [weak self] in
-                    
-                    guard let self = self else { return }
+                               animations: {
                     
                     self.firstStep()
                     
                 }) { [weak self] _ in
                     
                     guard let self = self else { return }
-                    
                     self.secondStep()
                     
                     UIView.animate(withDuration: 0.7,
@@ -80,10 +76,8 @@ class StartVC: UIViewController {
                                    usingSpringWithDamping: 0.95,
                                    initialSpringVelocity: 0.7,
                                    options: [.curveEaseInOut],
-                                   animations: { [weak self] in
-                        
-                        guard let self = self else { return }
-                        
+                                   animations: {
+                                    
                         self.thirdStep()
                         
                     })
