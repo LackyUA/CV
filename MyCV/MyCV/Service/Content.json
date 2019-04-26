@@ -10,7 +10,7 @@
     },
     "objective_and_summary" : {
         "title": "Objective & summary",
-        "desription" : "I wish to begin my IOS developer career in your company and become team lead in 5 years. Experience in software development more than 3 years, I am working with swift and Xcode for 1.5 years. I also have experience in programming in C/C++, Java, SQL, worked in such graphic editors as Photoshop and Sketch. I have good analytical skills. Fast learning."
+        "description" : "I wish to begin my IOS developer career in your company and become team lead in 5 years. Experience in software development more than 3 years, I am working with swift and Xcode for 1.5 years. I also have experience in programming in C/C++, Java, SQL, worked in such graphic editors as Photoshop and Sketch. I have good analytical skills. Fast learning."
     },
     "skills" : {
         "title" : "Skills",
@@ -35,7 +35,7 @@
     },
     "experience" : {
         "title" : "Experience",
-        "iOS-developing" : [
+        "iOS_developing" : [
             {
                 "name" : "Gym",
                 "period" : "4 months",
