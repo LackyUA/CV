@@ -30,5 +30,28 @@ class MyCVTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
+    
+    func testModels() {
+        testJSONParser(for: Contacts())
+        testJSONParser(for: Summary())
+        testJSONParser(for: Skills())
+        testJSONParser(for: Education())
+        testJSONParser(for: Experience())
+        testJSONParser(for: Additional())
+    }
+    
+    func testJSONParser<Model>(for model: Model) where Model: JSONable{
+        model.parseJSON { result in
+            switch result {
+                
+            case .success(let data):
+                print(data)
+                
+            case .failure(let err):
+                print(err)
+                
+            }
+        }
+    }
 
 }
