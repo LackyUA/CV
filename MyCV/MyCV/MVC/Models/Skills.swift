@@ -27,7 +27,7 @@ struct Skills: JSONable {
     var thirdPartyFrameworks = String()
     var operationSystems = String()
     
-    // MARK: - Initialization from JSON
+    // MARK: - JSON parser
     func parseJSON(completion: @escaping (Result<Skills, Error>) -> ()) {
         APIService().fetchData(struct: self) { result in
             completion(result)

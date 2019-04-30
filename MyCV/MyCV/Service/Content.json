@@ -10,14 +10,14 @@
     },
     "objective_and_summary" : {
         "title": "Objective & summary",
-        "description" : "I wish to begin my IOS developer career in your company and become team lead in 5 years. Experience in software development more than 3 years, I am working with swift and Xcode for 1.5 years. I also have experience in programming in C/C++, Java, SQL, worked in such graphic editors as Photoshop and Sketch. I have good analytical skills. Fast learning."
+        "description" : "I wish to begin my IOS developer career in your company and become team lead in 5 years. Experience in software development more than 3 years, experience in iOS development about 1,5 years and I also have experience in C, C++, Java. Main technical skills: OOP, POP, iOS SDK, UIKit, Foundation, Cocoa Touch, CocoaPods, Alamofire, REST API, GIT, CoreData, Firebase, MVC, MVVM, Auto Layout, Sketch. I have good analytical skills and fast learning capability. I am constantly striving to learn new technologies and look to ways to better myself in this rapidly changing industry."
     },
     "skills" : {
         "title" : "Skills",
         "languages" : "Swift, Java, C/C++.",
         "embedded_frameworks" : "Core Data, Core Location, Users notifications, Event Kit, UI Kit.",
         "third_party_frameworks" : "Google places, Google maps, Google distances, Firebase, Facebook API, Alamofire, SwiftyJSON, Snap Kit.",
-        "operation_systems" : "Windews, Mac OS 10.x"
+        "operation_systems" : "Windows, Mac OS 10.x"
     },
     "education" : {
         "title" : "Education",

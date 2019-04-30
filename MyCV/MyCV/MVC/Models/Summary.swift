@@ -21,7 +21,7 @@ struct Summary: JSONable {
     var title = String()
     var description = String()
     
-    // MARK: - Initialization from JSON
+    // MARK: - JSON parser
     func parseJSON(completion: @escaping (Result<Summary, Error>) -> ()) {
         APIService().fetchData(struct: self) { result in
             completion(result)

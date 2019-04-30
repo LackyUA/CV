@@ -38,6 +38,7 @@ class ContactsVC: UITableViewController {
                     
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
+                        self.title = data.title
                     }
                     
                 case .failure(let error):
@@ -57,7 +58,7 @@ class ContactsVC: UITableViewController {
         contacts[titles[5]] = data.facebook
     }
     
-    // MARK: - Configuration table view cells
+    // MARK: - Table view cells configuration
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }

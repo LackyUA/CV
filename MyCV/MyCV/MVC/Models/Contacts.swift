@@ -35,7 +35,7 @@ struct Contacts: JSONable {
     var git = String()
     var facebook = String()
     
-    // MARK: - Initialization from JSON
+    // MARK: - JSON parser
     func parseJSON(completion: @escaping (Result<Contacts, Error>) -> ()) {
         APIService().fetchData(struct: self) { result in
             completion(result)

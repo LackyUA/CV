@@ -62,7 +62,7 @@ struct Education: JSONable {
     var university = [String: String]()
     var courses = [String]()
     
-    // MARK: - Initialization from JSON
+    // MARK: - JSON parser
     func parseJSON(completion: @escaping (Result<Education, Error>) -> ()) {
         APIService().fetchData(struct: self) { result in
             completion(result)

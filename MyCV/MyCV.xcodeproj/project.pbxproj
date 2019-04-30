@@ -19,8 +19,9 @@
 		3235A792227240A9006CD7D3 /* Education.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3235A791227240A9006CD7D3 /* Education.swift */; };
 		3235A794227240C3006CD7D3 /* Experience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3235A793227240C3006CD7D3 /* Experience.swift */; };
 		3235A796227240DF006CD7D3 /* Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3235A795227240DF006CD7D3 /* Additional.swift */; };
-		3235A79822732B4B006CD7D3 /* ContactsVCTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3235A79722732B4B006CD7D3 /* ContactsVCTableViewController.swift */; };
+		3235A79822732B4B006CD7D3 /* ContactsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3235A79722732B4B006CD7D3 /* ContactsVC.swift */; };
 		3235A79A2273365A006CD7D3 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3235A7992273365A006CD7D3 /* ContactCell.swift */; };
+		3268AE6322782FB5001E81A4 /* SummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3268AE6222782FB5001E81A4 /* SummaryVC.swift */; };
 		327A75E8227085F300F8957F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327A75E7227085F300F8957F /* AppDelegate.swift */; };
 		327A75EA227085F300F8957F /* StartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327A75E9227085F300F8957F /* StartVC.swift */; };
 		327A75ED227085F300F8957F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 327A75EB227085F300F8957F /* Main.storyboard */; };
@@ -53,8 +54,9 @@
 		3235A791227240A9006CD7D3 /* Education.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Education.swift; sourceTree = "<group>"; };
 		3235A793227240C3006CD7D3 /* Experience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Experience.swift; sourceTree = "<group>"; };
 		3235A795227240DF006CD7D3 /* Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Additional.swift; sourceTree = "<group>"; };
-		3235A79722732B4B006CD7D3 /* ContactsVCTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsVCTableViewController.swift; sourceTree = "<group>"; };
+		3235A79722732B4B006CD7D3 /* ContactsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsVC.swift; sourceTree = "<group>"; };
 		3235A7992273365A006CD7D3 /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
+		3268AE6222782FB5001E81A4 /* SummaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryVC.swift; sourceTree = "<group>"; };
 		327A75E4227085F300F8957F /* MyCV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		327A75E7227085F300F8957F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		327A75E9227085F300F8957F /* StartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartVC.swift; sourceTree = "<group>"; };
@@ -100,7 +102,8 @@
 			isa = PBXGroup;
 			children = (
 				327A75E9227085F300F8957F /* StartVC.swift */,
-				3235A79722732B4B006CD7D3 /* ContactsVCTableViewController.swift */,
+				3235A79722732B4B006CD7D3 /* ContactsVC.swift */,
+				3268AE6222782FB5001E81A4 /* SummaryVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -287,12 +290,13 @@
 				3235A79022724089006CD7D3 /* Skills.swift in Sources */,
 				3235A792227240A9006CD7D3 /* Education.swift in Sources */,
 				3235A794227240C3006CD7D3 /* Experience.swift in Sources */,
+				3268AE6322782FB5001E81A4 /* SummaryVC.swift in Sources */,
 				3235A7812271B3BA006CD7D3 /* StackViewWithLabels.swift in Sources */,
 				327A75EA227085F300F8957F /* StartVC.swift in Sources */,
 				3235A78E2272405F006CD7D3 /* Summary.swift in Sources */,
 				3235A77F2271B3BA006CD7D3 /* StackViewWithButtons.swift in Sources */,
 				3235A79A2273365A006CD7D3 /* ContactCell.swift in Sources */,
-				3235A79822732B4B006CD7D3 /* ContactsVCTableViewController.swift in Sources */,
+				3235A79822732B4B006CD7D3 /* ContactsVC.swift in Sources */,
 				3235A78C22722D0F006CD7D3 /* Contacts.swift in Sources */,
 				3235A796227240DF006CD7D3 /* Additional.swift in Sources */,
 				327A75E8227085F300F8957F /* AppDelegate.swift in Sources */,

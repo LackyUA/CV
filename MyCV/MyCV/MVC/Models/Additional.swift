@@ -56,7 +56,7 @@ struct Additional: JSONable {
     var english = String()
     var maritalStatus = String()
     
-    // MARK: - Initialization from JSON
+    // MARK: - JSON parser
     func parseJSON(completion: @escaping (Result<Additional, Error>) -> ()) {
         APIService().fetchData(struct: self) { result in
             completion(result)
