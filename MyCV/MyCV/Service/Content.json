@@ -14,9 +14,10 @@
     },
     "skills" : {
         "title" : "Skills",
-        "languages" : "Swift, Java, C/C++.",
-        "embedded_frameworks" : "Core Data, Core Location, Users notifications, Event Kit, UI Kit.",
-        "third_party_frameworks" : "Google places, Google maps, Google distances, Firebase, Facebook API, Alamofire, SwiftyJSON, Snap Kit.",
+        "languages" : "Swift, Java, C/C++",
+        "embedded_frameworks" : "Core Data, Core Location, Users notifications, Event Kit, UI Kit, Core Animation",
+        "third_party_frameworks" : "Google places, Google maps, Google distances, Firebase, Facebook API, Alamofire, SwiftyJSON, Snap Kit",
+        "design_patterns" : "MVC, MVVM, Singleton, Facade, Extensions, Delegation, Observer",
         "operation_systems" : "Windows, Mac OS 10.x"
     },
     "education" : {
