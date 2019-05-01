@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		322524BA2279BDC6004B8A9B /* EducationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322524B92279BDC6004B8A9B /* EducationVC.swift */; };
+		322524BD2279DD21004B8A9B /* EducationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322524BC2279DD21004B8A9B /* EducationCell.swift */; };
 		3235A77F2271B3BA006CD7D3 /* StackViewWithButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3235A77B2271B3BA006CD7D3 /* StackViewWithButtons.swift */; };
 		3235A7802271B3BA006CD7D3 /* SectionsImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3235A77C2271B3BA006CD7D3 /* SectionsImageView.swift */; };
 		3235A7812271B3BA006CD7D3 /* StackViewWithLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3235A77D2271B3BA006CD7D3 /* StackViewWithLabels.swift */; };
@@ -46,6 +48,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		322524B92279BDC6004B8A9B /* EducationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EducationVC.swift; sourceTree = "<group>"; };
+		322524BC2279DD21004B8A9B /* EducationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EducationCell.swift; sourceTree = "<group>"; };
 		3235A77B2271B3BA006CD7D3 /* StackViewWithButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackViewWithButtons.swift; sourceTree = "<group>"; };
 		3235A77C2271B3BA006CD7D3 /* SectionsImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SectionsImageView.swift; sourceTree = "<group>"; };
 		3235A77D2271B3BA006CD7D3 /* StackViewWithLabels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackViewWithLabels.swift; sourceTree = "<group>"; };
@@ -96,6 +100,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		322524BB2279DCF0004B8A9B /* Education screen */ = {
+			isa = PBXGroup;
+			children = (
+				322524BC2279DD21004B8A9B /* EducationCell.swift */,
+			);
+			path = "Education screen";
+			sourceTree = "<group>";
+		};
 		3235A7792271B2F8006CD7D3 /* MVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +125,7 @@
 				3235A79722732B4B006CD7D3 /* ContactsVC.swift */,
 				3268AE6222782FB5001E81A4 /* SummaryVC.swift */,
 				323A94B02279903F000EAF78 /* SkillsVC.swift */,
+				322524B92279BDC6004B8A9B /* EducationVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -229,6 +242,7 @@
 		327A76152270F86D00F8957F /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				322524BB2279DCF0004B8A9B /* Education screen */,
 				323A94B2227991F0000EAF78 /* Skills screen */,
 				323A94AE22799014000EAF78 /* Start screen */,
 				323A94AF22799024000EAF78 /* Contacts screen */,
@@ -340,7 +354,9 @@
 			files = (
 				3235A7822271B3BA006CD7D3 /* SectionsView.swift in Sources */,
 				3235A79022724089006CD7D3 /* Skills.swift in Sources */,
+				322524BD2279DD21004B8A9B /* EducationCell.swift in Sources */,
 				323A94B42279920A000EAF78 /* SkillCell.swift in Sources */,
+				322524BA2279BDC6004B8A9B /* EducationVC.swift in Sources */,
 				3235A792227240A9006CD7D3 /* Education.swift in Sources */,
 				3235A794227240C3006CD7D3 /* Experience.swift in Sources */,
 				3268AE6322782FB5001E81A4 /* SummaryVC.swift in Sources */,
