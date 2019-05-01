@@ -21,6 +21,10 @@
 		3235A796227240DF006CD7D3 /* Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3235A795227240DF006CD7D3 /* Additional.swift */; };
 		3235A79822732B4B006CD7D3 /* ContactsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3235A79722732B4B006CD7D3 /* ContactsVC.swift */; };
 		3235A79A2273365A006CD7D3 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3235A7992273365A006CD7D3 /* ContactCell.swift */; };
+		323A94B12279903F000EAF78 /* SkillsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323A94B02279903F000EAF78 /* SkillsVC.swift */; };
+		323A94B42279920A000EAF78 /* SkillCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323A94B32279920A000EAF78 /* SkillCell.swift */; };
+		323A94B62279946C000EAF78 /* SkillsSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323A94B52279946C000EAF78 /* SkillsSectionHeaderView.swift */; };
+		323A94B9227998BB000EAF78 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323A94B8227998BB000EAF78 /* Extensions.swift */; };
 		3268AE6322782FB5001E81A4 /* SummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3268AE6222782FB5001E81A4 /* SummaryVC.swift */; };
 		327A75E8227085F300F8957F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327A75E7227085F300F8957F /* AppDelegate.swift */; };
 		327A75EA227085F300F8957F /* StartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327A75E9227085F300F8957F /* StartVC.swift */; };
@@ -56,6 +60,10 @@
 		3235A795227240DF006CD7D3 /* Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Additional.swift; sourceTree = "<group>"; };
 		3235A79722732B4B006CD7D3 /* ContactsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsVC.swift; sourceTree = "<group>"; };
 		3235A7992273365A006CD7D3 /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
+		323A94B02279903F000EAF78 /* SkillsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsVC.swift; sourceTree = "<group>"; };
+		323A94B32279920A000EAF78 /* SkillCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillCell.swift; sourceTree = "<group>"; };
+		323A94B52279946C000EAF78 /* SkillsSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsSectionHeaderView.swift; sourceTree = "<group>"; };
+		323A94B8227998BB000EAF78 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		3268AE6222782FB5001E81A4 /* SummaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryVC.swift; sourceTree = "<group>"; };
 		327A75E4227085F300F8957F /* MyCV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		327A75E7227085F300F8957F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +112,7 @@
 				327A75E9227085F300F8957F /* StartVC.swift */,
 				3235A79722732B4B006CD7D3 /* ContactsVC.swift */,
 				3268AE6222782FB5001E81A4 /* SummaryVC.swift */,
+				323A94B02279903F000EAF78 /* SkillsVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -128,6 +137,49 @@
 				3235A7872271D2CE006CD7D3 /* APIService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		323A94AD2279879E000EAF78 /* MVVM */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MVVM;
+			sourceTree = "<group>";
+		};
+		323A94AE22799014000EAF78 /* Start screen */ = {
+			isa = PBXGroup;
+			children = (
+				3235A77C2271B3BA006CD7D3 /* SectionsImageView.swift */,
+				3235A77E2271B3BA006CD7D3 /* SectionsView.swift */,
+				3235A77B2271B3BA006CD7D3 /* StackViewWithButtons.swift */,
+				3235A77D2271B3BA006CD7D3 /* StackViewWithLabels.swift */,
+			);
+			path = "Start screen";
+			sourceTree = "<group>";
+		};
+		323A94AF22799024000EAF78 /* Contacts screen */ = {
+			isa = PBXGroup;
+			children = (
+				3235A7992273365A006CD7D3 /* ContactCell.swift */,
+			);
+			path = "Contacts screen";
+			sourceTree = "<group>";
+		};
+		323A94B2227991F0000EAF78 /* Skills screen */ = {
+			isa = PBXGroup;
+			children = (
+				323A94B32279920A000EAF78 /* SkillCell.swift */,
+				323A94B52279946C000EAF78 /* SkillsSectionHeaderView.swift */,
+			);
+			path = "Skills screen";
+			sourceTree = "<group>";
+		};
+		323A94B7227998AD000EAF78 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				323A94B8227998BB000EAF78 /* Extensions.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		327A75DB227085F300F8957F = {
@@ -157,7 +209,9 @@
 				327A75F3227085F600F8957F /* LaunchScreen.storyboard */,
 				327A75F6227085F600F8957F /* Info.plist */,
 				327A75EE227085F300F8957F /* MyCV.xcdatamodeld */,
+				323A94B7227998AD000EAF78 /* Helpers */,
 				3235A7842271D296006CD7D3 /* Service */,
+				323A94AD2279879E000EAF78 /* MVVM */,
 				3235A7792271B2F8006CD7D3 /* MVC */,
 			);
 			path = MyCV;
@@ -175,11 +229,9 @@
 		327A76152270F86D00F8957F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3235A77C2271B3BA006CD7D3 /* SectionsImageView.swift */,
-				3235A77E2271B3BA006CD7D3 /* SectionsView.swift */,
-				3235A77B2271B3BA006CD7D3 /* StackViewWithButtons.swift */,
-				3235A77D2271B3BA006CD7D3 /* StackViewWithLabels.swift */,
-				3235A7992273365A006CD7D3 /* ContactCell.swift */,
+				323A94B2227991F0000EAF78 /* Skills screen */,
+				323A94AE22799014000EAF78 /* Start screen */,
+				323A94AF22799024000EAF78 /* Contacts screen */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -288,6 +340,7 @@
 			files = (
 				3235A7822271B3BA006CD7D3 /* SectionsView.swift in Sources */,
 				3235A79022724089006CD7D3 /* Skills.swift in Sources */,
+				323A94B42279920A000EAF78 /* SkillCell.swift in Sources */,
 				3235A792227240A9006CD7D3 /* Education.swift in Sources */,
 				3235A794227240C3006CD7D3 /* Experience.swift in Sources */,
 				3268AE6322782FB5001E81A4 /* SummaryVC.swift in Sources */,
@@ -296,13 +349,16 @@
 				3235A78E2272405F006CD7D3 /* Summary.swift in Sources */,
 				3235A77F2271B3BA006CD7D3 /* StackViewWithButtons.swift in Sources */,
 				3235A79A2273365A006CD7D3 /* ContactCell.swift in Sources */,
+				323A94B12279903F000EAF78 /* SkillsVC.swift in Sources */,
 				3235A79822732B4B006CD7D3 /* ContactsVC.swift in Sources */,
+				323A94B9227998BB000EAF78 /* Extensions.swift in Sources */,
 				3235A78C22722D0F006CD7D3 /* Contacts.swift in Sources */,
 				3235A796227240DF006CD7D3 /* Additional.swift in Sources */,
 				327A75E8227085F300F8957F /* AppDelegate.swift in Sources */,
 				327A75F0227085F300F8957F /* MyCV.xcdatamodeld in Sources */,
 				3235A7882271D2CE006CD7D3 /* APIService.swift in Sources */,
 				3235A7802271B3BA006CD7D3 /* SectionsImageView.swift in Sources */,
+				323A94B62279946C000EAF78 /* SkillsSectionHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

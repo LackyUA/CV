@@ -10,6 +10,8 @@ import UIKit
 
 class ContactsVC: UITableViewController {
 
+    // MARK: - Constants
+    private let reusableIdetifier = "ContactCell"
     private let titles = [
         "Address",
         "E-mail",
@@ -19,8 +21,10 @@ class ContactsVC: UITableViewController {
         "Facebook"
     ]
     
+    // MARK: - Properties
     private var contacts = [String: String]()
     
+    // MARK: - Life cyrcle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,6 +32,7 @@ class ContactsVC: UITableViewController {
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
     }
     
+    // MARK: - Data parse functions
     private func parseContacts() {
         DispatchQueue.global().async {
             Contacts().parseJSON { result in
@@ -72,7 +77,7 @@ class ContactsVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "ContactCell", for: indexPath) as? ContactCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: reusableIdetifier, for: indexPath) as? ContactCell else { return UITableViewCell() }
         
         let title = titles[indexPath.row]
         guard let details = contacts[title] else { return UITableViewCell() }
