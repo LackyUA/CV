@@ -1,5 +1,5 @@
 //
-//  EducationCell.swift
+//  SchoolCell.swift
 //  MyCV
 //
 //  Created by Dima Dobrovolskyy on 5/1/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EducationCell: UICollectionViewCell {
+class SchoolCell: UICollectionViewCell {
     
     @IBOutlet private weak var titleLabel: UILabel!
     

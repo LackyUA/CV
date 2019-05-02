@@ -55,14 +55,14 @@
         "title" : "Education",
         "school" : "Ukrainian grammar school No1.",
         "university" : {
-            "name" : "IFNTUOG",
-            "direction" : "Computer Engineering",
-            "qualification" : "Master Degree",
-            "gpa" : "4.91"
+            "University" : "Ivano-Frankivsk`s National Technical University of Oil and Gas",
+            "Direction" : "Computer Engineering",
+            "Qualification" : "Master Degree",
+            "GPA" : "4.91"
         },
         "courses" : [
             "Online video-course UIKit Fundamentals by Udacity.",
-            "Online video-course Developing iOS 11 Apps with Swift by Paul Hegarty."
+            "Online video-course Developing iOS 11 Apps with Swift by Stanford(Paul Hegarty)."
         ]
     },
     "experience" : {

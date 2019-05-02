@@ -9,6 +9,7 @@
 import UIKit
 
 public extension UIView {
+    
     /// Generating constraints to superview's edge
     func edgeConstraints(top: CGFloat, left: CGFloat, bottom: CGFloat, right: CGFloat) -> [NSLayoutConstraint] {
         return [
@@ -18,4 +19,5 @@ public extension UIView {
             self.bottomAnchor.constraint(equalTo: self.superview!.bottomAnchor, constant: -bottom)
         ]
     }
+    
 }

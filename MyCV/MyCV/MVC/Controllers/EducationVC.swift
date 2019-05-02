@@ -11,10 +11,12 @@ import UIKit
 class EducationVC: UIViewController {
 
     // MARK: - Constabts
-    private let reusableIdentifier = "EducationCell"
+    private let schoolReusableIdentifier = "SchoolCell"
+    private let universityReusableIdentifier = "UniversityCell"
+    private let coursesReusableIdentifier = "CoursesCell"
     
     // MARK: - Properties
-    private var data = [String]()
+    private var data = [Any]()
     
     // MARK: - Outlets
     @IBOutlet private weak var collectionView: UICollectionView!
@@ -82,13 +84,24 @@ class EducationVC: UIViewController {
             switch result {
                 
             case .success(let data):
-                print(data)
+                self.append(data)
+                
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                    self.title = data.title
+                }
                 
             case .failure(let error):
                 print(error)
                 
             }
         }
+    }
+    
+    private func append(_ data: Education) {
+        self.data.append(data.school)
+        self.data.append(data.university)
+        self.data.append(data.courses)
     }
     
     // MARK: - Helpers
@@ -109,6 +122,7 @@ class EducationVC: UIViewController {
         pageControl.currentPage = index
     }
     
+    //MARK: - Function for handling scrolling
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer <CGPoint>) {
         let x = targetContentOffset.pointee.x
         let index = Int(x / view.frame.width)
@@ -133,24 +147,43 @@ extension EducationVC: UICollectionViewDelegateFlowLayout {
 extension EducationVC: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return data.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reusableIdentifier, for: indexPath) as? EducationCell else { return UICollectionViewCell() }
-        
         switch indexPath.row {
+            
         case 0:
-            cell.backgroundColor = .red
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: schoolReusableIdentifier, for: indexPath) as? SchoolCell else { return UICollectionViewCell() }
+            
+            if let text = data[indexPath.row] as? String {
+                cell.configure(text: text)
+            }
+            
+            return cell
+            
         case 1:
-            cell.backgroundColor = .blue
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: universityReusableIdentifier, for: indexPath) as? UniversityCell else { return UICollectionViewCell() }
+            
+            if let dictionary = data[indexPath.row] as? [String: String] {
+                cell.configure(dictionary)
+            }
+            
+            return cell
+            
+        case 2:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: coursesReusableIdentifier, for: indexPath) as? CoursesCell else { return UICollectionViewCell() }
+            
+            if let array = data[indexPath.row] as? [String] {
+                cell.configure(array)
+            }
+            
+            return cell
+            
         default:
-            cell.backgroundColor = .yellow
+            return UICollectionViewCell()
+            
         }
-        
-        cell.configure(text: segmentControl.titleForSegment(at: indexPath.row) ?? "")
-        
-        return cell
     }
     
 }
