@@ -10,7 +10,7 @@ import UIKit
 
 class EducationVC: UIViewController {
 
-    // MARK: - Constabts
+    // MARK: - Constants
     private let schoolReusableIdentifier = "SchoolCell"
     private let universityReusableIdentifier = "UniversityCell"
     private let coursesReusableIdentifier = "CoursesCell"

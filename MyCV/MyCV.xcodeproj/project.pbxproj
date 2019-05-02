@@ -117,7 +117,6 @@
 		3235A7792271B2F8006CD7D3 /* MVC */ = {
 			isa = PBXGroup;
 			children = (
-				3235A7832271B801006CD7D3 /* Models */,
 				327A76152270F86D00F8957F /* Views */,
 				3235A77A2271B33C006CD7D3 /* Controllers */,
 			);
@@ -161,6 +160,7 @@
 		323A94AD2279879E000EAF78 /* MVVM */ = {
 			isa = PBXGroup;
 			children = (
+				32BB0804227B22B40021DC03 /* Modules */,
 			);
 			path = MVVM;
 			sourceTree = "<group>";
@@ -230,6 +230,7 @@
 				327A75EE227085F300F8957F /* MyCV.xcdatamodeld */,
 				323A94B7227998AD000EAF78 /* Helpers */,
 				3235A7842271D296006CD7D3 /* Service */,
+				3235A7832271B801006CD7D3 /* Models */,
 				323A94AD2279879E000EAF78 /* MVVM */,
 				3235A7792271B2F8006CD7D3 /* MVC */,
 			);
@@ -254,6 +255,29 @@
 				323A94AF22799024000EAF78 /* Contacts screen */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		32B1BD47227B232F00FC95E5 /* Additional screen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Additional screen";
+			sourceTree = "<group>";
+		};
+		32B1BD48227B234300FC95E5 /* Experience screen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Experience screen";
+			sourceTree = "<group>";
+		};
+		32BB0804227B22B40021DC03 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				32B1BD48227B234300FC95E5 /* Experience screen */,
+				32B1BD47227B232F00FC95E5 /* Additional screen */,
+			);
+			path = Modules;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
