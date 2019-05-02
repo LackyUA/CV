@@ -10,4 +10,10 @@ import UIKit
 
 class EducationCell: UICollectionViewCell {
     
+    @IBOutlet private weak var titleLabel: UILabel!
+    
+    func configure(text: String) {
+        titleLabel.text = text
+    }
+    
 }

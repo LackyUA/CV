@@ -13,10 +13,12 @@ class EducationVC: UIViewController {
     // MARK: - Constabts
     private let reusableIdentifier = "EducationCell"
     
+    // MARK: - Properties
+    private var data = [String]()
+    
     // MARK: - Outlets
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var bottomBar: UIView!
-    @IBOutlet private weak var helloLabel: UILabel!
     @IBOutlet private weak var pageControl: UIPageControl!
     
     @IBOutlet private weak var segmentControl: UISegmentedControl! {
@@ -65,10 +67,29 @@ class EducationVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        bottomBarWidthConstraint.constant = segmentControl.bounds.width / 3
+        parseData()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        bottomBarWidthConstraint.constant = segmentControl.bounds.width / CGFloat(segmentControl.numberOfSegments)
+    }
     
+    // MARK: - Parser functions
+    private func parseData() {
+        Education().parseJSON { result in
+            switch result {
+                
+            case .success(let data):
+                print(data)
+                
+            case .failure(let error):
+                print(error)
+                
+            }
+        }
+    }
     
     // MARK: - Helpers
     private func animate() {
@@ -85,13 +106,10 @@ class EducationVC: UIViewController {
     }
     
     private func pageChanged(_ index: Int) {
-        helloLabel.text = segmentControl.titleForSegment(at: index)
         pageControl.currentPage = index
     }
     
-    func scrollViewWillEndDragging(_ scrollView: UIScrollView,
-                                            withVelocity velocity: CGPoint,
-                                            targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer <CGPoint>) {
         let x = targetContentOffset.pointee.x
         let index = Int(x / view.frame.width)
         
@@ -102,10 +120,12 @@ class EducationVC: UIViewController {
 
 }
 
-// MARK: - Collection view delegation
-extension EducationVC: UICollectionViewDelegate {
+// MARK: - Collection view flow layout delegation
+extension EducationVC: UICollectionViewDelegateFlowLayout {
     
-    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
+    }
     
 }
 
@@ -127,6 +147,8 @@ extension EducationVC: UICollectionViewDataSource {
         default:
             cell.backgroundColor = .yellow
         }
+        
+        cell.configure(text: segmentControl.titleForSegment(at: indexPath.row) ?? "")
         
         return cell
     }
