@@ -11,6 +11,7 @@ import UIKit
 class ContactsVC: UITableViewController {
 
     // MARK: - Constants
+    private let contacts = Contacts()
     private let reusableIdetifier = "ContactCell"
     private let titles = [
         "Address",
@@ -22,45 +23,40 @@ class ContactsVC: UITableViewController {
     ]
     
     // MARK: - Properties
-    private var contacts = [String: String]()
+    private var data = [String: String]()
     
     // MARK: - Life cyrcle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        parseContacts()
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
     }
     
-    // MARK: - Data parse functions
-    private func parseContacts() {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         DispatchQueue.global().async {
-            Contacts().parseJSON { result in
-                switch result {
-                    
-                case .success(let data):
-                    self.save(contacts: data)
-                    
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                        self.title = data.title
-                    }
-                    
-                case .failure(let error):
-                    print(error)
-                    
-                }
-            }
+            self.configure()
+        }
+    }
+    
+    // MARK: - Configuration
+    private func configure() {
+        self.save(contacts: contacts)
+        
+        DispatchQueue.main.async {
+            self.title = self.contacts.title
+            self.tableView.reloadData()
         }
     }
     
     private func save(contacts data: Contacts) {
-        contacts[titles[0]] = data.address
-        contacts[titles[1]] = data.email
-        contacts[titles[2]] = data.skype
-        contacts[titles[3]] = data.mobile
-        contacts[titles[4]] = data.git
-        contacts[titles[5]] = data.facebook
+        self.data[titles[0]] = data.address
+        self.data[titles[1]] = data.email
+        self.data[titles[2]] = data.skype
+        self.data[titles[3]] = data.mobile
+        self.data[titles[4]] = data.git
+        self.data[titles[5]] = data.facebook
     }
     
     // MARK: - Table view cells configuration
@@ -69,7 +65,7 @@ class ContactsVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return contacts.count
+        return data.count
     }
     
     override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -80,7 +76,7 @@ class ContactsVC: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: reusableIdetifier, for: indexPath) as? ContactCell else { return UITableViewCell() }
         
         let title = titles[indexPath.row]
-        guard let details = contacts[title] else { return UITableViewCell() }
+        guard let details = data[title] else { return UITableViewCell() }
         
         switch indexPath.row {
             
@@ -116,10 +112,10 @@ class ContactsVC: UITableViewController {
         switch indexPath.row {
             
         case 3:
-            cell.call(number: contacts[titles[indexPath.row]] ?? "")
+            cell.call(number: data[titles[indexPath.row]] ?? "")
             
         case 4...5:
-            cell.open(url: contacts[titles[indexPath.row]] ?? "")
+            cell.open(url: data[titles[indexPath.row]] ?? "")
             
         default:
             break

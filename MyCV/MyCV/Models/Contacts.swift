@@ -9,10 +9,10 @@
 import Foundation
 
 protocol JSONable where Self: Codable {
-    func parseJSON(completion: @escaping (Result<Self, Error>) -> ())
+    func initFromJSON()
 }
 
-struct Contacts: JSONable {
+final class Contacts: JSONable {
     
     // MARK: - Coding keys
     enum CodingKeys: String, CodingKey {
@@ -35,11 +35,44 @@ struct Contacts: JSONable {
     var git = String()
     var facebook = String()
     
+    // MARK: - Initializations
+    init () {
+        initFromJSON()
+    }
+    
+    init(title: String, address: String, email: String, mobile: String, skype: String, git: String, facebook: String) {
+        self.title = title
+        self.address = address
+        self.email = email
+        self.mobile = mobile
+        self.skype = skype
+        self.git = git
+        self.facebook = facebook
+    }
+    
     // MARK: - JSON parser
-    func parseJSON(completion: @escaping (Result<Contacts, Error>) -> ()) {
-        APIService().fetchData(struct: self) { result in
-            completion(result)
+    func initFromJSON() {
+        APIService().fetchData(class: self) { result in
+            switch result {
+                
+            case .success(let data):
+                self.initData(data)
+                
+            case .failure(let err):
+                print(err)
+                
+            }
         }
+    }
+    
+    private func initData(_ data: Contacts) {
+        title = data.title
+        address = data.address
+        email = data.email
+        mobile = data.mobile
+        skype = data.skype
+        git = data.git
+        facebook = data.facebook
     }
     
 }
@@ -52,17 +85,19 @@ extension Contacts: Encodable {
 // MARK: - Decodable protocol
 extension Contacts: Decodable {
     
-    init(from decoder: Decoder) throws {
+    convenience init(from decoder: Decoder) throws {
         let value = try decoder.container(keyedBy: CodingKeys.self)
         let dict = try value.decode([String: String].self, forKey: .contacts)
         
-        self.title = dict[CodingKeys.title.rawValue] ?? ""
-        self.address = dict[CodingKeys.address.rawValue] ?? ""
-        self.email = dict[CodingKeys.email.rawValue] ?? ""
-        self.mobile = dict[CodingKeys.mobile.rawValue] ?? ""
-        self.skype = dict[CodingKeys.skype.rawValue] ?? ""
-        self.git = dict[CodingKeys.git.rawValue] ?? ""
-        self.facebook = dict[CodingKeys.facebook.rawValue] ?? ""
+        self.init(
+            title: dict[CodingKeys.title.rawValue] ?? "",
+            address: dict[CodingKeys.address.rawValue] ?? "",
+            email: dict[CodingKeys.email.rawValue] ?? "",
+            mobile: dict[CodingKeys.mobile.rawValue] ?? "",
+            skype: dict[CodingKeys.skype.rawValue] ?? "",
+            git: dict[CodingKeys.git.rawValue] ?? "",
+            facebook: dict[CodingKeys.facebook.rawValue] ?? ""
+        )
     }
     
 }

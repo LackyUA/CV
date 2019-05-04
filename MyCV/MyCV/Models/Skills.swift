@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Skills: JSONable {
+final class Skills: JSONable {
     
     // MARK: - Coding keys
     enum CodingKeys: String, CodingKey {
@@ -60,11 +60,42 @@ struct Skills: JSONable {
     var designPatterns = [String]()
     var operationSystems = [String]()
     
+    // MARK: - Initializations
+    init () {
+        initFromJSON()
+    }
+    
+    init(title: String, languages: [String], embeddedFrameworks: [String], thirdPartyFrameworks: [String], designPatterns: [String], operationSystems: [String]) {
+        self.title = title
+        self.languages = languages
+        self.embeddedFrameworks = embeddedFrameworks
+        self.thirdPartyFrameworks = thirdPartyFrameworks
+        self.designPatterns = designPatterns
+        self.operationSystems = operationSystems
+    }
+    
     // MARK: - JSON parser
-    func parseJSON(completion: @escaping (Result<Skills, Error>) -> ()) {
-        APIService().fetchData(struct: self) { result in
-            completion(result)
+    func initFromJSON() {
+        APIService().fetchData(class: self) { result in
+            switch result {
+                
+            case .success(let data):
+                self.initData(data)
+                
+            case .failure(let error):
+                print(error)
+                
+            }
         }
+    }
+    
+    private func initData(_ data: Skills) {
+        self.title = data.title
+        self.languages = data.languages
+        self.embeddedFrameworks = data.embeddedFrameworks
+        self.thirdPartyFrameworks = data.thirdPartyFrameworks
+        self.designPatterns = data.designPatterns
+        self.operationSystems = data.operationSystems
     }
     
 }
@@ -77,16 +108,18 @@ extension Skills: Encodable {
 // MARK: - Decodable protocol
 extension Skills: Decodable {
     
-    init(from decoder: Decoder) throws {
+    convenience init(from decoder: Decoder) throws {
         let value = try decoder.container(keyedBy: CodingKeys.self)
         let dict = try value.decode([String: DictionaryValues].self, forKey: .skills)
         
-        self.title = dict[CodingKeys.title.rawValue]?.getValue() as? String ?? ""
-        self.languages = dict[CodingKeys.languages.rawValue]?.getValue() as? [String] ?? []
-        self.embeddedFrameworks = dict[CodingKeys.embeddedFrameworks.rawValue]?.getValue() as? [String] ?? []
-        self.thirdPartyFrameworks = dict[CodingKeys.thirdPartyFrameworks.rawValue]?.getValue() as? [String] ?? []
-        self.designPatterns = dict[CodingKeys.designPatterns.rawValue]?.getValue() as? [String] ?? []
-        self.operationSystems = dict[CodingKeys.operationSystems.rawValue]?.getValue() as? [String] ?? []
+        self.init(
+            title: dict[CodingKeys.title.rawValue]?.getValue() as? String ?? "",
+            languages: dict[CodingKeys.languages.rawValue]?.getValue() as? [String] ?? [],
+            embeddedFrameworks: dict[CodingKeys.embeddedFrameworks.rawValue]?.getValue() as? [String] ?? [],
+            thirdPartyFrameworks: dict[CodingKeys.thirdPartyFrameworks.rawValue]?.getValue() as? [String] ?? [],
+            designPatterns: dict[CodingKeys.designPatterns.rawValue]?.getValue() as? [String] ?? [],
+            operationSystems: dict[CodingKeys.operationSystems.rawValue]?.getValue() as? [String] ?? []
+        )
     }
     
 }

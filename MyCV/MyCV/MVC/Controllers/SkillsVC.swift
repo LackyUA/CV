@@ -11,6 +11,7 @@ import UIKit
 class SkillsVC: UIViewController {
     
     // MARK: - Constants
+    private let skills = Skills()
     private let reusableIdentifier = "SkillCell"
     private let sections: [String] = [
         "Languages",
@@ -31,27 +32,17 @@ class SkillsVC: UIViewController {
         super.viewDidLoad()
         
         DispatchQueue.global().async {
-            self.loadData()
+            self.configure()
         }
     }
     
-    // MARK: - Data loader functions
-    private func loadData() {
-        Skills().parseJSON { result in
-            switch result {
-                
-            case .success(let data):
-                self.save(skills: data)
-                
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                    self.title = data.title
-                }
-                
-            case .failure(let error):
-                print(error)
-                
-            }
+    // MARK: - Configuration
+    private func configure() {
+        self.save(skills: self.skills)
+        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+            self.title = self.skills.title
         }
     }
     

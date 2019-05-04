@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Experience: JSONable {
+final class Experience: JSONable {
     
     // MARK: - Coding keys
     enum CodingKeys: String, CodingKey {
@@ -52,11 +52,34 @@ struct Experience: JSONable {
     var title = String()
     var iosDeveloping = [[String: String]]()
     
+    // MARK: - Initializations
+    init () {
+        initFromJSON()
+    }
+    
+    init(title: String, iosDeveloping: [[String: String]]) {
+        self.title = title
+        self.iosDeveloping = iosDeveloping
+    }
+    
     // MARK: - JSON parser
-    func parseJSON(completion: @escaping (Result<Experience, Error>) -> ()) {
-        APIService().fetchData(struct: self) { result in
-            completion(result)
+    func initFromJSON() {
+        APIService().fetchData(class: self) { result in
+            switch result {
+                
+            case .success(let data):
+                self.initData(data)
+                
+            case .failure(let error):
+                print(error)
+                
+            }
         }
+    }
+    
+    private func initData(_ data: Experience) {
+        self.title = data.title
+        self.iosDeveloping = data.iosDeveloping
     }
     
 }
@@ -69,12 +92,14 @@ extension Experience: Encodable {
 // MARK: - Decodable protocol
 extension Experience: Decodable {
     
-    init(from decoder: Decoder) throws {
+    convenience init(from decoder: Decoder) throws {
         let value = try decoder.container(keyedBy: CodingKeys.self)
         let dict = try value.decode([String: DictionaryValues].self, forKey: .experience)
         
-        self.title = dict[CodingKeys.title.rawValue]?.getValue() as? String ?? ""
-        self.iosDeveloping = dict[CodingKeys.iosDeveloping.rawValue]?.getValue() as? [[String: String]] ?? []
+        self.init(
+            title: dict[CodingKeys.title.rawValue]?.getValue() as? String ?? "",
+            iosDeveloping: dict[CodingKeys.iosDeveloping.rawValue]?.getValue() as? [[String: String]] ?? []
+        )
     }
     
 }

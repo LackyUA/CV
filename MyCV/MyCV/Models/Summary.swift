@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Summary: JSONable {
+final class Summary: JSONable {
     
     // MARK: - Coding keys
     enum CodingKeys: String, CodingKey {
@@ -21,11 +21,33 @@ struct Summary: JSONable {
     var title = String()
     var description = String()
     
+    init() {
+        initFromJSON()
+    }
+    
+    init(title: String, description: String) {
+        self.title = title
+        self.description = description
+    }
+    
     // MARK: - JSON parser
-    func parseJSON(completion: @escaping (Result<Summary, Error>) -> ()) {
-        APIService().fetchData(struct: self) { result in
-            completion(result)
+    func initFromJSON() {
+        APIService().fetchData(class: self) { result in
+            switch result {
+                
+            case .success(let data):
+                self.initData(data)
+                
+            case .failure(let error):
+                print(error)
+                
+            }
         }
+    }
+    
+    private func initData(_ data: Summary) {
+        self.title = data.title
+        self.description = data.description
     }
     
 }
@@ -38,12 +60,14 @@ extension Summary: Encodable {
 // MARK: - Decodable protocol
 extension Summary: Decodable {
     
-    init(from decoder: Decoder) throws {
+    convenience init(from decoder: Decoder) throws {
         let value = try decoder.container(keyedBy: CodingKeys.self)
         let dict = try value.decode([String: String].self, forKey: .summary)
         
-        self.title = dict[CodingKeys.title.rawValue] ?? ""
-        self.description = dict[CodingKeys.description.rawValue] ?? ""
+        self.init(
+            title: dict[CodingKeys.title.rawValue] ?? "",
+            description: dict[CodingKeys.description.rawValue] ?? ""
+        )
     }
     
 }

@@ -32,24 +32,36 @@ class MyCVTests: XCTestCase {
     }
     
     func testModels() {
-        testJSONParser(for: Contacts())
-        testJSONParser(for: Summary())
-        testJSONParser(for: Skills())
-        testJSONParser(for: Education())
-        testJSONParser(for: Experience())
-        testJSONParser(for: Additional())
+        printTitle(models: [
+            Contacts(),
+            Summary(),
+            Skills(),
+            Education(),
+            Experience(),
+            Additional()
+            ])
     }
     
-    func testJSONParser<Model>(for model: Model) where Model: JSONable{
-        model.parseJSON { result in
-            switch result {
-                
-            case .success(let data):
-                print(data)
-                
-            case .failure(let err):
-                print(err)
-                
+    func printTitle(models: [Codable]) {
+        for model in models {
+            if let model = model as? Contacts {
+                sleep(0)
+                print(model.title)
+            } else if let model = model as? Summary {
+                sleep(1)
+                print(model.title)
+            } else if let model = model as? Skills {
+                sleep(1)
+                print(model.title)
+            } else if let model = model as? Education {
+                sleep(1)
+                print(model.title)
+            } else if let model = model as? Experience {
+                sleep(1)
+                print(model.title)
+            } else if let model = model as? Additional {
+                sleep(1)
+                print(model.title)
             }
         }
     }

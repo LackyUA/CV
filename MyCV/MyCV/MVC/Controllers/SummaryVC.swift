@@ -10,6 +10,9 @@ import UIKit
 
 class SummaryVC: UIViewController {
     
+    // MARK: - Constats
+    private let data = Summary()
+    
     // MARK: - Outlets
     @IBOutlet private weak var textView: UITextView! {
         didSet {
@@ -25,28 +28,18 @@ class SummaryVC: UIViewController {
         textView.backgroundColor = #colorLiteral(red: 0.09048522819, green: 0.7226287412, blue: 0.9303202025, alpha: 1)
         
         DispatchQueue.global().async {
-            self.parse()
+            self.configure()
         }
     }
     
-    // MARK: - Data parser
-    private func parse() {
-        Summary().parseJSON { result in
-            switch result {
-                
-            case .success(let data):
-                let sentences = data.description.split(separator: ".")
-                let attributeText = self.attributeText(from: sentences)
-                
-                DispatchQueue.main.async {
-                    self.title = data.title
-                    self.textView.attributedText = attributeText
-                }
-                
-            case .failure(let error):
-                print(error)
-                
-            }
+    // MARK: - Configuration
+    private func configure() {
+        let sentences = data.description.split(separator: ".")
+        let attributeText = self.attributeText(from: sentences)
+        
+        DispatchQueue.main.async {
+            self.title = self.data.title
+            self.textView.attributedText = attributeText
         }
     }
     

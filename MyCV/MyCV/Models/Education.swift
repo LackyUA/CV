@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Education: JSONable {
+final class Education: JSONable {
     
     // MARK: - Coding keys
     private enum CodingKeys: String, CodingKey {
@@ -62,11 +62,38 @@ struct Education: JSONable {
     var university = [String: String]()
     var courses = [String]()
     
+    // MARK: - Initializations
+    init () {
+        initFromJSON()
+    }
+    
+    init(title: String, school: String, university: [String: String], courses: [String]) {
+        self.title = title
+        self.school = school
+        self.university = university
+        self.courses = courses
+    }
+    
     // MARK: - JSON parser
-    func parseJSON(completion: @escaping (Result<Education, Error>) -> ()) {
-        APIService().fetchData(struct: self) { result in
-            completion(result)
+    func initFromJSON() {
+        APIService().fetchData(class: self) { result in
+            switch result {
+                
+            case .success(let data):
+                self.initData(data)
+                
+            case .failure(let error):
+                print(error)
+                
+            }
         }
+    }
+    
+    private func initData(_ data: Education) {
+        self.title = data.title
+        self.school = data.school
+        self.university = data.university
+        self.courses = data.courses
     }
     
 }
@@ -79,14 +106,16 @@ extension Education: Encodable {
 // MARK: - Decodable protocol
 extension Education: Decodable {
     
-    init(from decoder: Decoder) throws {
+    convenience init(from decoder: Decoder) throws {
         let value = try decoder.container(keyedBy: CodingKeys.self)
         let dict = try value.decode([String: DictionaryValues].self, forKey: .education)
         
-        self.title = dict[CodingKeys.title.rawValue]?.getValue() as? String ?? ""
-        self.school = dict[CodingKeys.school.rawValue]?.getValue() as? String ?? ""
-        self.university = dict[CodingKeys.university.rawValue]?.getValue() as? [String: String] ?? [:]
-        self.courses = dict[CodingKeys.courses.rawValue]?.getValue() as? [String] ?? []
+        self.init(
+            title: dict[CodingKeys.title.rawValue]?.getValue() as? String ?? "",
+            school: dict[CodingKeys.school.rawValue]?.getValue() as? String ?? "",
+            university: dict[CodingKeys.university.rawValue]?.getValue() as? [String: String] ?? [:],
+            courses: dict[CodingKeys.courses.rawValue]?.getValue() as? [String] ?? []
+        )
     }
     
 }

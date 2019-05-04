@@ -11,6 +11,7 @@ import UIKit
 class EducationVC: UIViewController {
 
     // MARK: - Constants
+    private let educationModel = Education()
     private let schoolReusableIdentifier = "SchoolCell"
     private let universityReusableIdentifier = "UniversityCell"
     private let coursesReusableIdentifier = "CoursesCell"
@@ -68,8 +69,10 @@ class EducationVC: UIViewController {
     // MARK: - Life cyrcle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        parseData()
+        print(123)
+        DispatchQueue.global().async {
+            self.configure()
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -78,23 +81,15 @@ class EducationVC: UIViewController {
         bottomBarWidthConstraint.constant = segmentControl.bounds.width / CGFloat(segmentControl.numberOfSegments)
     }
     
-    // MARK: - Parser functions
-    private func parseData() {
-        Education().parseJSON { result in
-            switch result {
-                
-            case .success(let data):
-                self.append(data)
-                
-                DispatchQueue.main.async {
-                    self.collectionView.reloadData()
-                    self.title = data.title
-                }
-                
-            case .failure(let error):
-                print(error)
-                
-            }
+    // MARK: - Configuration
+    private func configure() {
+        educationModel.initFromJSON()
+        
+        self.append(educationModel)
+        
+        DispatchQueue.main.async {
+            self.title = self.educationModel.title
+            self.collectionView.reloadData()
         }
     }
     

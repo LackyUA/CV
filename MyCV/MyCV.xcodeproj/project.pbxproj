@@ -27,6 +27,9 @@
 		323A94B42279920A000EAF78 /* SkillCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323A94B32279920A000EAF78 /* SkillCell.swift */; };
 		323A94B62279946C000EAF78 /* SkillsSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323A94B52279946C000EAF78 /* SkillsSectionHeaderView.swift */; };
 		323A94B9227998BB000EAF78 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323A94B8227998BB000EAF78 /* Extensions.swift */; };
+		32438391227D6C8B0015E55A /* AdditionalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32438390227D6C8B0015E55A /* AdditionalViewModel.swift */; };
+		32438394227D74080015E55A /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32438393227D74080015E55A /* ViewModel.swift */; };
+		32438396227D75CA0015E55A /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32438395227D75CA0015E55A /* Observable.swift */; };
 		3268AE6322782FB5001E81A4 /* SummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3268AE6222782FB5001E81A4 /* SummaryVC.swift */; };
 		327A75E8227085F300F8957F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327A75E7227085F300F8957F /* AppDelegate.swift */; };
 		327A75EA227085F300F8957F /* StartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327A75E9227085F300F8957F /* StartVC.swift */; };
@@ -37,6 +40,7 @@
 		327A7600227085F600F8957F /* MyCVTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327A75FF227085F600F8957F /* MyCVTests.swift */; };
 		328F6917227AE56900B63928 /* UniversityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328F6916227AE56900B63928 /* UniversityCell.swift */; };
 		328F6919227AE57400B63928 /* CoursesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328F6918227AE57400B63928 /* CoursesCell.swift */; };
+		329656A5227D9521002C198F /* AdditionalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329656A4227D9521002C198F /* AdditionalVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +74,9 @@
 		323A94B32279920A000EAF78 /* SkillCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillCell.swift; sourceTree = "<group>"; };
 		323A94B52279946C000EAF78 /* SkillsSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillsSectionHeaderView.swift; sourceTree = "<group>"; };
 		323A94B8227998BB000EAF78 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		32438390227D6C8B0015E55A /* AdditionalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalViewModel.swift; sourceTree = "<group>"; };
+		32438393227D74080015E55A /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		32438395227D75CA0015E55A /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		3268AE6222782FB5001E81A4 /* SummaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryVC.swift; sourceTree = "<group>"; };
 		327A75E4227085F300F8957F /* MyCV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		327A75E7227085F300F8957F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +91,7 @@
 		327A7601227085F600F8957F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		328F6916227AE56900B63928 /* UniversityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversityCell.swift; sourceTree = "<group>"; };
 		328F6918227AE57400B63928 /* CoursesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesCell.swift; sourceTree = "<group>"; };
+		329656A4227D9521002C198F /* AdditionalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				323A94B8227998BB000EAF78 /* Extensions.swift */,
+				32438395227D75CA0015E55A /* Observable.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -260,6 +269,9 @@
 		32B1BD47227B232F00FC95E5 /* Additional screen */ = {
 			isa = PBXGroup;
 			children = (
+				32438390227D6C8B0015E55A /* AdditionalViewModel.swift */,
+				32438393227D74080015E55A /* ViewModel.swift */,
+				329656A4227D9521002C198F /* AdditionalVC.swift */,
 			);
 			path = "Additional screen";
 			sourceTree = "<group>";
@@ -383,14 +395,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				3235A7822271B3BA006CD7D3 /* SectionsView.swift in Sources */,
+				32438391227D6C8B0015E55A /* AdditionalViewModel.swift in Sources */,
 				3235A79022724089006CD7D3 /* Skills.swift in Sources */,
 				322524BD2279DD21004B8A9B /* SchoolCell.swift in Sources */,
 				323A94B42279920A000EAF78 /* SkillCell.swift in Sources */,
 				322524BA2279BDC6004B8A9B /* EducationVC.swift in Sources */,
 				3235A792227240A9006CD7D3 /* Education.swift in Sources */,
+				329656A5227D9521002C198F /* AdditionalVC.swift in Sources */,
 				3235A794227240C3006CD7D3 /* Experience.swift in Sources */,
 				3268AE6322782FB5001E81A4 /* SummaryVC.swift in Sources */,
 				3235A7812271B3BA006CD7D3 /* StackViewWithLabels.swift in Sources */,
+				32438394227D74080015E55A /* ViewModel.swift in Sources */,
 				328F6917227AE56900B63928 /* UniversityCell.swift in Sources */,
 				327A75EA227085F300F8957F /* StartVC.swift in Sources */,
 				3235A78E2272405F006CD7D3 /* Summary.swift in Sources */,
@@ -404,6 +419,7 @@
 				3235A796227240DF006CD7D3 /* Additional.swift in Sources */,
 				327A75E8227085F300F8957F /* AppDelegate.swift in Sources */,
 				327A75F0227085F300F8957F /* MyCV.xcdatamodeld in Sources */,
+				32438396227D75CA0015E55A /* Observable.swift in Sources */,
 				3235A7882271D2CE006CD7D3 /* APIService.swift in Sources */,
 				3235A7802271B3BA006CD7D3 /* SectionsImageView.swift in Sources */,
 				323A94B62279946C000EAF78 /* SkillsSectionHeaderView.swift in Sources */,

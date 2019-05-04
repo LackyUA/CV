@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Additional: JSONable {
+final class Additional: JSONable {
     
     // MARK: - Coding keys
     enum CodingKeys: String, CodingKey {
@@ -56,11 +56,38 @@ struct Additional: JSONable {
     var english = String()
     var maritalStatus = String()
     
+    // MARK: - Initializations
+    init () {
+        initFromJSON()
+    }
+    
+    init(title: String, hobbies: [String], english: String, maritalStatus: String) {
+        self.title = title
+        self.hobbies = hobbies
+        self.english = english
+        self.maritalStatus = maritalStatus
+    }
+    
     // MARK: - JSON parser
-    func parseJSON(completion: @escaping (Result<Additional, Error>) -> ()) {
-        APIService().fetchData(struct: self) { result in
-            completion(result)
+    func initFromJSON() {
+        APIService().fetchData(class: self) { result in
+            switch result {
+                
+            case .success(let data):
+                self.initData(data)
+                
+            case .failure(let error):
+                print(error)
+                
+            }
         }
+    }
+    
+    private func initData(_ data: Additional) {
+        self.title = data.title
+        self.hobbies = data.hobbies
+        self.english = data.english
+        self.maritalStatus = data.maritalStatus
     }
     
 }
@@ -73,14 +100,16 @@ extension Additional: Encodable {
 // MARK: - Decodable protocol
 extension Additional: Decodable {
     
-    init(from decoder: Decoder) throws {
+    convenience init(from decoder: Decoder) throws {
         let value = try decoder.container(keyedBy: CodingKeys.self)
         let dict = try value.decode([String: DictionaryValues].self, forKey: .additional)
         
-        self.title = dict[CodingKeys.title.rawValue]?.getValue() as? String ?? ""
-        self.hobbies = dict[CodingKeys.hobbies.rawValue]?.getValue() as? [String] ?? []
-        self.english = dict[CodingKeys.english.rawValue]?.getValue() as? String ?? ""
-        self.maritalStatus = dict[CodingKeys.maritalStatus.rawValue]?.getValue() as? String ?? ""
+        self.init(
+            title: dict[CodingKeys.title.rawValue]?.getValue() as? String ?? "",
+            hobbies: dict[CodingKeys.hobbies.rawValue]?.getValue() as? [String] ?? [],
+            english: dict[CodingKeys.english.rawValue]?.getValue() as? String ?? "",
+            maritalStatus: dict[CodingKeys.maritalStatus.rawValue]?.getValue() as? String ?? ""
+        )
     }
     
 }

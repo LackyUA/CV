@@ -9,12 +9,12 @@
 import Foundation
 
 protocol APIServiceProtocol {
-    func fetchData<Struct: Codable>(struct: Struct, completion: @escaping (Result<Struct, Error>) -> ())
+    func fetchData<Model: Codable>(class: Model, completion: @escaping (Result<Model, Error>) -> ())
 }
 
 class APIService: APIServiceProtocol {
     
-    func fetchData<Struct: Codable>(struct: Struct, completion: @escaping (Result<Struct, Error>) -> ()) {
+    func fetchData<Model: Codable>(class: Model, completion: @escaping (Result<Model, Error>) -> ()) {
         guard let path = Bundle.main.path(forResource: "Content", ofType: "json") else { return }
         
         URLSession.shared.dataTask(with: URL(fileURLWithPath: path)) { (data, response, error) in
@@ -25,7 +25,7 @@ class APIService: APIServiceProtocol {
             }
             
             do {
-                let structuralParts = try JSONDecoder().decode(Struct.self, from: data!)
+                let structuralParts = try JSONDecoder().decode(Model.self, from: data!)
                 completion(.success(structuralParts))
             } catch let jsonError{
                 completion(.failure(jsonError))
