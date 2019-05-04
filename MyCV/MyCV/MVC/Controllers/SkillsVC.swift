@@ -31,6 +31,9 @@ class SkillsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        sleep(1)
+        addBackButton()
+        
         DispatchQueue.global().async {
             self.configure()
         }
@@ -52,6 +55,21 @@ class SkillsVC: UIViewController {
         self.data[sections[2]] = data.thirdPartyFrameworks
         self.data[sections[3]] = data.designPatterns
         self.data[sections[4]] = data.operationSystems
+    }
+    
+    // MARK: - Back button configuration
+    private func addBackButton() {
+        let backbutton = UIButton(type: .custom)
+        
+        backbutton.setTitle("Back", for: .normal)
+        backbutton.setTitleColor(backbutton.tintColor, for: .normal) // You can change the TitleColor
+        backbutton.addTarget(self, action: #selector(backAction), for: .touchUpInside)
+        
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backbutton)
+    }
+    
+    @objc func backAction() -> Void {
+        dismiss(animated: true, completion: nil)
     }
 
 }

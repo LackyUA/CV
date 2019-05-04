@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class Experience: JSONable {
+final class Experience {
     
     // MARK: - Coding keys
     enum CodingKeys: String, CodingKey {
@@ -53,9 +53,7 @@ final class Experience: JSONable {
     var iosDeveloping = [[String: String]]()
     
     // MARK: - Initializations
-    init () {
-        initFromJSON()
-    }
+    init () {}
     
     init(title: String, iosDeveloping: [[String: String]]) {
         self.title = title
@@ -63,23 +61,18 @@ final class Experience: JSONable {
     }
     
     // MARK: - JSON parser
-    func initFromJSON() {
+    func fetchDataFromJSON(completion: @escaping (Experience) -> ()) {
         APIService().fetchData(class: self) { result in
             switch result {
                 
             case .success(let data):
-                self.initData(data)
+                completion(data)
                 
             case .failure(let error):
                 print(error)
                 
             }
         }
-    }
-    
-    private func initData(_ data: Experience) {
-        self.title = data.title
-        self.iosDeveloping = data.iosDeveloping
     }
     
 }

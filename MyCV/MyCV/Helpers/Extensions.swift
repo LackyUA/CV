@@ -8,7 +8,7 @@
 
 import UIKit
 
-public extension UIView {
+extension UIView {
     
     /// Generating constraints to superview's edge
     func edgeConstraints(top: CGFloat, left: CGFloat, bottom: CGFloat, right: CGFloat) -> [NSLayoutConstraint] {
@@ -20,4 +20,11 @@ public extension UIView {
         ]
     }
     
+}
+
+extension UITableViewCell {
+    /// Generated cell identifier derived from class name
+    static func cellIdentifier() -> String {
+        return String(describing: self)
+    }
 }

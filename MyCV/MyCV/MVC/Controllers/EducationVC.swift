@@ -69,7 +69,10 @@ class EducationVC: UIViewController {
     // MARK: - Life cyrcle
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(123)
+        
+        sleep(1)
+        addBackButton()
+        
         DispatchQueue.global().async {
             self.configure()
         }
@@ -97,6 +100,21 @@ class EducationVC: UIViewController {
         self.data.append(data.school)
         self.data.append(data.university)
         self.data.append(data.courses)
+    }
+    
+    // MARK: - Back button configuration
+    private func addBackButton() {
+        let backbutton = UIButton(type: .custom)
+        
+        backbutton.setTitle("Back", for: .normal)
+        backbutton.setTitleColor(backbutton.tintColor, for: .normal) // You can change the TitleColor
+        backbutton.addTarget(self, action: #selector(backAction), for: .touchUpInside)
+        
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backbutton)
+    }
+    
+    @objc func backAction() -> Void {
+        dismiss(animated: true, completion: nil)
     }
     
     // MARK: - Helpers

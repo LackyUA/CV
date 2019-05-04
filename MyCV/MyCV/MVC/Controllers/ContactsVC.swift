@@ -29,6 +29,8 @@ class ContactsVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        sleep(1)
+        addBackButton()
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
     }
     
@@ -57,6 +59,21 @@ class ContactsVC: UITableViewController {
         self.data[titles[3]] = data.mobile
         self.data[titles[4]] = data.git
         self.data[titles[5]] = data.facebook
+    }
+    
+    // MARK: - Back button configuration
+    private func addBackButton() {
+        let backbutton = UIButton(type: .custom)
+        
+        backbutton.setTitle("Back", for: .normal)
+        backbutton.setTitleColor(backbutton.tintColor, for: .normal) // You can change the TitleColor
+        backbutton.addTarget(self, action: #selector(backAction), for: .touchUpInside)
+        
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backbutton)
+    }
+    
+    @objc func backAction() -> Void {
+        dismiss(animated: true, completion: nil)
     }
     
     // MARK: - Table view cells configuration
@@ -146,5 +163,5 @@ class ContactsVC: UITableViewController {
         
         return header
     }
-
+    
 }

@@ -24,6 +24,9 @@ class SummaryVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        sleep(1)
+        addBackButton()
+        
         textView.text = ""
         textView.backgroundColor = #colorLiteral(red: 0.09048522819, green: 0.7226287412, blue: 0.9303202025, alpha: 1)
         
@@ -41,6 +44,21 @@ class SummaryVC: UIViewController {
             self.title = self.data.title
             self.textView.attributedText = attributeText
         }
+    }
+    
+    // MARK: - Back button configuration
+    private func addBackButton() {
+        let backbutton = UIButton(type: .custom)
+        
+        backbutton.setTitle("Back", for: .normal)
+        backbutton.setTitleColor(backbutton.tintColor, for: .normal) // You can change the TitleColor
+        backbutton.addTarget(self, action: #selector(backAction), for: .touchUpInside)
+        
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backbutton)
+    }
+    
+    @objc func backAction() -> Void {
+        dismiss(animated: true, completion: nil)
     }
     
     // MARK: - Parser helpers

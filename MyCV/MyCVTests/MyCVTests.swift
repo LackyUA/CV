@@ -58,7 +58,7 @@ class MyCVTests: XCTestCase {
                 print(model.title)
             } else if let model = model as? Experience {
                 sleep(1)
-                print(model.title)
+                print(model.iosDeveloping)
             } else if let model = model as? Additional {
                 sleep(1)
                 print(model.title)
