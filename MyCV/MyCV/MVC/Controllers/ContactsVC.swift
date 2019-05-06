@@ -66,7 +66,7 @@ class ContactsVC: UITableViewController {
         let backbutton = UIButton(type: .custom)
         
         backbutton.setTitle("Back", for: .normal)
-        backbutton.setTitleColor(backbutton.tintColor, for: .normal) // You can change the TitleColor
+        backbutton.setTitleColor(.white, for: .normal)
         backbutton.addTarget(self, action: #selector(backAction), for: .touchUpInside)
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backbutton)
@@ -74,6 +74,11 @@ class ContactsVC: UITableViewController {
     
     @objc func backAction() -> Void {
         dismiss(animated: true, completion: nil)
+    }
+    
+    // MARK: - Status bar configuration
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
     
     // MARK: - Table view cells configuration
