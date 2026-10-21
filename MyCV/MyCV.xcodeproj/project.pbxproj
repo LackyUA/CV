@@ -6,6 +6,20 @@
 	objectVersion = 60;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		87C0E1102FA0000100C0FFEE /* GenerateResources */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 87C0E1122FA0000100C0FFEE /* Build configuration list for PBXAggregateTarget "GenerateResources" */;
+			buildPhases = (
+				87C0E1112FA0000100C0FFEE /* Generate Resources */,
+			);
+			dependencies = (
+			);
+			name = GenerateResources;
+			productName = GenerateResources;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		3235A7862271D2BC006CD7D3 /* Content.json in Resources */ = {isa = PBXBuildFile; fileRef = 3235A7852271D2BC006CD7D3 /* Content.json */; };
 		3235A7882271D2CE006CD7D3 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3235A7872271D2CE006CD7D3 /* APIService.swift */; };
@@ -86,6 +100,7 @@
 		871A173E30890B0000F564FA /* ExperienceDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceDetailsView.swift; sourceTree = "<group>"; };
 		871A174030890B0500F564FA /* AdditionalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalViewModel.swift; sourceTree = "<group>"; };
 		871A174230890B0900F564FA /* AdditionalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalView.swift; sourceTree = "<group>"; };
+		87C0E1012FA0000100C0FFEE /* CoreUI */ = {isa = PBXFileReference; lastKnownFileType = folder; path = CoreUI; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +153,7 @@
 		327A75DB227085F300F8957F = {
 			isa = PBXGroup;
 			children = (
+				87C0E1042FA0000100C0FFEE /* Packages */,
 				327A75E6227085F300F8957F /* MyCV */,
 				327A75FE227085F600F8957F /* MyCVTests */,
 				327A75E5227085F300F8957F /* Products */,
@@ -275,6 +291,14 @@
 			path = Additional;
 			sourceTree = "<group>";
 		};
+		87C0E1042FA0000100C0FFEE /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				87C0E1012FA0000100C0FFEE /* CoreUI */,
+			);
+			path = Packages;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -291,6 +315,8 @@
 			dependencies = (
 			);
 			name = MyCV;
+			packageProductDependencies = (
+			);
 			productName = MyCV;
 			productReference = 327A75E4227085F300F8957F /* MyCV.app */;
 			productType = "com.apple.product-type.application";
@@ -350,6 +376,7 @@
 			targets = (
 				327A75E3227085F300F8957F /* MyCV */,
 				327A75FA227085F600F8957F /* MyCVTests */,
+				87C0E1102FA0000100C0FFEE /* GenerateResources */,
 			);
 		};
 /* End PBXProject section */
@@ -372,6 +399,29 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		87C0E1112FA0000100C0FFEE /* Generate Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Generate Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "source ${SRCROOT}/Scripts/GenerateResources.sh\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		327A75E0227085F300F8957F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -427,6 +477,24 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		87C0E1132FA0000100C0FFEE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		87C0E1142FA0000100C0FFEE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 		327A7602227085F600F8957F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -628,6 +696,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		87C0E1122FA0000100C0FFEE /* Build configuration list for PBXAggregateTarget "GenerateResources" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				87C0E1132FA0000100C0FFEE /* Debug */,
+				87C0E1142FA0000100C0FFEE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		327A75DF227085F300F8957F /* Build configuration list for PBXProject "MyCV" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
