@@ -8,7 +8,9 @@ import SwiftUI
 
 struct SkillsView: View {
 
-    @State private var viewModel = SkillsViewModel()
+    init(viewModel: SkillsViewModel) {
+        self.viewModel = viewModel
+    }
 
     var body: some View {
         VStack(spacing: 0) {
@@ -32,6 +34,10 @@ struct SkillsView: View {
             await viewModel.load()
         }
     }
+
+    // MARK: - Private Properties
+
+    @State private var viewModel: SkillsViewModel
 
 }
 
@@ -75,7 +81,8 @@ private struct SkillsSectionHeader: View {
 }
 
 #Preview {
-    SectionSheet {
-        SkillsView()
+    NavigationStack {
+        SkillsView(viewModel: SkillsViewModel())
     }
+    .tint(Colors.textPrimary.swiftUIColor)
 }

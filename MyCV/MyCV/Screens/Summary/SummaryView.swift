@@ -8,7 +8,9 @@ import SwiftUI
 
 struct SummaryView: View {
 
-    @State private var viewModel = SummaryViewModel()
+    init(viewModel: SummaryViewModel) {
+        self.viewModel = viewModel
+    }
 
     var body: some View {
         ScrollView {
@@ -23,6 +25,10 @@ struct SummaryView: View {
             await viewModel.load()
         }
     }
+
+    // MARK: - Private Properties
+
+    @State private var viewModel: SummaryViewModel
 
 }
 
@@ -52,7 +58,8 @@ private struct SummaryText: View {
 }
 
 #Preview {
-    SectionSheet {
-        SummaryView()
+    NavigationStack {
+        SummaryView(viewModel: SummaryViewModel())
     }
+    .tint(Colors.textPrimary.swiftUIColor)
 }

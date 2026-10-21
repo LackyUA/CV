@@ -10,14 +10,13 @@ import Observation
 @Observable
 final class ExperienceViewModel {
 
+    init(service: APIServiceProtocol = APIService(), router: any Router<ExperienceRouter.Route>) {
+        self.service = service
+        self.router = router
+    }
+
     private(set) var title = ""
     private(set) var items: [ExperienceItem] = []
-
-    private let service: APIServiceProtocol
-
-    init(service: APIServiceProtocol = APIService()) {
-        self.service = service
-    }
 
     func load() async {
         do {
@@ -36,5 +35,15 @@ final class ExperienceViewModel {
             print(error)
         }
     }
+
+    /// Pushes the details screen of the selected item.
+    func select(_ item: ExperienceItem) {
+        router.push(.details(item))
+    }
+
+    // MARK: - Private Properties
+
+    private let service: APIServiceProtocol
+    private let router: any Router<ExperienceRouter.Route>
 
 }

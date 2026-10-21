@@ -8,7 +8,9 @@ import SwiftUI
 
 struct ContactsView: View {
 
-    @State private var viewModel = ContactsViewModel()
+    init(viewModel: ContactsViewModel) {
+        self.viewModel = viewModel
+    }
 
     var body: some View {
         List {
@@ -30,6 +32,10 @@ struct ContactsView: View {
             await viewModel.load()
         }
     }
+
+    // MARK: - Private Properties
+
+    @State private var viewModel: ContactsViewModel
 
 }
 
@@ -95,7 +101,8 @@ private struct ContactRow: View {
 }
 
 #Preview {
-    SectionSheet {
-        ContactsView()
+    NavigationStack {
+        ContactsView(viewModel: ContactsViewModel())
     }
+    .tint(Colors.textPrimary.swiftUIColor)
 }

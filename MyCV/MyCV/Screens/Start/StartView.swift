@@ -7,11 +7,12 @@ import CoreUI
 import SwiftUI
 
 /// Landing screen: shows the welcome circle, then animates into the sections menu.
+/// A section button hands the selected section to the view model, which pushes it.
 struct StartView: View {
 
-    @State private var isExpanding = false
-    @State private var showsMenu = false
-    @State private var selectedSection: CVSection?
+    init(viewModel: StartViewModel) {
+        self.viewModel = viewModel
+    }
 
     var body: some View {
         ZStack {
@@ -20,18 +21,23 @@ struct StartView: View {
 
             if showsMenu {
                 SectionsMenuView { section in
-                    selectedSection = section
+                    viewModel.select(section)
                 }
             } else {
                 WelcomeView(isExpanding: isExpanding, onStart: start)
             }
         }
-        .sheet(item: $selectedSection) { section in
-            SectionSheet {
-                SectionDestination(section: section)
-            }
-        }
+        // The landing screen has no bar, so pushed screens get a plain "Back" button.
+        .toolbar(.hidden, for: .navigationBar)
     }
+
+    // MARK: - Private Properties
+
+    @State private var viewModel: StartViewModel
+    @State private var isExpanding = false
+    @State private var showsMenu = false
+
+    // MARK: - Private Methods
 
     /// First animation step: fade the "Start" label, grow the circle and push the title off screen.
     /// When it completes the menu replaces the welcome content and plays its own entrance animation.
@@ -90,25 +96,6 @@ private struct WelcomeView: View {
 
 }
 
-// MARK: - Section routing
-
-private struct SectionDestination: View {
-
-    let section: CVSection
-
-    var body: some View {
-        switch section {
-        case .contacts: ContactsView()
-        case .summary: SummaryView()
-        case .skills: SkillsView()
-        case .education: EducationView()
-        case .experience: ExperienceView()
-        case .additional: AdditionalView()
-        }
-    }
-
-}
-
 #Preview {
-    StartView()
+    StartView(viewModel: StartViewModel(router: RootRouter()))
 }
