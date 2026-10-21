@@ -18,7 +18,7 @@ struct ExperienceView: View {
             ForEach(viewModel.items) { item in
                 NavigationLink(value: item) {
                     Text(item.title)
-                        .typography(.Paragraph.Level1.regular)
+                        .typography(.Interface.body)
                         .padding(.vertical, Spacing.xs)
                 }
             }

@@ -40,9 +40,9 @@ private struct AdditionalEntryView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: Spacing.xs) {
             Text(title)
-                .typography(.Heading.Level3.bold)
+                .typography(.Interface.headline)
             Text(value)
-                .typography(.Paragraph.Level1.regular)
+                .typography(.Interface.body)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
     }

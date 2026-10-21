@@ -28,20 +28,22 @@ struct SectionSheet<Content: View>: View {
                     }
                 }
         }
-        // White bar items (custom "Back" and the system back button on pushed screens).
-        .tint(.white)
+        // Light bar items (custom "Back" and the system back button on pushed screens).
+        .tint(Colors.textPrimary.swiftUIColor)
     }
 
 }
 
 extension View {
 
-    /// Applies the shared navigation bar appearance: blue bar, white inline title and light status bar.
+    /// Applies the shared screen appearance: night background, night bar, light inline title and status bar.
     func sectionNavigationBar(title: String) -> some View {
         self
             .navigationTitle(title)
             .toolbarTitleDisplayMode(.inline)
-            .toolbarBackground(Colors.accent.swiftUIColor, for: .navigationBar)
+            .scrollContentBackground(.hidden)
+            .background(Colors.bg100.swiftUIColor.ignoresSafeArea())
+            .toolbarBackground(Colors.bg100.swiftUIColor, for: .navigationBar)
             .toolbarBackgroundVisibility(.visible, for: .navigationBar)
             .toolbarColorScheme(.dark, for: .navigationBar)
     }

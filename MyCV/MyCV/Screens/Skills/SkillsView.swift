@@ -43,31 +43,31 @@ private struct SkillRow: View {
 
     var body: some View {
         Text(name)
-            .typography(.Paragraph.Level1.regular)
+            .typography(.Interface.body)
             .padding(.vertical, Spacing.s)
     }
 
 }
 
-/// Blue band with a white italic title and thin separators, matching the previous section header view.
+/// Neon section title with hairline separators.
 private struct SkillsSectionHeader: View {
 
     let title: LocalizedStringResource
 
     var body: some View {
         Text(title)
-            .typography(.Quote.large)
-            .foregroundStyle(.white)
+            .typography(.Display.sectionTitle)
+            .foregroundStyle(Colors.neonCyan.swiftUIColor)
             .textCase(nil)
             .padding(.horizontal, Spacing.m)
             .padding(.vertical, Spacing.xxs)
             .frame(maxWidth: .infinity, minHeight: 35, alignment: .leading)
-            .background(Colors.accent.swiftUIColor)
+            .background(Colors.bg100.swiftUIColor)
             .overlay(alignment: .top) {
-                Colors.lightGray.swiftUIColor.frame(height: 0.4)
+                Colors.hairline.swiftUIColor.frame(height: 0.4)
             }
             .overlay(alignment: .bottom) {
-                Colors.lightGray.swiftUIColor.frame(height: 0.4)
+                Colors.hairline.swiftUIColor.frame(height: 0.4)
             }
             .listRowInsets(EdgeInsets())
     }

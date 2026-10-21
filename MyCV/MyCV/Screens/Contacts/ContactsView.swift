@@ -51,11 +51,11 @@ private struct ContactRow: View {
             HStack(spacing: Spacing.s) {
                 VStack(alignment: .leading, spacing: Spacing.xxs) {
                     Text(title)
-                        .typography(.Paragraph.Level3.regular)
-                        .foregroundStyle(.secondary)
+                        .typography(.HUD.label)
+                        .foregroundStyle(Colors.textSecondary.swiftUIColor)
                     Text(details)
-                        .typography(.Paragraph.Level1.regular)
-                        .foregroundStyle(.primary)
+                        .typography(.Interface.body)
+                        .foregroundStyle(Colors.textPrimary.swiftUIColor)
                 }
 
                 Spacer(minLength: 0)

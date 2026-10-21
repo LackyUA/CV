@@ -15,7 +15,7 @@ struct StartView: View {
 
     var body: some View {
         ZStack {
-            (showsMenu ? Colors.accent.swiftUIColor : Color.white)
+            Colors.bg100.swiftUIColor
                 .ignoresSafeArea()
 
             if showsMenu {
@@ -58,18 +58,24 @@ private struct WelcomeView: View {
         GeometryReader { geometry in
             ZStack {
                 Text("Welcome To\nMy CV")
-                    .typography(.Display.decorative)
-                    .foregroundStyle(Colors.welcomeOrange.swiftUIColor)
+                    .typography(.Display.extraLarge)
+                    .foregroundStyle(Colors.textPrimary.swiftUIColor)
+                    // Chromatic split shadow of `display-xl`.
+                    .shadow(color: Colors.neonMagenta.swiftUIColor, radius: 0, x: 2)
+                    .shadow(color: Colors.neonCyan.swiftUIColor, radius: 0, x: -2)
                     .multilineTextAlignment(.center)
                     .offset(y: isExpanding ? -geometry.size.height : -220)
 
                 ZStack {
-                    Circle()
-                        .fill(Colors.accent.swiftUIColor)
+                    Color.clear
+                        .rounded(.infinity)
+                        .backgroundBlur(.regular, tint: Colors.glassFill.swiftUIColor)
+                        .border(color: Colors.glassStroke.swiftUIColor, lineWidth: .m)
+                        .boxShadow(.glowCyan)
 
                     Text("Start")
-                        .typography(.Display.large)
-                        .foregroundStyle(.white)
+                        .typography(.Display.orb)
+                        .foregroundStyle(Colors.neonCyan.swiftUIColor)
                         .opacity(isExpanding ? 0 : 1)
                 }
                 .frame(width: 240, height: 240)

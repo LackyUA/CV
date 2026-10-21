@@ -24,11 +24,18 @@ struct ExperienceDetailsView: View {
                 openProject()
             } label: {
                 Text("Open Git Project")
-                    .typography(.Heading.Level2.medium)
-                    .foregroundStyle(.white)
+                    .typography(.Interface.buttonLarge)
+                    .foregroundStyle(Colors.textOnNeon.swiftUIColor)
                     .frame(maxWidth: .infinity, minHeight: 50)
-                    .background(Colors.accent.swiftUIColor)
-                    .rounded(.s)
+                    .background(
+                        LinearGradient(
+                            colors: [Colors.neonCyan.swiftUIColor, Colors.brandBlue.swiftUIColor],
+                            startPoint: .top,
+                            endPoint: .bottom
+                        )
+                    )
+                    .rounded(.infinity)
+                    .boxShadow(.glowCyan)
             }
         }
         .padding(.horizontal, Spacing.m)
@@ -41,7 +48,7 @@ struct ExperienceDetailsView: View {
         }
         // Restore the default accent inside the content so the alert buttons stay readable
         // (the enclosing navigation stack uses a white tint for its bar items).
-        .tint(Colors.accent.swiftUIColor)
+        .tint(Colors.neonCyan.swiftUIColor)
         .sectionNavigationBar(title: item.title)
     }
 
@@ -65,10 +72,11 @@ private struct DetailRow: View {
     var body: some View {
         HStack(alignment: .top, spacing: Spacing.m) {
             Text(title)
-                .typography(.Paragraph.Level1.regular)
+                .typography(.HUD.label)
+                .foregroundStyle(Colors.textSecondary.swiftUIColor)
                 .frame(width: 88, alignment: .leading)
             Text(value)
-                .typography(.Paragraph.Level1.regular)
+                .typography(.Interface.body)
         }
     }
 
@@ -84,5 +92,5 @@ private struct DetailRow: View {
             description: "Developed a program for learning road signs."
         ))
     }
-    .tint(.white)
+    .tint(Colors.textPrimary.swiftUIColor)
 }

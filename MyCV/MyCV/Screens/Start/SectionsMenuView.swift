@@ -6,7 +6,7 @@
 import CoreUI
 import SwiftUI
 
-/// White panel with the owner's name and the section buttons.
+/// Night panel with the owner's name and the section buttons.
 /// Slides up from the bottom while the profile badge scales in on its top edge.
 struct SectionsMenuView: View {
 
@@ -24,7 +24,7 @@ struct SectionsMenuView: View {
 
                 SectionsPanel(onSelect: onSelect)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    .background(Color.white.ignoresSafeArea(edges: .bottom))
+                    .background(Colors.bg200.swiftUIColor.ignoresSafeArea(edges: .bottom))
                     .overlay(alignment: .top) {
                         ProfileBadge()
                             .scaleEffect(isPresented ? 1 : 0.01)
@@ -69,13 +69,13 @@ private struct NameHeader: View {
     var body: some View {
         VStack(spacing: 0) {
             Text("Dmytro")
-                .typography(.Heading.Level1.bold)
+                .typography(.Display.name)
                 .frame(maxHeight: .infinity)
             Text("Dobrovolskyy")
-                .typography(.Heading.Level1.bold)
+                .typography(.Display.name)
                 .frame(maxHeight: .infinity)
         }
-        .foregroundStyle(Colors.darkGray.swiftUIColor)
+        .foregroundStyle(Colors.textPrimary.swiftUIColor)
     }
 
 }
@@ -91,11 +91,13 @@ private struct SectionButtons: View {
                     onSelect(section)
                 } label: {
                     Text(section.title)
-                        .typography(.Heading.Level2.bold)
-                        .foregroundStyle(.white)
+                        .typography(.Interface.buttonLarge)
+                        .foregroundStyle(Colors.textPrimary.swiftUIColor)
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .background(Colors.buttonGray.swiftUIColor)
-                        .rounded(.s)
+                        .rounded(.infinity)
+                        .backgroundBlur(.regular, tint: Colors.glassFill.swiftUIColor)
+                        .border(color: Colors.glassStroke.swiftUIColor, lineWidth: .m)
+                        .boxShadow(.glass)
                 }
                 .buttonStyle(.plain)
             }
@@ -106,7 +108,7 @@ private struct SectionButtons: View {
 
 // MARK: - Profile badge
 
-/// Round profile photo with a dark border, sitting on a horizontal line across the panel's top edge.
+/// Round profile photo with a neon ring, sitting on a glowing horizon line across the panel's top edge.
 private struct ProfileBadge: View {
 
     static let size: CGFloat = 120
@@ -115,7 +117,7 @@ private struct ProfileBadge: View {
     var body: some View {
         ZStack {
             Rectangle()
-                .fill(Colors.darkGray.swiftUIColor)
+                .fill(Colors.neonCyan.swiftUIColor)
                 .frame(height: Self.borderWidth)
 
             Images.profileImage.swiftUIImage
@@ -125,8 +127,9 @@ private struct ProfileBadge: View {
                 .clipShape(Circle())
                 .overlay {
                     Circle()
-                        .strokeBorder(Colors.darkGray.swiftUIColor, lineWidth: Self.borderWidth)
+                        .strokeBorder(Colors.neonMagenta.swiftUIColor, lineWidth: Self.borderWidth)
                 }
+                .boxShadow(.glowMagenta, shape: RoundedRectangle(cornerRadius: CornerRadius.infinity.rawValue))
         }
     }
 
@@ -134,7 +137,7 @@ private struct ProfileBadge: View {
 
 #Preview {
     ZStack {
-        Colors.accent.swiftUIColor.ignoresSafeArea()
+        Colors.bg100.swiftUIColor.ignoresSafeArea()
         SectionsMenuView { _ in }
     }
 }

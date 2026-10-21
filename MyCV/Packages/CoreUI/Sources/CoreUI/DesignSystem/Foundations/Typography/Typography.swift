@@ -14,6 +14,8 @@ public struct Typography: Sendable {
         weight: Font.Weight,
         textStyle: Font.TextStyle = .body,
         lineHeight: CGFloat,
+        tracking: CGFloat = 0,
+        isUppercased: Bool = false,
     ) {
         self.font = font
         self.weight = .init(weight)
@@ -21,6 +23,8 @@ public struct Typography: Sendable {
         self.textStyle = textStyle
         self.lineHeight = lineHeight
         self.lineHeightMultiple = lineHeight / font.lineHeight
+        self.tracking = tracking
+        self.isUppercased = isUppercased
     }
 
     /// Font associated with given typography.
@@ -40,4 +44,10 @@ public struct Typography: Sendable {
 
     /// The multiplier applied to the font's default line height to achieve the specified `lineHeight`.
     let lineHeightMultiple: CGFloat
+
+    /// Extra space between characters in points (design system `letterSpacing`, em × font size).
+    let tracking: CGFloat
+
+    /// Whether the text is rendered in uppercase (display and HUD styles).
+    let isUppercased: Bool
 }

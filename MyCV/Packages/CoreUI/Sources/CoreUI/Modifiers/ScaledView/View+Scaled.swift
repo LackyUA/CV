@@ -112,7 +112,7 @@ private struct ScaledViewLayout: Layout {
 #Preview(traits: .sizeThatFitsLayout) {
     Label {
         Text(verbatim: "Description")
-            .typography(.Paragraph.Level1.regular)
+            .typography(.Interface.body)
     } icon: {
         Images.call.swiftUIImage
             .renderingMode(.template)

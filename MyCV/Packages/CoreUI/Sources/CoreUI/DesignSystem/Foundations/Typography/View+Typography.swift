@@ -20,9 +20,9 @@ extension View {
     ///   ```swift
     ///   VStack {
     ///     Text("One")
-    ///         .typography(.Paragraph.Level1.bold)
+    ///         .typography(.Interface.headline)
     ///     Text("Two")
-    ///         .typography(.Paragraph.Level1.bold)
+    ///         .typography(.Interface.headline)
     ///   }
     ///   ```
     ///
@@ -32,7 +32,7 @@ extension View {
     ///     Text("One")
     ///     Text("Two")
     ///   }
-    ///   .typography(.Paragraph.Level1.bold)
+    ///   .typography(.Interface.headline)
     ///   ```
     @MainActor
     @ViewBuilder
@@ -63,6 +63,8 @@ private struct TypographyModifier: ViewModifier {
                 .init(top: -baselineOffset, leading: 0, bottom: baselineOffset, trailing: 0)
             )
             .fontWeight(typography.swiftUiWeight)
+            .tracking(typography.tracking * multiplier)
+            .textCase(typography.isUppercased ? .uppercase : nil)
         #if DEBUG
             .onPreferenceChange(TypographyPresenceKey.self) { value in
                 validateTypographyPresence(with: value)
@@ -116,6 +118,6 @@ private struct TypographyModifier: ViewModifier {
 
 #Preview(traits: .sizeThatFitsLayout) {
     Text("Hello Test")
-        .typography(.Paragraph.Level3.light)
+        .typography(.Interface.footnote)
         .padding()
 }
