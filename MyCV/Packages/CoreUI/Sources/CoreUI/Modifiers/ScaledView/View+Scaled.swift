@@ -1,5 +1,5 @@
 //
-//  Image+Scaled.swift
+//  View+Scaled.swift
 //  CoreUI
 //
 
@@ -7,7 +7,7 @@ import SwiftUI
 
 extension Image {
 
-    /// Resizes the image relative to the text style , enabling it to adapt to dynamic type settings.
+    /// Resizes the image relative to the text style. The image then adapts to Dynamic Type settings.
     @MainActor
     public func scaled(
         idealWidth: ScaledViewSize? = nil, idealHeight: ScaledViewSize? = nil, relativeTo textStyle: Font.TextStyle
@@ -112,11 +112,10 @@ private struct ScaledViewLayout: Layout {
 #Preview(traits: .sizeThatFitsLayout) {
     Label {
         Text(verbatim: "Description")
-            .typography(.Paragraph.Level1.regular)
+            .font(.body)
     } icon: {
-        Images.call.swiftUIImage
-            .renderingMode(.template)
-            .scaled(idealHeight: .Icon.extraExtraLarge, relativeTo: .body)
+        Image(systemName: "phone.fill")
+            .scaled(idealHeight: ScaledViewSize(rawValue: 48), relativeTo: .body)
     }
     .foregroundStyle(Color.orange)
 }

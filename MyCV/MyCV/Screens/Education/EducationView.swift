@@ -8,7 +8,9 @@ import SwiftUI
 
 struct EducationView: View {
 
-    @State private var viewModel = EducationViewModel()
+    init(viewModel: EducationViewModel) {
+        self.viewModel = viewModel
+    }
 
     var body: some View {
         VStack(spacing: 0) {
@@ -43,6 +45,10 @@ struct EducationView: View {
         }
     }
 
+    // MARK: - Private Properties
+
+    @State private var viewModel: EducationViewModel
+
 }
 
 // MARK: - Tabs
@@ -62,8 +68,10 @@ private struct EducationTabs: View {
                         selection = page
                     } label: {
                         Text(page.title)
-                            .typography(.Quote.medium)
-                            .foregroundStyle(selection == page ? Colors.accent.swiftUIColor : Colors.segmentGray.swiftUIColor)
+                            .typography(.Interface.segment)
+                            .foregroundStyle(
+                                selection == page ? Colors.neonCyan.swiftUIColor : Colors.textSecondary.swiftUIColor
+                            )
                             .frame(maxWidth: .infinity, minHeight: 32)
                             .contentShape(.rect)
                     }
@@ -75,7 +83,7 @@ private struct EducationTabs: View {
                 let segmentWidth = geometry.size.width / CGFloat(EducationViewModel.Page.allCases.count)
 
                 Rectangle()
-                    .fill(Colors.accent.swiftUIColor)
+                    .fill(Colors.neonCyan.swiftUIColor)
                     .frame(width: segmentWidth, height: Self.underlineHeight)
                     .offset(x: segmentWidth * CGFloat(selection.rawValue))
             }
@@ -94,7 +102,7 @@ private struct PageIndicator: View {
         HStack(spacing: Spacing.xs) {
             ForEach(EducationViewModel.Page.allCases) { page in
                 Circle()
-                    .fill(page == selection ? Colors.accent.swiftUIColor : Colors.lightGray.swiftUIColor)
+                    .fill(page == selection ? Colors.neonCyan.swiftUIColor : Colors.hairline.swiftUIColor)
                     .frame(width: 7, height: 7)
             }
         }
@@ -110,7 +118,7 @@ private struct SchoolPage: View {
 
     var body: some View {
         Text(school)
-            .typography(.Heading.Level2.medium)
+            .typography(.Interface.title3)
             .multilineTextAlignment(.center)
             .padding(.horizontal, Spacing.xl)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -144,10 +152,10 @@ private struct UniversityDetailRow: View {
     var body: some View {
         HStack(alignment: .firstTextBaseline, spacing: Spacing.s) {
             Text(title)
-                .typography(.Heading.Level3.bold)
+                .typography(.Interface.headline)
                 .frame(width: 110, alignment: .leading)
             Text(value)
-                .typography(.Paragraph.Level1.regular)
+                .typography(.Interface.body)
         }
     }
 
@@ -162,7 +170,7 @@ private struct CoursesPage: View {
             VStack(alignment: .leading, spacing: Spacing.s) {
                 ForEach(courses) { course in
                     Text(verbatim: "\(course.number). \(course.name)")
-                        .typography(.Paragraph.Level1.regular)
+                        .typography(.Interface.body)
                 }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
@@ -173,7 +181,8 @@ private struct CoursesPage: View {
 }
 
 #Preview {
-    SectionSheet {
-        EducationView()
+    NavigationStack {
+        EducationView(viewModel: EducationViewModel())
     }
+    .tint(Colors.textPrimary.swiftUIColor)
 }

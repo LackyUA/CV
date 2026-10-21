@@ -8,7 +8,9 @@ import SwiftUI
 
 struct AdditionalView: View {
 
-    @State private var viewModel = AdditionalViewModel()
+    init(viewModel: AdditionalViewModel) {
+        self.viewModel = viewModel
+    }
 
     var body: some View {
         ScrollView {
@@ -28,6 +30,10 @@ struct AdditionalView: View {
         }
     }
 
+    // MARK: - Private Properties
+
+    @State private var viewModel: AdditionalViewModel
+
 }
 
 // MARK: - Entry
@@ -40,9 +46,9 @@ private struct AdditionalEntryView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: Spacing.xs) {
             Text(title)
-                .typography(.Heading.Level3.bold)
+                .typography(.Interface.headline)
             Text(value)
-                .typography(.Paragraph.Level1.regular)
+                .typography(.Interface.body)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
     }
@@ -50,7 +56,8 @@ private struct AdditionalEntryView: View {
 }
 
 #Preview {
-    SectionSheet {
-        AdditionalView()
+    NavigationStack {
+        AdditionalView(viewModel: AdditionalViewModel())
     }
+    .tint(Colors.textPrimary.swiftUIColor)
 }

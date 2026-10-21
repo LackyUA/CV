@@ -8,7 +8,9 @@ import SwiftUI
 
 struct ContactsView: View {
 
-    @State private var viewModel = ContactsViewModel()
+    init(viewModel: ContactsViewModel) {
+        self.viewModel = viewModel
+    }
 
     var body: some View {
         List {
@@ -31,6 +33,10 @@ struct ContactsView: View {
         }
     }
 
+    // MARK: - Private Properties
+
+    @State private var viewModel: ContactsViewModel
+
 }
 
 // MARK: - Row
@@ -51,11 +57,11 @@ private struct ContactRow: View {
             HStack(spacing: Spacing.s) {
                 VStack(alignment: .leading, spacing: Spacing.xxs) {
                     Text(title)
-                        .typography(.Paragraph.Level3.regular)
-                        .foregroundStyle(.secondary)
+                        .typography(.HUD.label)
+                        .foregroundStyle(Colors.textSecondary.swiftUIColor)
                     Text(details)
-                        .typography(.Paragraph.Level1.regular)
-                        .foregroundStyle(.primary)
+                        .typography(.Interface.body)
+                        .foregroundStyle(Colors.textPrimary.swiftUIColor)
                 }
 
                 Spacer(minLength: 0)
@@ -95,7 +101,8 @@ private struct ContactRow: View {
 }
 
 #Preview {
-    SectionSheet {
-        ContactsView()
+    NavigationStack {
+        ContactsView(viewModel: ContactsViewModel())
     }
+    .tint(Colors.textPrimary.swiftUIColor)
 }

@@ -8,31 +8,29 @@ import SwiftUI
 
 extension View {
 
-    /// Applies a custom typography style to the view.
+    /// Applies a typography style to the view.
     ///
-    /// - Important:
+    /// - Important: Apply this modifier to leaf text views, not to containers. The modifier adjusts the
+    ///   baseline of its content. If a container and its children share the modifier, the children get
+    ///   extra padding and misaligned baselines.
     ///
-    ///   To avoid unwanted layout side effects, **apply this modifier as deep in the view hierarchy as possible** —
-    ///   ideally directly on leaf text views rather than containers. This ensures baseline alignment is handled
-    ///   correctly and avoids issues like extra padding or misalignment when multiple children share the same modifier.
-    ///
-    ///   **Preferred usage:**
+    ///   Preferred usage:
     ///   ```swift
     ///   VStack {
     ///     Text("One")
-    ///         .typography(.Paragraph.Level1.bold)
+    ///         .typography(.Interface.headline)
     ///     Text("Two")
-    ///         .typography(.Paragraph.Level1.bold)
+    ///         .typography(.Interface.headline)
     ///   }
     ///   ```
     ///
-    ///   **Avoid:**
+    ///   Do not write:
     ///   ```swift
     ///   VStack {
     ///     Text("One")
     ///     Text("Two")
     ///   }
-    ///   .typography(.Paragraph.Level1.bold)
+    ///   .typography(.Interface.headline)
     ///   ```
     @MainActor
     @ViewBuilder
@@ -63,6 +61,8 @@ private struct TypographyModifier: ViewModifier {
                 .init(top: -baselineOffset, leading: 0, bottom: baselineOffset, trailing: 0)
             )
             .fontWeight(typography.swiftUiWeight)
+            .tracking(typography.tracking * multiplier)
+            .textCase(typography.isUppercased ? .uppercase : nil)
         #if DEBUG
             .onPreferenceChange(TypographyPresenceKey.self) { value in
                 validateTypographyPresence(with: value)
@@ -82,8 +82,6 @@ private struct TypographyModifier: ViewModifier {
     @State
     private var shouldAdjustBaselineOffset: Bool
 
-    // MARK: - Private Methods
-
     private var resolvedFont: Font {
         Font(typography.font.withSize(typography.font.pointSize * multiplier))
     }
@@ -98,6 +96,8 @@ private struct TypographyModifier: ViewModifier {
 
     // MARK: - Logging
 
+    private static let logger = Logger(coreUiCategory: "TypographyModifier")
+
     private func validateTypographyPresence(with value: TypographyPresenceKey.Value) {
         guard !value.isEmpty else {
             return
@@ -110,12 +110,10 @@ private struct TypographyModifier: ViewModifier {
             """
         )
     }
-
-    private static let logger = Logger(coreUiCategory: "TypographyModifier")
 }
 
 #Preview(traits: .sizeThatFitsLayout) {
     Text("Hello Test")
-        .typography(.Paragraph.Level3.light)
+        .typography(.Interface.footnote)
         .padding()
 }

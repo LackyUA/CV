@@ -16,7 +16,7 @@ public struct BoxShadowElevation {
     /// The blur radius of the shadow.
     public let radius: CGFloat
 
-    /// The spread of the shadow. Positive values increase size, negative values shrink it.
+    /// The spread of the shadow. A positive value increases the size. A negative value decreases the size.
     public let spread: CGFloat
 
     /// The horizontal offset of the shadow.

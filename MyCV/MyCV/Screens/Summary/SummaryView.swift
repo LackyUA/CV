@@ -8,23 +8,27 @@ import SwiftUI
 
 struct SummaryView: View {
 
-    @State private var viewModel = SummaryViewModel()
+    init(viewModel: SummaryViewModel) {
+        self.viewModel = viewModel
+    }
 
     var body: some View {
         ScrollView {
             VStack(spacing: 0) {
                 ScreenHeaderImage(asset: Images.summary)
-                    .background(Color.white)
 
                 SummaryText(paragraphs: viewModel.paragraphs)
             }
         }
-        .background(Colors.accent.swiftUIColor)
         .sectionNavigationBar(title: viewModel.title)
         .task {
             await viewModel.load()
         }
     }
+
+    // MARK: - Private Properties
+
+    @State private var viewModel: SummaryViewModel
 
 }
 
@@ -38,18 +42,24 @@ private struct SummaryText: View {
         VStack(alignment: .leading, spacing: Spacing.m) {
             ForEach(paragraphs) { paragraph in
                 Text(paragraph.text)
-                    .typography(.Quote.small)
+                    .typography(.Interface.body)
             }
         }
-        .foregroundStyle(.white)
+        .foregroundStyle(Colors.textPrimary.swiftUIColor)
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(Spacing.l)
+        .rounded(.xxl)
+        .backgroundBlur(.thick, tint: Colors.glassFill.swiftUIColor)
+        .border(color: Colors.glassStroke.swiftUIColor, lineWidth: .m)
+        .boxShadow(.glass)
+        .padding(.horizontal, Spacing.m)
     }
 
 }
 
 #Preview {
-    SectionSheet {
-        SummaryView()
+    NavigationStack {
+        SummaryView(viewModel: SummaryViewModel())
     }
+    .tint(Colors.textPrimary.swiftUIColor)
 }

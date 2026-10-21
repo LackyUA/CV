@@ -5,15 +5,17 @@
 
 import SwiftUI
 
-/// Holds typesetting information that could be applied to displayed text.
+/// Typesetting information for displayed text.
 public struct Typography: Sendable {
 
-    /// Creates typography with provided information.
+    /// Creates a typography style from the given values.
     init(
         font: UIFont,
         weight: Font.Weight,
         textStyle: Font.TextStyle = .body,
         lineHeight: CGFloat,
+        tracking: CGFloat = 0,
+        isUppercased: Bool = false,
     ) {
         self.font = font
         self.weight = .init(weight)
@@ -21,23 +23,32 @@ public struct Typography: Sendable {
         self.textStyle = textStyle
         self.lineHeight = lineHeight
         self.lineHeightMultiple = lineHeight / font.lineHeight
+        self.tracking = tracking
+        self.isUppercased = isUppercased
     }
 
-    /// Font associated with given typography.
+    /// The font of the typography style.
     let font: UIFont
 
-    /// Weight of the font.
+    /// The weight of the font.
     let weight: UIFont.Weight
 
-    /// The SwiftUI `Font` representation of the typography's weight.
+    /// The SwiftUI representation of `weight`.
     let swiftUiWeight: Font.Weight
 
-    /// A dynamic text style to use for font. Default value is `body`.
+    /// The dynamic text style that scales the font. The default value is `body`.
     let textStyle: Font.TextStyle
 
-    /// Line height. If not set explicitly equals to font's line height.
+    /// The line height in points.
     let lineHeight: CGFloat
 
-    /// The multiplier applied to the font's default line height to achieve the specified `lineHeight`.
+    /// The multiplier that converts the default line height of `font` to `lineHeight`.
     let lineHeightMultiple: CGFloat
+
+    /// The extra space between characters in points. The value is the design-system `letterSpacing` in em
+    /// multiplied by the font size.
+    let tracking: CGFloat
+
+    /// A Boolean value that indicates whether the text renders in uppercase. Display and HUD styles use uppercase.
+    let isUppercased: Bool
 }

@@ -11,7 +11,9 @@ struct MyCVApp: App {
 
     var body: some Scene {
         WindowGroup {
-            StartView()
+            RootView()
+                // The design system has a single Night theme.
+                .preferredColorScheme(.dark)
         }
     }
 
