@@ -2,9 +2,6 @@
 //  Contacts.swift
 //  MyCV
 //
-//  Created by Dima Dobrovolskyy on 4/25/19.
-//  Copyright © 2019 Dima Dobrovolskyy. All rights reserved.
-//
 
 import Foundation
 

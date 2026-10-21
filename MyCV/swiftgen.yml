@@ -1,0 +1,9 @@
+xcassets:
+  inputs:
+    - Packages/CoreUI/Sources/CoreUI/DesignSystem/Foundations/Assets/Resources/Colors.xcassets
+    - Packages/CoreUI/Sources/CoreUI/DesignSystem/Foundations/Assets/Resources/Images.xcassets
+  outputs:
+    - templatePath: swiftgen/swift6.stencil
+      params:
+        publicAccess: true
+      output: Packages/CoreUI/Sources/CoreUI/DesignSystem/Foundations/Assets/Assets+Generated.swift
