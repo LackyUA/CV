@@ -8,7 +8,9 @@ import SwiftUI
 
 struct EducationView: View {
 
-    @State private var viewModel = EducationViewModel()
+    init(viewModel: EducationViewModel) {
+        self.viewModel = viewModel
+    }
 
     var body: some View {
         VStack(spacing: 0) {
@@ -42,6 +44,10 @@ struct EducationView: View {
             await viewModel.load()
         }
     }
+
+    // MARK: - Private Properties
+
+    @State private var viewModel: EducationViewModel
 
 }
 
@@ -175,7 +181,8 @@ private struct CoursesPage: View {
 }
 
 #Preview {
-    SectionSheet {
-        EducationView()
+    NavigationStack {
+        EducationView(viewModel: EducationViewModel())
     }
+    .tint(Colors.textPrimary.swiftUIColor)
 }

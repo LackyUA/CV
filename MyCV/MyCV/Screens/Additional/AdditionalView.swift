@@ -8,7 +8,9 @@ import SwiftUI
 
 struct AdditionalView: View {
 
-    @State private var viewModel = AdditionalViewModel()
+    init(viewModel: AdditionalViewModel) {
+        self.viewModel = viewModel
+    }
 
     var body: some View {
         ScrollView {
@@ -27,6 +29,10 @@ struct AdditionalView: View {
             await viewModel.load()
         }
     }
+
+    // MARK: - Private Properties
+
+    @State private var viewModel: AdditionalViewModel
 
 }
 
@@ -50,7 +56,8 @@ private struct AdditionalEntryView: View {
 }
 
 #Preview {
-    SectionSheet {
-        AdditionalView()
+    NavigationStack {
+        AdditionalView(viewModel: AdditionalViewModel())
     }
+    .tint(Colors.textPrimary.swiftUIColor)
 }
