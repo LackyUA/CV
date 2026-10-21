@@ -3,6 +3,7 @@
 //  MyCV
 //
 
+import CoreUI
 import SwiftUI
 
 struct AdditionalView: View {
@@ -11,15 +12,15 @@ struct AdditionalView: View {
 
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 24) {
-                ScreenHeaderImage(name: "additional")
+            VStack(alignment: .leading, spacing: Spacing.l) {
+                ScreenHeaderImage(asset: Images.additional)
 
                 ForEach(viewModel.entries) { entry in
                     AdditionalEntryView(title: entry.title, value: entry.value)
-                        .padding(.horizontal, 20)
+                        .padding(.horizontal, Spacing.l)
                 }
             }
-            .padding(.bottom, 20)
+            .padding(.bottom, Spacing.l)
         }
         .sectionNavigationBar(title: viewModel.title)
         .task {
@@ -37,11 +38,11 @@ private struct AdditionalEntryView: View {
     let value: String
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 6) {
+        VStack(alignment: .leading, spacing: Spacing.xs) {
             Text(title)
-                .font(.headline)
+                .typography(.Heading.Level3.bold)
             Text(value)
-                .font(.body)
+                .typography(.Paragraph.Level1.regular)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
     }

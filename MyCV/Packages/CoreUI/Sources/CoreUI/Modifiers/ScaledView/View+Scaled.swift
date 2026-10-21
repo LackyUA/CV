@@ -2,8 +2,6 @@
 //  Image+Scaled.swift
 //  CoreUI
 //
-//  Created by Andrii Vysotskyi on 02.06.2025.
-//
 
 import SwiftUI
 

@@ -2,8 +2,6 @@
 //  SpreadableShape.swift
 //  CoreUI
 //
-//  Created by Andrii Vysotskyi on 20.06.2025.
-//
 
 import SwiftUI
 

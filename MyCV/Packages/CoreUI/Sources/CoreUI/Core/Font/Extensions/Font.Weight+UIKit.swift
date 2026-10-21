@@ -2,8 +2,6 @@
 //  Font.Weight+UIKit.swift
 //  CoreUI
 //
-//  Created by Andrii Vysotskyi on 09.06.2026.
-//
 
 import SwiftUI
 

@@ -2,8 +2,6 @@
 //  View+Rounded.swift
 //  CoreUI
 //
-//  Created by Serhii Yelmanov on 29.05.2025.
-//
 
 import SwiftUI
 

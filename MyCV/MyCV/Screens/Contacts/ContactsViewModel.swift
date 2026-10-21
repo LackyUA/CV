@@ -17,10 +17,16 @@ final class ContactsViewModel {
             case open(url: URL)
         }
 
+        /// Trailing icon shown for tappable rows.
+        enum Icon: Equatable {
+            case call
+            case web
+        }
+
         let id: String
         let title: LocalizedStringResource
         let details: String
-        let iconName: String?
+        let icon: Icon?
         let action: Action?
     }
 
@@ -45,12 +51,12 @@ final class ContactsViewModel {
 
     private static func makeRows(from contacts: Contacts) -> [Row] {
         [
-            Row(id: "address", title: "Address", details: contacts.address, iconName: nil, action: nil),
-            Row(id: "email", title: "E-mail", details: contacts.email, iconName: nil, action: nil),
-            Row(id: "skype", title: "Skype", details: contacts.skype, iconName: nil, action: nil),
-            Row(id: "mobile", title: "Mobile", details: contacts.mobile, iconName: "call", action: .call(number: contacts.mobile)),
-            Row(id: "github", title: "Github", details: contacts.git, iconName: "web", action: openAction(for: contacts.git)),
-            Row(id: "facebook", title: "Facebook", details: contacts.facebook, iconName: "web", action: openAction(for: contacts.facebook))
+            Row(id: "address", title: "Address", details: contacts.address, icon: nil, action: nil),
+            Row(id: "email", title: "E-mail", details: contacts.email, icon: nil, action: nil),
+            Row(id: "skype", title: "Skype", details: contacts.skype, icon: nil, action: nil),
+            Row(id: "mobile", title: "Mobile", details: contacts.mobile, icon: .call, action: .call(number: contacts.mobile)),
+            Row(id: "github", title: "Github", details: contacts.git, icon: .web, action: openAction(for: contacts.git)),
+            Row(id: "facebook", title: "Facebook", details: contacts.facebook, icon: .web, action: openAction(for: contacts.facebook))
         ]
     }
 

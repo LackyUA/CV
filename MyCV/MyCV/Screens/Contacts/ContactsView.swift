@@ -3,6 +3,7 @@
 //  MyCV
 //
 
+import CoreUI
 import SwiftUI
 
 struct ContactsView: View {
@@ -11,14 +12,14 @@ struct ContactsView: View {
 
     var body: some View {
         List {
-            ScreenHeaderImage(name: "Contact")
+            ScreenHeaderImage(asset: Images.contact)
                 .plainListHeaderRow()
 
             ForEach(viewModel.rows) { row in
                 ContactRow(
                     title: row.title,
                     details: row.details,
-                    iconName: row.iconName,
+                    icon: row.icon,
                     action: row.action
                 )
             }
@@ -38,7 +39,7 @@ private struct ContactRow: View {
 
     let title: LocalizedStringResource
     let details: String
-    let iconName: String?
+    let icon: ContactsViewModel.Row.Icon?
     let action: ContactsViewModel.Row.Action?
 
     @Environment(\.openURL) private var openURL
@@ -47,30 +48,35 @@ private struct ContactRow: View {
         Button {
             perform()
         } label: {
-            HStack(spacing: 12) {
-                VStack(alignment: .leading, spacing: 4) {
+            HStack(spacing: Spacing.s) {
+                VStack(alignment: .leading, spacing: Spacing.xxs) {
                     Text(title)
-                        .font(.footnote)
+                        .typography(.Paragraph.Level3.regular)
                         .foregroundStyle(.secondary)
                     Text(details)
-                        .font(.body)
+                        .typography(.Paragraph.Level1.regular)
                         .foregroundStyle(.primary)
                 }
 
                 Spacer(minLength: 0)
 
-                if let iconName {
-                    Image(iconName)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 28, height: 28)
+                if let icon {
+                    iconAsset(for: icon).swiftUIImage
+                        .scaled(idealWidth: .Icon.large, idealHeight: .Icon.large, relativeTo: .body)
                 }
             }
-            .padding(.vertical, 6)
+            .padding(.vertical, Spacing.xs)
             .contentShape(.rect)
         }
         .buttonStyle(.plain)
         .disabled(action == nil)
+    }
+
+    private func iconAsset(for icon: ContactsViewModel.Row.Icon) -> ImageAsset {
+        switch icon {
+        case .call: Images.call
+        case .web: Images.web
+        }
     }
 
     private func perform() {

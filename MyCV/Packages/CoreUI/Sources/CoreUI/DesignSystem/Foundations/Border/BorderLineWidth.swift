@@ -2,8 +2,6 @@
 //  BorderLineWidth.swift
 //  CoreUI
 //
-//  Created by Serhii Yelmanov on 08.07.2025.
-//
 import Foundation
 
 public struct BorderLineWidth: Sendable, Equatable {

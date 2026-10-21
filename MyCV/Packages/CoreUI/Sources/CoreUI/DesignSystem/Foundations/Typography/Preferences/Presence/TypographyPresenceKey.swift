@@ -2,8 +2,6 @@
 //  TypographyPresenceKey.swift
 //  CoreUI
 //
-//  Created by Andrii Vysotskyi on 06.06.2025.
-//
 
 import SwiftUI
 

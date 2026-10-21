@@ -3,6 +3,7 @@
 //  MyCV
 //
 
+import CoreUI
 import SwiftUI
 
 /// Hosts a CV section inside its own navigation stack when presented from the start screen.
@@ -40,7 +41,7 @@ extension View {
         self
             .navigationTitle(title)
             .toolbarTitleDisplayMode(.inline)
-            .toolbarBackground(Color(.accent), for: .navigationBar)
+            .toolbarBackground(Colors.accent.swiftUIColor, for: .navigationBar)
             .toolbarBackgroundVisibility(.visible, for: .navigationBar)
             .toolbarColorScheme(.dark, for: .navigationBar)
     }

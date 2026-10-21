@@ -3,6 +3,7 @@
 //  MyCV
 //
 
+import CoreUI
 import SwiftUI
 
 struct ExperienceView: View {
@@ -11,13 +12,14 @@ struct ExperienceView: View {
 
     var body: some View {
         List {
-            ScreenHeaderImage(name: "experience")
+            ScreenHeaderImage(asset: Images.experience)
                 .plainListHeaderRow()
 
             ForEach(viewModel.items) { item in
                 NavigationLink(value: item) {
                     Text(item.title)
-                        .padding(.vertical, 8)
+                        .typography(.Paragraph.Level1.regular)
+                        .padding(.vertical, Spacing.xs)
                 }
             }
         }

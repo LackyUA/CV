@@ -3,6 +3,7 @@
 //  MyCV
 //
 
+import CoreUI
 import SwiftUI
 
 struct SkillsView: View {
@@ -11,7 +12,7 @@ struct SkillsView: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            ScreenHeaderImage(name: "skills")
+            ScreenHeaderImage(asset: Images.skills)
 
             List {
                 ForEach(viewModel.sections) { section in
@@ -42,7 +43,8 @@ private struct SkillRow: View {
 
     var body: some View {
         Text(name)
-            .padding(.vertical, 12)
+            .typography(.Paragraph.Level1.regular)
+            .padding(.vertical, Spacing.s)
     }
 
 }
@@ -54,18 +56,18 @@ private struct SkillsSectionHeader: View {
 
     var body: some View {
         Text(title)
-            .font(.custom("GillSans-Italic", size: 20))
+            .typography(.Quote.large)
             .foregroundStyle(.white)
             .textCase(nil)
-            .padding(.horizontal, 15)
-            .padding(.vertical, 5)
+            .padding(.horizontal, Spacing.m)
+            .padding(.vertical, Spacing.xxs)
             .frame(maxWidth: .infinity, minHeight: 35, alignment: .leading)
-            .background(Color(.accent))
+            .background(Colors.accent.swiftUIColor)
             .overlay(alignment: .top) {
-                Color(.lightGray).frame(height: 0.4)
+                Colors.lightGray.swiftUIColor.frame(height: 0.4)
             }
             .overlay(alignment: .bottom) {
-                Color(.lightGray).frame(height: 0.4)
+                Colors.lightGray.swiftUIColor.frame(height: 0.4)
             }
             .listRowInsets(EdgeInsets())
     }

@@ -2,8 +2,6 @@
 //  View+Typography.swift
 //  CoreUI
 //
-//  Created by Andrii Vysotskyi on 29.05.2025.
-//
 
 import OSLog
 import SwiftUI

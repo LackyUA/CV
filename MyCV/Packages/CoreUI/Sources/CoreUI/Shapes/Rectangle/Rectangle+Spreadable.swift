@@ -2,8 +2,6 @@
 //  Rectangle+Spreadable.swift
 //  CoreUI
 //
-//  Created by Andrii Vysotskyi on 21.07.2025.
-//
 
 import SwiftUI
 

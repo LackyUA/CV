@@ -3,6 +3,7 @@
 //  MyCV
 //
 
+import CoreUI
 import SwiftUI
 
 /// White panel with the owner's name and the section buttons.
@@ -48,7 +49,7 @@ private struct SectionsPanel: View {
     let onSelect: (CVSection) -> Void
 
     var body: some View {
-        VStack(spacing: 10) {
+        VStack(spacing: Spacing.s) {
             Color.clear
                 .frame(height: 70)
 
@@ -56,8 +57,8 @@ private struct SectionsPanel: View {
                 .frame(height: 70)
 
             SectionButtons(onSelect: onSelect)
-                .padding(.horizontal, 15)
-                .padding(.bottom, 10)
+                .padding(.horizontal, Spacing.m)
+                .padding(.bottom, Spacing.s)
         }
     }
 
@@ -68,12 +69,13 @@ private struct NameHeader: View {
     var body: some View {
         VStack(spacing: 0) {
             Text("Dmytro")
+                .typography(.Heading.Level1.bold)
                 .frame(maxHeight: .infinity)
             Text("Dobrovolskyy")
+                .typography(.Heading.Level1.bold)
                 .frame(maxHeight: .infinity)
         }
-        .font(.system(size: 24, weight: .bold))
-        .foregroundStyle(Color(.darkGray))
+        .foregroundStyle(Colors.darkGray.swiftUIColor)
     }
 
 }
@@ -83,16 +85,17 @@ private struct SectionButtons: View {
     let onSelect: (CVSection) -> Void
 
     var body: some View {
-        VStack(spacing: 8) {
+        VStack(spacing: Spacing.xs) {
             ForEach(CVSection.allCases) { section in
                 Button {
                     onSelect(section)
                 } label: {
                     Text(section.title)
-                        .font(.system(size: 20, weight: .bold))
+                        .typography(.Heading.Level2.bold)
                         .foregroundStyle(.white)
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .background(Color(.buttonGray), in: .rect(cornerRadius: 8))
+                        .background(Colors.buttonGray.swiftUIColor)
+                        .rounded(.s)
                 }
                 .buttonStyle(.plain)
             }
@@ -112,17 +115,17 @@ private struct ProfileBadge: View {
     var body: some View {
         ZStack {
             Rectangle()
-                .fill(Color(.darkGray))
+                .fill(Colors.darkGray.swiftUIColor)
                 .frame(height: Self.borderWidth)
 
-            Image("profileImage")
+            Images.profileImage.swiftUIImage
                 .resizable()
                 .scaledToFill()
                 .frame(width: Self.size, height: Self.size)
                 .clipShape(Circle())
                 .overlay {
                     Circle()
-                        .strokeBorder(Color(.darkGray), lineWidth: Self.borderWidth)
+                        .strokeBorder(Colors.darkGray.swiftUIColor, lineWidth: Self.borderWidth)
                 }
         }
     }
@@ -131,7 +134,7 @@ private struct ProfileBadge: View {
 
 #Preview {
     ZStack {
-        Color(.accent).ignoresSafeArea()
+        Colors.accent.swiftUIColor.ignoresSafeArea()
         SectionsMenuView { _ in }
     }
 }

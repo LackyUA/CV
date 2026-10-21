@@ -2,9 +2,6 @@
 //  MyCVTests.swift
 //  MyCVTests
 //
-//  Created by Dima Dobrovolskyy on 4/24/19.
-//  Copyright © 2019 Dima Dobrovolskyy. All rights reserved.
-//
 
 import XCTest
 @testable import MyCV

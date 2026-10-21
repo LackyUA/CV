@@ -3,6 +3,7 @@
 //  MyCV
 //
 
+import CoreUI
 import SwiftUI
 
 /// Landing screen: shows the welcome circle, then animates into the sections menu.
@@ -14,7 +15,7 @@ struct StartView: View {
 
     var body: some View {
         ZStack {
-            (showsMenu ? Color(.accent) : Color.white)
+            (showsMenu ? Colors.accent.swiftUIColor : Color.white)
                 .ignoresSafeArea()
 
             if showsMenu {
@@ -57,17 +58,17 @@ private struct WelcomeView: View {
         GeometryReader { geometry in
             ZStack {
                 Text("Welcome To\nMy CV")
-                    .font(.custom("Chalkduster", size: 24))
-                    .foregroundStyle(Color(.welcomeOrange))
+                    .typography(.Display.decorative)
+                    .foregroundStyle(Colors.welcomeOrange.swiftUIColor)
                     .multilineTextAlignment(.center)
                     .offset(y: isExpanding ? -geometry.size.height : -220)
 
                 ZStack {
                     Circle()
-                        .fill(Color(.accent))
+                        .fill(Colors.accent.swiftUIColor)
 
                     Text("Start")
-                        .font(.system(size: 50, weight: .semibold))
+                        .typography(.Display.large)
                         .foregroundStyle(.white)
                         .opacity(isExpanding ? 0 : 1)
                 }

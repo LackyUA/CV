@@ -3,15 +3,16 @@
 //  MyCV
 //
 
+import CoreUI
 import SwiftUI
 
 /// Full-width illustration shown at the top of a section screen.
 struct ScreenHeaderImage: View {
 
-    let name: String
+    let asset: ImageAsset
 
     var body: some View {
-        Image(name)
+        asset.swiftUIImage
             .resizable()
             .scaledToFit()
             .frame(maxWidth: .infinity)

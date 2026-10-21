@@ -2,8 +2,6 @@
 //  View+Border.swift
 //  CoreUI
 //
-//  Created by Serhii Yelmanov on 07.07.2025.
-//
 
 import SwiftUI
 

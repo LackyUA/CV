@@ -2,8 +2,6 @@
 //  UIFont+CV.swift
 //  CoreUI
 //
-//  Created by Dmytro Dobrovolskyi on 21.10.2026.
-//
 
 import UIKit
 

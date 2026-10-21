@@ -2,8 +2,6 @@
 //  RoundedCornersModifier.swift
 //  CoreUI
 //
-//  Created by Andrii Vysotskyi on 23.06.2025.
-//
 
 import SwiftUI
 

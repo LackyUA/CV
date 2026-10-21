@@ -2,8 +2,6 @@
 //  View+BoxShadowElevation.swift
 //  CoreUI
 //
-//  Created by Andrii Vysotskyi on 25.06.2025.
-//
 
 import SwiftUI
 

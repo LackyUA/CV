@@ -22,6 +22,7 @@ public typealias AssetImageTypeAlias = ImageAsset.Image
 
 public enum Asset {
   public enum Colors {
+    public static let accent = ColorAsset(name: "Accent")
     public static let buttonGray = ColorAsset(name: "ButtonGray")
     public static let darkGray = ColorAsset(name: "DarkGray")
     public static let lightGray = ColorAsset(name: "LightGray")

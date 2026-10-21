@@ -3,6 +3,7 @@
 //  MyCV
 //
 
+import CoreUI
 import SwiftUI
 
 struct EducationView: View {
@@ -15,7 +16,7 @@ struct EducationView: View {
             Color.clear
                 .containerRelativeFrame(.vertical) { height, _ in height * 0.45 }
                 .overlay {
-                    Image("edtech")
+                    Images.edtech.swiftUIImage
                         .resizable()
                         .scaledToFill()
                 }
@@ -34,7 +35,7 @@ struct EducationView: View {
             .tabViewStyle(.page(indexDisplayMode: .never))
 
             PageIndicator(selection: viewModel.selectedPage)
-                .padding(.vertical, 12)
+                .padding(.vertical, Spacing.s)
         }
         .sectionNavigationBar(title: viewModel.title)
         .task {
@@ -61,8 +62,8 @@ private struct EducationTabs: View {
                         selection = page
                     } label: {
                         Text(page.title)
-                            .font(.custom("GillSans-Italic", size: 18))
-                            .foregroundStyle(selection == page ? Color(.accent) : Color(.segmentGray))
+                            .typography(.Quote.medium)
+                            .foregroundStyle(selection == page ? Colors.accent.swiftUIColor : Colors.segmentGray.swiftUIColor)
                             .frame(maxWidth: .infinity, minHeight: 32)
                             .contentShape(.rect)
                     }
@@ -74,7 +75,7 @@ private struct EducationTabs: View {
                 let segmentWidth = geometry.size.width / CGFloat(EducationViewModel.Page.allCases.count)
 
                 Rectangle()
-                    .fill(Color(.accent))
+                    .fill(Colors.accent.swiftUIColor)
                     .frame(width: segmentWidth, height: Self.underlineHeight)
                     .offset(x: segmentWidth * CGFloat(selection.rawValue))
             }
@@ -90,10 +91,10 @@ private struct PageIndicator: View {
     let selection: EducationViewModel.Page
 
     var body: some View {
-        HStack(spacing: 8) {
+        HStack(spacing: Spacing.xs) {
             ForEach(EducationViewModel.Page.allCases) { page in
                 Circle()
-                    .fill(page == selection ? Color(.accent) : Color(.lightGray))
+                    .fill(page == selection ? Colors.accent.swiftUIColor : Colors.lightGray.swiftUIColor)
                     .frame(width: 7, height: 7)
             }
         }
@@ -109,9 +110,9 @@ private struct SchoolPage: View {
 
     var body: some View {
         Text(school)
-            .font(.title3)
+            .typography(.Heading.Level2.medium)
             .multilineTextAlignment(.center)
-            .padding(.horizontal, 30)
+            .padding(.horizontal, Spacing.xl)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 
@@ -123,13 +124,13 @@ private struct UniversityPage: View {
 
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 12) {
+            VStack(alignment: .leading, spacing: Spacing.s) {
                 ForEach(details) { detail in
                     UniversityDetailRow(title: detail.title, value: detail.value)
                 }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(20)
+            .padding(Spacing.l)
         }
     }
 
@@ -141,12 +142,12 @@ private struct UniversityDetailRow: View {
     let value: String
 
     var body: some View {
-        HStack(alignment: .firstTextBaseline, spacing: 12) {
+        HStack(alignment: .firstTextBaseline, spacing: Spacing.s) {
             Text(title)
-                .font(.headline)
+                .typography(.Heading.Level3.bold)
                 .frame(width: 110, alignment: .leading)
             Text(value)
-                .font(.body)
+                .typography(.Paragraph.Level1.regular)
         }
     }
 
@@ -158,13 +159,14 @@ private struct CoursesPage: View {
 
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 12) {
+            VStack(alignment: .leading, spacing: Spacing.s) {
                 ForEach(courses) { course in
                     Text(verbatim: "\(course.number). \(course.name)")
+                        .typography(.Paragraph.Level1.regular)
                 }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(20)
+            .padding(Spacing.l)
         }
     }
 

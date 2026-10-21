@@ -2,8 +2,6 @@
 //  RoundedRectangle+Spreadable.swift
 //  CoreUI
 //
-//  Created by Andrii Vysotskyi on 05.01.2026.
-//
 
 import SwiftUI
 

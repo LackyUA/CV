@@ -52,6 +52,7 @@
 		871A173F30890B0000F564FA /* ExperienceDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871A173E30890B0000F564FA /* ExperienceDetailsView.swift */; };
 		871A174130890B0500F564FA /* AdditionalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871A174030890B0500F564FA /* AdditionalViewModel.swift */; };
 		871A174330890B0900F564FA /* AdditionalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871A174230890B0900F564FA /* AdditionalView.swift */; };
+		8728FEDB30892CE600675986 /* CoreUI in Frameworks */ = {isa = PBXBuildFile; productRef = 8728FEDA30892CE600675986 /* CoreUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8728FEDB30892CE600675986 /* CoreUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,6 +158,7 @@
 				87C0E1042FA0000100C0FFEE /* Packages */,
 				327A75E6227085F300F8957F /* MyCV */,
 				327A75FE227085F600F8957F /* MyCVTests */,
+				8728FED930892CDF00675986 /* Frameworks */,
 				327A75E5227085F300F8957F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -291,6 +294,13 @@
 			path = Additional;
 			sourceTree = "<group>";
 		};
+		8728FED930892CDF00675986 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		87C0E1042FA0000100C0FFEE /* Packages */ = {
 			isa = PBXGroup;
 			children = (
@@ -316,6 +326,7 @@
 			);
 			name = MyCV;
 			packageProductDependencies = (
+				8728FEDA30892CE600675986 /* CoreUI */,
 			);
 			productName = MyCV;
 			productReference = 327A75E4227085F300F8957F /* MyCV.app */;
@@ -477,24 +488,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		87C0E1132FA0000100C0FFEE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ENABLE_USER_SCRIPT_SANDBOXING = NO;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-			};
-			name = Debug;
-		};
-		87C0E1142FA0000100C0FFEE /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ENABLE_USER_SCRIPT_SANDBOXING = NO;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-			};
-			name = Release;
-		};
 		327A7602227085F600F8957F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -693,18 +686,27 @@
 			};
 			name = Release;
 		};
+		87C0E1132FA0000100C0FFEE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		87C0E1142FA0000100C0FFEE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		87C0E1122FA0000100C0FFEE /* Build configuration list for PBXAggregateTarget "GenerateResources" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				87C0E1132FA0000100C0FFEE /* Debug */,
-				87C0E1142FA0000100C0FFEE /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		327A75DF227085F300F8957F /* Build configuration list for PBXProject "MyCV" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -732,6 +734,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		87C0E1122FA0000100C0FFEE /* Build configuration list for PBXAggregateTarget "GenerateResources" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				87C0E1132FA0000100C0FFEE /* Debug */,
+				87C0E1142FA0000100C0FFEE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
@@ -740,6 +751,14 @@
 			relativePath = Packages/CoreUI;
 		};
 /* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8728FEDA30892CE600675986 /* CoreUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 871A174430891CBD00F564FA /* XCLocalSwiftPackageReference "Packages/CoreUI" */;
+			productName = CoreUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		327A75EE227085F300F8957F /* MyCV.xcdatamodeld */ = {

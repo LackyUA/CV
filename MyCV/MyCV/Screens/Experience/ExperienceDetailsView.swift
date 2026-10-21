@@ -3,6 +3,7 @@
 //  MyCV
 //
 
+import CoreUI
 import SwiftUI
 
 struct ExperienceDetailsView: View {
@@ -13,7 +14,7 @@ struct ExperienceDetailsView: View {
     @State private var showsUnavailableAlert = false
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 28) {
+        VStack(alignment: .leading, spacing: Spacing.l) {
             DetailRow(title: "Period", value: item.period)
             DetailRow(title: "Description", value: item.description)
 
@@ -23,15 +24,16 @@ struct ExperienceDetailsView: View {
                 openProject()
             } label: {
                 Text("Open Git Project")
-                    .font(.system(size: 20, weight: .medium))
+                    .typography(.Heading.Level2.medium)
                     .foregroundStyle(.white)
                     .frame(maxWidth: .infinity, minHeight: 50)
-                    .background(Color(.accent), in: .rect(cornerRadius: 8))
+                    .background(Colors.accent.swiftUIColor)
+                    .rounded(.s)
             }
         }
-        .padding(.horizontal, 15)
-        .padding(.top, 40)
-        .padding(.bottom, 15)
+        .padding(.horizontal, Spacing.m)
+        .padding(.top, Spacing.xl)
+        .padding(.bottom, Spacing.m)
         .alert("Oops", isPresented: $showsUnavailableAlert) {
             Button("Ok", role: .cancel) { }
         } message: {
@@ -39,7 +41,7 @@ struct ExperienceDetailsView: View {
         }
         // Restore the default accent inside the content so the alert buttons stay readable
         // (the enclosing navigation stack uses a white tint for its bar items).
-        .tint(Color(.accent))
+        .tint(Colors.accent.swiftUIColor)
         .sectionNavigationBar(title: item.title)
     }
 
@@ -61,12 +63,13 @@ private struct DetailRow: View {
     let value: String
 
     var body: some View {
-        HStack(alignment: .top, spacing: 15) {
+        HStack(alignment: .top, spacing: Spacing.m) {
             Text(title)
+                .typography(.Paragraph.Level1.regular)
                 .frame(width: 88, alignment: .leading)
             Text(value)
+                .typography(.Paragraph.Level1.regular)
         }
-        .font(.body)
     }
 
 }

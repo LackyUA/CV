@@ -2,8 +2,6 @@
 //  UIFont.TextStyle+SwiftUI.swift
 //  CoreUI
 //
-//  Created by Andrii Vysotskyi on 30.05.2025.
-//
 
 import SwiftUI
 

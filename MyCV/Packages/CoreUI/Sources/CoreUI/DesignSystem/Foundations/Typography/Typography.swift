@@ -2,8 +2,6 @@
 //  Typography.swift
 //  CoreUI
 //
-//  Created by Andrii Vysotskyi on 27.05.2025.
-//
 
 import SwiftUI
 
