@@ -125,14 +125,14 @@ an organism.
 Atomic design uses pages as specific template instances that contain real
 content. This project does not store pages in `DesignSystem`.
 
-A view in an `Application` RIB is the project equivalent of a page. The view
-supplies application state, content, and actions. It can use a template or
-compose design-system components directly.
+A screen view in the application target is the project equivalent of a page.
+The view supplies application state, content, and actions. It can use a
+template or compose design-system components directly.
 
 Design-system components and templates must not own:
 
 - Data loading.
-- RIB navigation.
+- Navigation.
 - Business workflows.
 
 ## Component placement
@@ -150,7 +150,7 @@ Use these steps when you add a component:
 5. If the object defines a screen-level layout and content structure, put it
    in `Templates`.
 6. If the view supplies real application state, content, and actions, define
-   it in the applicable RIB in `Application`.
+   it in the applicable screen folder of the application target.
 
 Do not classify a component only from its dependencies. Reuse existing
 components when the result keeps a clear purpose and responsibility.

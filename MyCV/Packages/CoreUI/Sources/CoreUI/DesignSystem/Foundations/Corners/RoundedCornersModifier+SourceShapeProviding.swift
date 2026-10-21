@@ -1,5 +1,5 @@
 //
-//  SourceShapeProviding+RoundedCorners.swift
+//  RoundedCornersModifier+SourceShapeProviding.swift
 //  CoreUI
 //
 

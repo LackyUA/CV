@@ -1,5 +1,5 @@
 //
-//  UIFont.TextStyle+SwiftUI.swift
+//  UIFontTextStyle+SwiftUI.swift
 //  CoreUI
 //
 

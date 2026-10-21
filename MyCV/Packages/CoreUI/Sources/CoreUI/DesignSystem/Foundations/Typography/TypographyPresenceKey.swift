@@ -5,12 +5,12 @@
 
 import SwiftUI
 
-/// A `PreferenceKey` used to indicate whether a view or any of its descendants
-/// has applied a typography modifier. This is used to prevent multiple applications
-/// of cumulative typography effects.
+/// A preference key that reports whether a view or one of its descendants applied a typography modifier.
+///
+/// The typography modifier reads this preference to apply its baseline adjustment only once.
 struct TypographyPresenceKey: PreferenceKey {
 
-    /// Represents the source location in code where a typography modifier was applied.
+    /// The source location where code applied a typography modifier.
     struct UsageContext: Equatable {
         let file: String, line: UInt
     }

@@ -5,11 +5,12 @@
 
 import SwiftUI
 
-/// Type scale mirrored from the MyCV design system (`tokens.json` → `type.groups`).
-/// Tracking values are the design system's `letterSpacing` (em) multiplied by the font size.
+/// The type scale of the MyCV design system.
+///
+/// Each tracking value is the design-system `letterSpacing` in em multiplied by the font size.
 extension Typography {
 
-    /// Orbitron display styles. Always uppercase and tracked; never for sentences.
+    /// Orbitron display styles. These styles are always uppercase and tracked. Do not use them for sentences.
     public enum Display {
 
         /// `display-xl` — welcome title. Orbitron 800, 34/40, tracking 0.06em.

@@ -19,7 +19,7 @@ extension View {
         }
     }
 
-    /// Applies every layer of a `BoxShadow`, inferring its shape from the source view.
+    /// Applies every layer of a `BoxShadow` to the view. The shadow uses the source shape of the view.
     public func boxShadow<ClipShape: SpreadableShape>(
         _ shadow: BoxShadow
     ) -> some View where Self: SourceShapeProviding<ClipShape> {

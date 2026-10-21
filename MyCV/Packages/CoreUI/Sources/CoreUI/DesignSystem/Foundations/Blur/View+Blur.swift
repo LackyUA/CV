@@ -29,8 +29,8 @@ extension View {
     /// If Reduce Transparency is on, the modifier fills the shape with `GlassFillOpaque` instead of the blur.
     ///
     /// - Parameters:
-    ///   - radius: The design-system blur radius; picks the closest system material.
-    ///   - tint: An optional color layered over the blur (for example `GlassFill` or `GlassTintCyan`).
+    ///   - radius: The design-system blur radius. The modifier selects the closest system material.
+    ///   - tint: An optional color that the modifier layers over the blur, for example `GlassFill` or `GlassTintCyan`.
     public func backgroundBlur<SourceShape: Shape>(
         _ radius: BlurRadius, tint: Color? = nil
     ) -> ModifiedContent<Self, BackgroundBlurModifier<SourceShape>> where Self: SourceShapeProviding<SourceShape> {
@@ -60,7 +60,7 @@ public struct BackgroundBlurModifier<S: Shape>: ViewModifier {
             }
     }
 
-    // MARK: - Properties
+    // MARK: - Internal
 
     init(radius: BlurRadius, tint: Color?, blurShape: S) {
         self.radius = radius

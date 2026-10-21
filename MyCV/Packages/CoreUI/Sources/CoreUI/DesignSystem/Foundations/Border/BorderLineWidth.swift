@@ -2,12 +2,17 @@
 //  BorderLineWidth.swift
 //  CoreUI
 //
+
 import Foundation
 
-public struct BorderLineWidth: Sendable, Equatable {
+/// Border line width symbols.
+public struct BorderLineWidth: RawRepresentable, Sendable {
 
-    /// Raw value.
-    let rawValue: CGFloat
+    public init(rawValue: CGFloat) {
+        self.rawValue = rawValue
+    }
+
+    public let rawValue: CGFloat
 }
 
 // swiftlint:disable identifier_name

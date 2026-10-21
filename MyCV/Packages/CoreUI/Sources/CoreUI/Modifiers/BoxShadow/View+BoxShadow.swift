@@ -26,7 +26,7 @@ extension View {
         )
     }
 
-    /// Adds a shadow to shadow casting view inferring its shape automatically.
+    /// Adds a shadow to this view. The shadow uses the source shape of the view.
     func boxShadow<ClipShape: SpreadableShape>(
         color: Color, radius: CGFloat, spread: CGFloat = 0, x: CGFloat = 0, y: CGFloat = 0
     ) -> some View where Self: SourceShapeProviding<ClipShape> {

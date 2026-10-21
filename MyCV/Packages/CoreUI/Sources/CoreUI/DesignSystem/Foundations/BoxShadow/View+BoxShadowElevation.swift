@@ -21,7 +21,7 @@ extension View {
         )
     }
 
-    /// Applies a shadow to the view using a `BoxShadowElevation`, automatically inferring its shape from source view.
+    /// Applies a shadow to the view with a specified `BoxShadowElevation`. The shadow uses the source shape of the view.
     public func boxShadow<ClipShape: SpreadableShape>(
         elevation: BoxShadowElevation = .large
     ) -> some View where Self: SourceShapeProviding<ClipShape> {
