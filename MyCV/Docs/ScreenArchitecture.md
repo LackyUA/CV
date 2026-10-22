@@ -9,7 +9,8 @@ view with literal data.
 
 ## Scope
 
-Apply this policy to screens in the application target, in `MyCV/Screens/`.
+Apply this policy to screens in the Application package, in
+`Packages/Application/Sources/Application/Screens/`.
 Apply it to new screens and to screens that you change. Move existing screens
 incrementally.
 
@@ -195,8 +196,8 @@ struct StartStartedSectionsViewConfiguration: Equatable {
 
     struct Section: Equatable, Identifiable {
 
-        /// The identifier of the section.
-        let id: UniqueIdentifier<Self, CVSection>
+        /// The identifier of the button. The raw value is the position of the section in the CV.
+        let id: UniqueIdentifier<Self, Int>
 
         /// The title of the button.
         let title: String

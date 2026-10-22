@@ -4,7 +4,16 @@
 //
 
 /// The hobbies, languages, and community facts of the CV.
-public struct Additional: Decodable, Equatable, Sendable {
+public struct Additional: Decodable, Hashable, Sendable {
+
+    /// Creates the additional information.
+    public init(title: String, hobbies: [String], english: String, ukrainian: String, community: String) {
+        self.title = title
+        self.hobbies = hobbies
+        self.english = english
+        self.ukrainian = ukrainian
+        self.community = community
+    }
 
     /// The title of the section, as the screen shows it.
     public let title: String

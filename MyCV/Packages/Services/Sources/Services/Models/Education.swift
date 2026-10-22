@@ -4,10 +4,19 @@
 //
 
 /// The school, university, and courses of the CV.
-public struct Education: Decodable, Equatable, Sendable {
+public struct Education: Decodable, Hashable, Sendable {
 
     /// The university degree.
-    public struct University: Decodable, Equatable, Sendable {
+    public struct University: Decodable, Hashable, Sendable {
+
+        /// Creates a university degree.
+        public init(name: String, direction: String, qualification: String, years: String, gpa: String) {
+            self.name = name
+            self.direction = direction
+            self.qualification = qualification
+            self.years = years
+            self.gpa = gpa
+        }
 
         /// The name of the university.
         public let name: String
@@ -23,6 +32,14 @@ public struct Education: Decodable, Equatable, Sendable {
 
         /// The grade point average.
         public let gpa: String
+    }
+
+    /// Creates the education details.
+    public init(title: String, school: String, university: University, courses: [String]) {
+        self.title = title
+        self.school = school
+        self.university = university
+        self.courses = courses
     }
 
     /// The title of the section, as the screen shows it.

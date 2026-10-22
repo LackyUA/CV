@@ -3,6 +3,7 @@
 //  MyCV
 //
 
+import Application
 import SwiftUI
 
 /// SwiftUI entry point replacing the storyboard-based `AppDelegate` launch.
