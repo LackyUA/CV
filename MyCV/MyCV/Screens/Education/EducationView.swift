@@ -4,6 +4,7 @@
 //
 
 import CoreUI
+import Services
 import SwiftUI
 
 struct EducationView: View {
@@ -182,7 +183,7 @@ private struct CoursesPage: View {
 
 #Preview {
     NavigationStack {
-        EducationView(viewModel: EducationViewModel())
+        EducationView(viewModel: EducationViewModel(service: ServiceBuilder.makeAPIService()))
     }
     .tint(Colors.textPrimary.swiftUIColor)
 }

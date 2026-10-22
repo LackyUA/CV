@@ -4,6 +4,7 @@
 //
 
 import CoreUI
+import Services
 import SwiftUI
 
 struct SummaryView: View {
@@ -59,7 +60,7 @@ private struct SummaryText: View {
 
 #Preview {
     NavigationStack {
-        SummaryView(viewModel: SummaryViewModel())
+        SummaryView(viewModel: SummaryViewModel(service: ServiceBuilder.makeAPIService()))
     }
     .tint(Colors.textPrimary.swiftUIColor)
 }

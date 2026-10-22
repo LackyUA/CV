@@ -4,6 +4,7 @@
 //
 
 import CoreUI
+import Services
 import SwiftUI
 
 struct AdditionalView: View {
@@ -57,7 +58,7 @@ private struct AdditionalEntryView: View {
 
 #Preview {
     NavigationStack {
-        AdditionalView(viewModel: AdditionalViewModel())
+        AdditionalView(viewModel: AdditionalViewModel(service: ServiceBuilder.makeAPIService()))
     }
     .tint(Colors.textPrimary.swiftUIColor)
 }

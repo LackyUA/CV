@@ -77,7 +77,7 @@ final class StartViewModel {
         .init(
             profileBadge: .init(image: Image(decorative: Images.profileImageCyber)),
             panel: .init(
-                name: .init(firstName: "Dmytro", lastName: "Dobrovolskyy"),
+                name: .init(firstName: "Dmytro", lastName: "Dobrovolskyi"),
                 sections: .init(
                     sections: CVSection.allCases.map { section in
                         .init(

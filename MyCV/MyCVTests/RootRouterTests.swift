@@ -9,6 +9,11 @@ import Testing
 @MainActor
 struct RootRouterTests {
 
+    init() {
+        // The router resolves its service from the shared container, as the app does at launch.
+        AppDependencies.register()
+    }
+
     @Test
     func pathStartsAtRoot() {
         let router = RootRouter()

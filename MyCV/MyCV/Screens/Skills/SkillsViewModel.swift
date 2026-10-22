@@ -5,6 +5,7 @@
 
 import Foundation
 import Observation
+import Services
 
 @MainActor
 @Observable
@@ -16,41 +17,41 @@ final class SkillsViewModel {
     }
 
     struct SkillsSection: Identifiable, Equatable {
-        let id: String
-        let title: LocalizedStringResource
+        let id: Int
+        let title: String
         let skills: [Skill]
+    }
+
+    init(service: APIService) {
+        self.service = service
     }
 
     private(set) var title = ""
     private(set) var sections: [SkillsSection] = []
 
-    private let service: APIServiceProtocol
-
-    init(service: APIServiceProtocol = APIService()) {
-        self.service = service
-    }
-
     func load() async {
         do {
-            let skills = try await service.fetch(Skills.self)
+            let skills = try await service.fetchContent().skills
             title = skills.title
-            sections = [
-                makeSection(id: "languages", title: "Languages", names: skills.languages),
-                makeSection(id: "embedded", title: "Embedded frameworks", names: skills.embeddedFrameworks),
-                makeSection(id: "thirdParty", title: "Third party frameworks", names: skills.thirdPartyFrameworks),
-                makeSection(id: "patterns", title: "Design patterns", names: skills.designPatterns),
-                makeSection(id: "systems", title: "Operation systems", names: skills.operationSystems)
-            ]
+            sections = skills.sections.enumerated().map { index, section in
+                Self.makeSection(id: index, from: section)
+            }
         } catch {
             print(error)
         }
     }
 
-    private func makeSection(id: String, title: LocalizedStringResource, names: [String]) -> SkillsSection {
-        let skills = names.enumerated().map { index, name in
+    // MARK: - Private Properties
+
+    private let service: APIService
+
+    // MARK: - Private Methods
+
+    private static func makeSection(id: Int, from section: Skills.Section) -> SkillsSection {
+        let skills = section.items.enumerated().map { index, name in
             Skill(id: index, name: name)
         }
-        return SkillsSection(id: id, title: title, skills: skills)
+        return SkillsSection(id: id, title: section.title, skills: skills)
     }
 
 }

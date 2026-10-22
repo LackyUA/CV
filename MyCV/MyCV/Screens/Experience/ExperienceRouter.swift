@@ -3,6 +3,7 @@
 //  MyCV
 //
 
+import Services
 import SwiftUI
 
 /// Router for the experience section. Builds the experience list and pushes the details screen.
@@ -15,7 +16,7 @@ final class ExperienceRouter: Router {
         case details(ExperienceItem)
     }
 
-    init(service: APIServiceProtocol) {
+    init(service: APIService) {
         self.service = service
     }
 
@@ -44,6 +45,6 @@ final class ExperienceRouter: Router {
 
     // MARK: - Private Properties
 
-    private let service: APIServiceProtocol
+    private let service: APIService
 
 }

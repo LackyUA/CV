@@ -5,6 +5,7 @@
 
 import Foundation
 import Observation
+import Services
 
 @MainActor
 @Observable
@@ -39,6 +40,10 @@ final class EducationViewModel {
         let name: String
     }
 
+    init(service: APIService) {
+        self.service = service
+    }
+
     var selectedPage: Page = .school
 
     private(set) var title = ""
@@ -46,21 +51,12 @@ final class EducationViewModel {
     private(set) var universityDetails: [UniversityDetail] = []
     private(set) var courses: [Course] = []
 
-    private let service: APIServiceProtocol
-
-    /// Display order for the university dictionary; unknown keys are appended alphabetically.
-    private static let universityKeyOrder = ["University", "Direction", "Qualification", "GPA"]
-
-    init(service: APIServiceProtocol = APIService()) {
-        self.service = service
-    }
-
     func load() async {
         do {
-            let education = try await service.fetch(Education.self)
+            let education = try await service.fetchContent().education
             title = education.title
             school = education.school
-            universityDetails = Self.orderedDetails(from: education.university)
+            universityDetails = Self.makeDetails(from: education.university)
             courses = education.courses.enumerated().map { index, name in
                 Course(id: index, number: index + 1, name: name)
             }
@@ -69,16 +65,22 @@ final class EducationViewModel {
         }
     }
 
-    private static func orderedDetails(from university: [String: String]) -> [UniversityDetail] {
-        let known = universityKeyOrder.compactMap { key in
-            university[key].map { UniversityDetail(id: key, title: key, value: $0) }
-        }
-        let other = university.keys
-            .filter { !universityKeyOrder.contains($0) }
-            .sorted()
-            .map { UniversityDetail(id: $0, title: $0, value: university[$0] ?? "") }
+    // MARK: - Private Properties
 
-        return known + other
+    private let service: APIService
+
+    // MARK: - Private Methods
+
+    /// One labelled row per university field, in display order. Empty fields are skipped.
+    private static func makeDetails(from university: Education.University) -> [UniversityDetail] {
+        [
+            UniversityDetail(id: "name", title: "University", value: university.name),
+            UniversityDetail(id: "direction", title: "Direction", value: university.direction),
+            UniversityDetail(id: "qualification", title: "Qualification", value: university.qualification),
+            UniversityDetail(id: "years", title: "Years", value: university.years),
+            UniversityDetail(id: "gpa", title: "GPA", value: university.gpa)
+        ]
+        .filter { !$0.value.isEmpty }
     }
 
 }

@@ -14,17 +14,20 @@ struct ExperienceDetailsView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: Spacing.l) {
-            DetailRow(title: "Period", value: viewModel.period)
-            DetailRow(title: "Description", value: viewModel.description)
-
-            Spacer()
+            // Descriptions hold several paragraphs, so the details scroll above the fixed button.
+            ScrollView {
+                VStack(alignment: .leading, spacing: Spacing.l) {
+                    DetailRow(title: "Period", value: viewModel.period)
+                    DetailRow(title: "Description", value: viewModel.description)
+                }
+            }
 
             Button {
                 viewModel.openProject { url in
                     openURL(url)
                 }
             } label: {
-                Text("Open Git Project")
+                Text("Open Project")
                     .typography(.Interface.buttonLarge)
                     .foregroundStyle(Colors.textOnNeon.swiftUIColor)
                     .frame(maxWidth: .infinity, minHeight: 50)
@@ -45,7 +48,7 @@ struct ExperienceDetailsView: View {
         .alert("Oops", isPresented: $viewModel.showsUnavailableAlert) {
             Button("Ok", role: .cancel) { }
         } message: {
-            Text("Sorry, I can't distribute this code.")
+            Text("Sorry, this project has no public link.")
         }
         // Restore the default accent inside the content so the alert buttons stay readable
         // (the enclosing navigation stack uses a white tint for its bar items).
@@ -84,10 +87,10 @@ private struct DetailRow: View {
     NavigationStack {
         ExperienceDetailsView(viewModel: ExperienceDetailsViewModel(item: ExperienceItem(
             id: 0,
-            title: "Road signs",
-            period: "2 months",
-            link: "https://github.com/LackyUA/Road-signs",
-            description: "Developed a program for learning road signs."
+            title: "Loca · Senior iOS Developer",
+            period: "Feb 2024 – Feb 2026",
+            link: "https://apps.apple.com/ua/app/loca-explore-earn/id1670420863",
+            description: "Remote.\n\n• Sole iOS engineer: built the app from scratch and owned it in production for two years.\n• Moved the app from Redux/Combine/UIKit to MVVM-C/SwiftUI with async/await."
         )))
     }
     .tint(Colors.textPrimary.swiftUIColor)

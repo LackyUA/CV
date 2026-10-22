@@ -4,6 +4,7 @@
 //
 
 import CoreUI
+import Services
 import SwiftUI
 
 struct SkillsView: View {
@@ -58,7 +59,7 @@ private struct SkillRow: View {
 /// Neon section title with hairline separators.
 private struct SkillsSectionHeader: View {
 
-    let title: LocalizedStringResource
+    let title: String
 
     var body: some View {
         Text(title)
@@ -82,7 +83,7 @@ private struct SkillsSectionHeader: View {
 
 #Preview {
     NavigationStack {
-        SkillsView(viewModel: SkillsViewModel())
+        SkillsView(viewModel: SkillsViewModel(service: ServiceBuilder.makeAPIService()))
     }
     .tint(Colors.textPrimary.swiftUIColor)
 }
