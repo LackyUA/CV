@@ -169,13 +169,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		323A94B7227998AD000EAF78 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
 		327A75DB227085F300F8957F = {
 			isa = PBXGroup;
 			children = (
@@ -202,7 +195,6 @@
 				327A75F1227085F600F8957F /* Assets.xcassets */,
 				327A75F6227085F600F8957F /* Info.plist */,
 				327A75EE227085F300F8957F /* MyCV.xcdatamodeld */,
-				323A94B7227998AD000EAF78 /* Helpers */,
 				871A171030890A5E00F564FA /* App */,
 				871A171530890A9000F564FA /* Screens */,
 				8728FEE730895E5400675986 /* Navigation */,

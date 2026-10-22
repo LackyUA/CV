@@ -17,9 +17,16 @@ struct StartStartedNameView: View {
         VStack(spacing: 0) {
             Text(configuration.firstName)
                 .typography(.Display.name)
+                .foregroundStyle(Colors.textPrimary.swiftUIColor)
+                .shadow(color: Colors.neonMagenta.swiftUIColor, radius: 0, x: 2)
+                .shadow(color: Colors.neonCyan.swiftUIColor, radius: 0, x: -2)
                 .frame(maxHeight: .infinity)
+
             Text(configuration.lastName)
                 .typography(.Display.name)
+                .foregroundStyle(Colors.textPrimary.swiftUIColor)
+                .shadow(color: Colors.neonMagenta.swiftUIColor, radius: 0, x: 2)
+                .shadow(color: Colors.neonCyan.swiftUIColor, radius: 0, x: -2)
                 .frame(maxHeight: .infinity)
         }
         .foregroundStyle(Colors.textPrimary.swiftUIColor)
