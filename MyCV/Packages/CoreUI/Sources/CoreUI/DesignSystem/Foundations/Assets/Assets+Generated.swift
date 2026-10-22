@@ -53,6 +53,7 @@ public enum Asset {
     public static let edtech = ImageAsset(name: "edtech")
     public static let experience = ImageAsset(name: "experience")
     public static let profileImage = ImageAsset(name: "profileImage")
+    public static let profileImageCyber = ImageAsset(name: "profileImageCyber")
     public static let skills = ImageAsset(name: "skills")
     public static let summary = ImageAsset(name: "summary")
     public static let web = ImageAsset(name: "web")

@@ -102,6 +102,58 @@ declarations in the section must have the same visibility level.
 Use descriptive `MARK` sections for other groups of related code when they make
 the file easier to scan.
 
+## Group constants in a `Constants` enumeration
+
+If a type uses constant values, put them in a nested `Constants`
+enumeration. Declare each constant as a `static let` member. Examples of
+constant values are sizes, scales, durations, and identifiers.
+
+Use an enumeration without cases. You cannot create an instance of it.
+
+Give `Constants` the lowest access level that its users need. Usually this
+level is `private`. Put `Constants` at the end of the type, in a
+`// MARK: - Constants` section.
+
+Do not write:
+
+```swift
+struct Orb: View {
+
+    var body: some View {
+        Circle()
+            .frame(width: Self.diameter, height: Self.diameter)
+    }
+
+    // MARK: - Private Properties
+
+    private static let diameter: CGFloat = 240
+}
+```
+
+Write:
+
+```swift
+struct Orb: View {
+
+    var body: some View {
+        Circle()
+            .frame(width: Constants.diameter, height: Constants.diameter)
+    }
+
+    // MARK: - Constants
+
+    private enum Constants {
+
+        /// The diameter of the orb.
+        static let diameter: CGFloat = 240
+    }
+}
+```
+
+Do not put shared design values in `Constants`. Put colors, spacing, corner
+radii, and other design tokens in the CoreUI foundations. For more information,
+refer to [`Docs/DesignSystemStructure.md`](DesignSystemStructure.md).
+
 ## Declare file-scoped extension methods
 
 Do not apply the `private` access modifier to an entire extension. Leave the
@@ -135,3 +187,5 @@ Before you complete a Swift file, make sure that:
 5. Separate private sections use the standard section names.
 6. A file-scoped extension marks its methods `fileprivate` instead of marking
    the entire extension `private`.
+7. Constant values are `static let` members of a nested `Constants`
+   enumeration.
