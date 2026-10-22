@@ -75,6 +75,11 @@ extension Typography {
         public static let footnote = Typography(
             font: .systemFont(ofSize: 13), weight: .regular, textStyle: .footnote, lineHeight: 18
         )
+
+        /// `footnote-semibold` — disclosure chevrons and small emphasized text. 13/18 semibold.
+        public static let footnoteSemibold = Typography(
+            font: .systemFont(ofSize: 13), weight: .semibold, textStyle: .footnote, lineHeight: 18
+        )
     }
 
     /// SF Mono HUD styles for captions and figures.
@@ -121,6 +126,8 @@ extension Typography {
                 .typography(.Interface.body)
             Text("Footnote")
                 .typography(.Interface.footnote)
+            Text("Footnote Semibold")
+                .typography(.Interface.footnoteSemibold)
         }
         GroupBox {
             Text("Mobile")

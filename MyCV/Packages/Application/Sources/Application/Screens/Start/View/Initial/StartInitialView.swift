@@ -24,8 +24,8 @@ struct StartInitialView: View {
                 } label: {
                     Text(configuration.startButtonTitle)
                 }
-                .buttonStyle(.startOrb)
-                .startOrbButtonExpanded(configuration.isStarting)
+                .buttonStyle(.orb)
+                .orbButtonExpanded(configuration.isStarting)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         }

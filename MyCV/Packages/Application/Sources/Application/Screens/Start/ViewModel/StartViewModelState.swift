@@ -35,7 +35,7 @@ enum StartViewModelState: Equatable {
     /// The screen shows the welcome title and the start orb.
     case initial(Initial)
 
-    /// The screen shows the owner's name and the section buttons.
+    /// The screen shows the owner's name and the section cards.
     case started(Started)
 
     /// The sections did not load. The screen shows a message and a button that loads the sections again.

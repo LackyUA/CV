@@ -8,7 +8,7 @@ import SwiftUI
 // swiftlint:disable identifier_name
 
 /// A representation of shadow elevation used for custom shadow styling.
-public struct BoxShadowElevation {
+public struct BoxShadowElevation: Sendable {
 
     /// The color of the shadow.
     public let color: Color
