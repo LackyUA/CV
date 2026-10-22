@@ -4,7 +4,17 @@
 //
 
 /// The contact details of the CV.
-public struct Contacts: Decodable, Equatable, Sendable {
+public struct Contacts: Decodable, Hashable, Sendable {
+
+    /// Creates the contact details.
+    public init(title: String, address: String, email: String, mobile: String, git: String, linkedin: String) {
+        self.title = title
+        self.address = address
+        self.email = email
+        self.mobile = mobile
+        self.git = git
+        self.linkedin = linkedin
+    }
 
     /// The title of the section, as the screen shows it.
     public let title: String

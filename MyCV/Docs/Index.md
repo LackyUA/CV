@@ -15,7 +15,7 @@ applies, read all applicable documents.
 - For Swift declaration visibility, member ordering, `MARK` sections,
   private extensions, or constants, read
   [`Docs/DeclarationOrdering.md`](DeclarationOrdering.md).
-- For screens in the application target, view models, states, view
+- For screens in the Application package, view models, states, view
   configurations, or the division of data and rendering between a view model
   and a view, read [`Docs/ScreenArchitecture.md`](ScreenArchitecture.md).
 - For haptics or sensory feedback, read

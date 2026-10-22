@@ -5,7 +5,6 @@
 
 import Services
 import Testing
-@testable import MyCV
 
 /// Decodes the bundled `Content.json` to catch schema drift between the data and the models.
 struct ContentDecodingTests {
@@ -14,28 +13,36 @@ struct ContentDecodingTests {
     func contentDecodes() async throws {
         let content = try await ServiceBuilder.makeAPIService().fetchContent()
 
-        #expect(content.contacts.title == "Contacts")
-        #expect(!content.contacts.email.isEmpty)
-        #expect(!content.contacts.linkedin.isEmpty)
+        #expect(content.sections.map(\.title) == [
+            "Contacts",
+            "Profile",
+            "Skills",
+            "Education",
+            "Experience",
+            "Additional information",
+        ])
 
-        #expect(content.summary.title == "Profile")
-        #expect(!content.summary.description.isEmpty)
-        #expect(!content.summary.highlights.isEmpty)
-
-        #expect(content.skills.title == "Skills")
-        #expect(content.skills.sections.first?.title == "Languages")
-        #expect(content.skills.sections.allSatisfy { !$0.items.isEmpty })
-
-        #expect(content.education.title == "Education")
-        #expect(!content.education.university.name.isEmpty)
-
-        #expect(content.experience.title == "Experience")
-        #expect(!content.experience.positions.isEmpty)
-        #expect(content.experience.positions.allSatisfy { !$0.name.isEmpty && !$0.period.isEmpty })
-
-        #expect(content.additional.title == "Additional information")
-        #expect(!content.additional.english.isEmpty)
-        #expect(!content.additional.ukrainian.isEmpty)
+        for section in content.sections {
+            switch section {
+            case .contacts(let contacts):
+                #expect(!contacts.email.isEmpty)
+                #expect(!contacts.linkedin.isEmpty)
+            case .summary(let summary):
+                #expect(!summary.description.isEmpty)
+                #expect(!summary.highlights.isEmpty)
+            case .skills(let skills):
+                #expect(skills.sections.first?.title == "Languages")
+                #expect(skills.sections.allSatisfy { !$0.items.isEmpty })
+            case .education(let education):
+                #expect(!education.university.name.isEmpty)
+            case .experience(let experience):
+                #expect(!experience.positions.isEmpty)
+                #expect(experience.positions.allSatisfy { !$0.name.isEmpty && !$0.period.isEmpty })
+            case .additional(let additional):
+                #expect(!additional.english.isEmpty)
+                #expect(!additional.ukrainian.isEmpty)
+            }
+        }
     }
 
 }

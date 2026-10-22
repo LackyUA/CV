@@ -1,187 +1,195 @@
 {
-    "contacts" : {
-        "title" : "Contacts",
-        "address" : "Ivano-Frankivsk, Ukraine",
-        "email" : "ddmutro2@gmail.com",
-        "mobile" : "+380668422448",
-        "git" : "https://github.com/LackyUA",
-        "linkedin" : "https://www.linkedin.com/in/d-dobrovolskyi/"
-    },
-    "summary" : {
-        "title" : "Profile",
-        "description" : "Senior iOS Engineer, 8+ years in production apps: e-commerce, crypto trading, fintech, healthcare. Main stack – Swift, SwiftUI/UIKit, Swift Concurrency, Combine. Led three architecture migrations (RxSwift → Combine → async/await), built one app from scratch as the only iOS developer, set up modular SPM codebases and release tooling. Apps I worked on last held crash-free rate above 99.8%.",
-        "highlights" : [
-            "Wrote shell scripts for release branches, version bumps and TestFlight uploads – no third-party CI/CD needed. Together with a strict git flow this meant a release could be cut from the dev branch at any moment. The main win was not only speed but fewer human errors: version numbers, tags, commits and release notes were always correct.",
-            "Migrated production codebases through three generations: UIKit/RxSwift → UIKit/Combine → SwiftUI + Swift Concurrency.",
-            "Shipped on-device image classification (TensorFlow) that checks whether a photo is a supported Ukrainian passport type in a banking onboarding flow.",
-            "Use AI coding agents daily: wrote Claude Code skills for refactoring and enforcing the team's code style at MAUDAU; set up Codex in VS Code with custom extensions for building and Swift syntax support at Loca; use agents for code review, test generation and migrations."
-        ]
-    },
-    "skills" : {
-        "title" : "Skills",
-        "sections" : [
-            {
-                "title" : "Languages",
-                "items" : [
-                    "Swift",
-                    "Python (working knowledge)",
-                    "C++ (working knowledge)",
-                    "Java (working knowledge)"
-                ]
-            },
-            {
-                "title" : "UI",
-                "items" : [
-                    "SwiftUI",
-                    "UIKit",
-                    "Programmatic UI",
-                    "Atomic Design"
-                ]
-            },
-            {
-                "title" : "Concurrency & Reactive",
-                "items" : [
-                    "Swift Concurrency",
-                    "async/await",
-                    "Actors",
-                    "Combine",
-                    "RxSwift"
-                ]
-            },
-            {
-                "title" : "Architecture",
-                "items" : [
-                    "RIBs",
-                    "MVVM-C",
-                    "Redux/UDF",
-                    "TCA",
-                    "Coordinator",
-                    "Modular architecture"
-                ]
-            },
-            {
-                "title" : "Networking",
-                "items" : [
-                    "REST",
-                    "GraphQL/Apollo",
-                    "OpenAPI",
-                    "Alamofire",
-                    "Moya"
-                ]
-            },
-            {
-                "title" : "Platform & Infrastructure",
-                "items" : [
-                    "SPM",
-                    "Git",
-                    "GitHub Actions",
-                    "XcodeGen",
-                    "SwiftGen",
-                    "SwiftLint"
-                ]
-            },
-            {
-                "title" : "Analytics & Observability",
-                "items" : [
-                    "Firebase",
-                    "Snowplow",
-                    "Sentry",
-                    "GrowthBook"
-                ]
-            },
-            {
-                "title" : "Frameworks & Integrations",
-                "items" : [
-                    "Google Maps SDK",
-                    "MapKit",
-                    "TensorFlow",
-                    "Lottie",
-                    "Push Notifications",
-                    "Deep Links",
-                    "AVFoundation"
-                ]
-            },
-            {
-                "title" : "AI-assisted Development",
-                "items" : [
-                    "Claude Code (custom skills, CLAUDE.md)",
-                    "Codex",
-                    "ChatGPT",
-                    "AI-driven code review",
-                    "AI-driven test generation",
-                    "AI-driven refactoring"
-                ]
-            }
-        ]
-    },
-    "education" : {
-        "title" : "Education",
-        "school" : "Ukrainian grammar school No1.",
-        "university" : {
-            "name" : "Ivano-Frankivsk National University of Oil and Gas",
-            "direction" : "Computer Engineering",
-            "qualification" : "Master's Degree",
-            "years" : "2012–2019",
-            "gpa" : "4.91"
+    "sections" : [
+        {
+            "type" : "contacts",
+            "title" : "Contacts",
+            "address" : "Ivano-Frankivsk, Ukraine",
+            "email" : "ddmutro2@gmail.com",
+            "mobile" : "+380668422448",
+            "git" : "https://github.com/LackyUA",
+            "linkedin" : "https://www.linkedin.com/in/d-dobrovolskyi/"
         },
-        "courses" : [
-            "Online video-course UIKit Fundamentals by Udacity.",
-            "Online video-course Developing iOS 11 Apps with Swift by Stanford (Paul Hegarty)."
-        ]
-    },
-    "experience" : {
-        "title" : "Experience",
-        "positions" : [
-            {
-                "name" : "MAUDAU · Senior iOS Developer",
-                "period" : "Feb 2026 – Sep 2026",
-                "link" : "https://apps.apple.com/ua/app/maudau/id6747066079?l=uk",
-                "description" : "Remote. Team: 3 iOS, 3 Android, 2 backend, 2 QA, designer, PM.\n\n• Worked on a large e-commerce app: iOS 17+, Swift 6 strict concurrency, crash-free rate above 99.8%.\n• Shipped features with RIBs + unidirectional state, SwiftUI and async/await.\n• Split the codebase into SPM modules so teams could own and ship shared code independently.\n• Built design-system components (foundations, animations, haptics) used across the app.\n• Wired up analytics and experiments: Snowplow, Firebase, GrowthBook, Sentry.\n• Wrote Claude Code skills for refactoring and matching the team's code style, used across the iOS team.\n\nProject: MAUDAU – full shopping journey: catalog/search, barcode scanning, product pages, cart, checkout, installment payments, order tracking, favorites, promo codes, support.\n\nTech: Swift 6 · SwiftUI · RIBs · async/await · SPM · OpenAPI · Reteno · Firebase · Snowplow · GrowthBook · Sentry · Lottie · XcodeGen"
+        {
+            "type" : "summary",
+            "title" : "Profile",
+            "description" : "Senior iOS Engineer, 8+ years in production apps: e-commerce, crypto trading, fintech, healthcare. Main stack – Swift, SwiftUI/UIKit, Swift Concurrency, Combine. Led three architecture migrations (RxSwift → Combine → async/await), built one app from scratch as the only iOS developer, set up modular SPM codebases and release tooling. Apps I worked on last held crash-free rate above 99.8%.",
+            "highlights" : [
+                "Wrote shell scripts for release branches, version bumps and TestFlight uploads – no third-party CI/CD needed. Together with a strict git flow this meant a release could be cut from the dev branch at any moment. The main win was not only speed but fewer human errors: version numbers, tags, commits and release notes were always correct.",
+                "Migrated production codebases through three generations: UIKit/RxSwift → UIKit/Combine → SwiftUI + Swift Concurrency.",
+                "Shipped on-device image classification (TensorFlow) that checks whether a photo is a supported Ukrainian passport type in a banking onboarding flow.",
+                "Use AI coding agents daily: wrote Claude Code skills for refactoring and enforcing the team's code style at MAUDAU; set up Codex in VS Code with custom extensions for building and Swift syntax support at Loca; use agents for code review, test generation and migrations."
+            ]
+        },
+        {
+            "type" : "skills",
+            "title" : "Skills",
+            "sections" : [
+                {
+                    "title" : "Languages",
+                    "items" : [
+                        "Swift",
+                        "Python (working knowledge)",
+                        "C++ (working knowledge)",
+                        "Java (working knowledge)"
+                    ]
+                },
+                {
+                    "title" : "UI",
+                    "items" : [
+                        "SwiftUI",
+                        "UIKit",
+                        "Programmatic UI",
+                        "Atomic Design"
+                    ]
+                },
+                {
+                    "title" : "Concurrency & Reactive",
+                    "items" : [
+                        "Swift Concurrency",
+                        "async/await",
+                        "Actors",
+                        "Combine",
+                        "RxSwift"
+                    ]
+                },
+                {
+                    "title" : "Architecture",
+                    "items" : [
+                        "RIBs",
+                        "MVVM-C",
+                        "Redux/UDF",
+                        "TCA",
+                        "Coordinator",
+                        "Modular architecture"
+                    ]
+                },
+                {
+                    "title" : "Networking",
+                    "items" : [
+                        "REST",
+                        "GraphQL/Apollo",
+                        "OpenAPI",
+                        "Alamofire",
+                        "Moya"
+                    ]
+                },
+                {
+                    "title" : "Platform & Infrastructure",
+                    "items" : [
+                        "SPM",
+                        "Git",
+                        "GitHub Actions",
+                        "XcodeGen",
+                        "SwiftGen",
+                        "SwiftLint"
+                    ]
+                },
+                {
+                    "title" : "Analytics & Observability",
+                    "items" : [
+                        "Firebase",
+                        "Snowplow",
+                        "Sentry",
+                        "GrowthBook"
+                    ]
+                },
+                {
+                    "title" : "Frameworks & Integrations",
+                    "items" : [
+                        "Google Maps SDK",
+                        "MapKit",
+                        "TensorFlow",
+                        "Lottie",
+                        "Push Notifications",
+                        "Deep Links",
+                        "AVFoundation"
+                    ]
+                },
+                {
+                    "title" : "AI-assisted Development",
+                    "items" : [
+                        "Claude Code (custom skills, CLAUDE.md)",
+                        "Codex",
+                        "ChatGPT",
+                        "AI-driven code review",
+                        "AI-driven test generation",
+                        "AI-driven refactoring"
+                    ]
+                }
+            ]
+        },
+        {
+            "type" : "education",
+            "title" : "Education",
+            "school" : "Ukrainian grammar school No1.",
+            "university" : {
+                "name" : "Ivano-Frankivsk National University of Oil and Gas",
+                "direction" : "Computer Engineering",
+                "qualification" : "Master's Degree",
+                "years" : "2012–2019",
+                "gpa" : "4.91"
             },
-            {
-                "name" : "Loca · Senior iOS Developer",
-                "period" : "Feb 2024 – Feb 2026",
-                "link" : "https://apps.apple.com/ua/app/loca-explore-earn/id1670420863",
-                "description" : "Remote.\n\n• Sole iOS engineer: built the app from scratch and owned it in production for two years.\n• Moved the app from Redux/Combine/UIKit to MVVM-C/SwiftUI with async/await.\n• Google Maps screens with marker clustering and shared search/filters across the main tabs.\n• REST + GraphQL (Apollo) integration, reusable custom UI components.\n• Set up Codex in VS Code with custom extensions for building the project and Swift syntax support.\n\nProject: Loca – community platform connecting local businesses with customers through paid word-of-mouth promotional gigs.\n\nTech: Swift · SwiftUI · UIKit · Redux · MVVM-C · Coordinator · Combine · GraphQL/Apollo · Google Maps · Push Notifications"
-            },
-            {
-                "name" : "Kuna · Senior iOS Developer",
-                "period" : "Mar 2022 – Jan 2024",
-                "link" : "",
-                "description" : "Kyiv. Team: 3 iOS, 3 Android, 1 backend, 1 QA, designer, PM.\n\n• Built trading and exchange flows (crypto ↔ fiat) on top of real-time market data; crash-free rate above 99.8%.\n• RIBs + Combine + GraphQL/Apollo; worked on shared modules: networking, repositories, domain.\n\nProject: Kuna Pro – cryptocurrency trading and exchange app.\n\nTech: Swift · RIBs · Combine · RxSwift · GraphQL/Apollo · SwiftGen · Push Notifications · programmatic UI"
-            },
-            {
-                "name" : "Uptech · Middle iOS Developer",
-                "period" : "Jun 2021 – Mar 2022",
-                "link" : "",
-                "description" : "Kyiv. Team: 3 iOS, 3 Android, 2 backend, 1 QA, designer, PM.\n\n• Worked with clients directly: gathered requirements, shipped features for Harbor (emergency preparedness) and Cardless (cashback).\n• Refactored flows to Redux/TCA, cut redundant network requests.\n\nTech: Swift · Redux · TCA · Combine · RxSwift · Moya · Alamofire · Google APIs · SwiftGen"
-            },
-            {
-                "name" : "Forte Group · iOS Developer",
-                "period" : "Feb 2020 – Jun 2021",
-                "link" : "",
-                "description" : "Kyiv. Team: 4 iOS, 5 Android, 3 backend, 2 QA, designer, PM.\n\n• Rebuilt video-call and chat screens on Redux, added backend-driven UI.\n• Integrated payments (Masterpass), charts, multi-target configs, pre-call flows, production logging.\n• Integrated TensorFlow for on-device document recognition.\n\nProjects: Extended Care, Alpha Insurance, Tezpay, Vostok, Obank – healthcare, insurance and mobile banking apps.\n\nTech: Swift · Objective-C · Redux · TensorFlow · WebexSDK · Masterpass · Firebase · Alamofire · SnapKit"
-            },
-            {
-                "name" : "Trust Sourcing · Junior iOS Developer",
-                "period" : "Aug 2018 – Feb 2020",
-                "link" : "",
-                "description" : "Kyiv. Team: 3 iOS, 2 Android, 3 frontend, 5 backend, 1 QA, 2 designers, PM, PO.\n\n• Client-server integration, custom UI, auth, maps/location, filtering, distance calculations for several consumer apps.\n• Found and fixed memory leaks with Instruments; built a Share Extension that reads website/PDF text aloud.\n\nProjects: Mr.Tomato, Pocket Snap, Gym, Speechify, OnRad.\n\nTech: Swift · MVC · Core Data · Firebase · Alamofire · MapKit · Google Maps/Places/Distances · Push Notifications"
-            }
-        ]
-    },
-    "additional" : {
-        "title" : "Additional information",
-        "hobbies" : [
-            "Hill climbing",
-            "Playing volleyball",
-            "Riding a mountain bike",
-            "Walking to the gym",
-            "Psychology",
-            "Meditation"
-        ],
-        "english" : "Upper-Intermediate",
-        "ukrainian" : "Native",
-        "community" : "Point-Free community member"
-    }
+            "courses" : [
+                "Online video-course UIKit Fundamentals by Udacity.",
+                "Online video-course Developing iOS 11 Apps with Swift by Stanford (Paul Hegarty)."
+            ]
+        },
+        {
+            "type" : "experience",
+            "title" : "Experience",
+            "positions" : [
+                {
+                    "name" : "MAUDAU · Senior iOS Developer",
+                    "period" : "Feb 2026 – Sep 2026",
+                    "link" : "https://apps.apple.com/ua/app/maudau/id6747066079?l=uk",
+                    "description" : "Remote. Team: 3 iOS, 3 Android, 2 backend, 2 QA, designer, PM.\n\n• Worked on a large e-commerce app: iOS 17+, Swift 6 strict concurrency, crash-free rate above 99.8%.\n• Shipped features with RIBs + unidirectional state, SwiftUI and async/await.\n• Split the codebase into SPM modules so teams could own and ship shared code independently.\n• Built design-system components (foundations, animations, haptics) used across the app.\n• Wired up analytics and experiments: Snowplow, Firebase, GrowthBook, Sentry.\n• Wrote Claude Code skills for refactoring and matching the team's code style, used across the iOS team.\n\nProject: MAUDAU – full shopping journey: catalog/search, barcode scanning, product pages, cart, checkout, installment payments, order tracking, favorites, promo codes, support.\n\nTech: Swift 6 · SwiftUI · RIBs · async/await · SPM · OpenAPI · Reteno · Firebase · Snowplow · GrowthBook · Sentry · Lottie · XcodeGen"
+                },
+                {
+                    "name" : "Loca · Senior iOS Developer",
+                    "period" : "Feb 2024 – Feb 2026",
+                    "link" : "https://apps.apple.com/ua/app/loca-explore-earn/id1670420863",
+                    "description" : "Remote.\n\n• Sole iOS engineer: built the app from scratch and owned it in production for two years.\n• Moved the app from Redux/Combine/UIKit to MVVM-C/SwiftUI with async/await.\n• Google Maps screens with marker clustering and shared search/filters across the main tabs.\n• REST + GraphQL (Apollo) integration, reusable custom UI components.\n• Set up Codex in VS Code with custom extensions for building the project and Swift syntax support.\n\nProject: Loca – community platform connecting local businesses with customers through paid word-of-mouth promotional gigs.\n\nTech: Swift · SwiftUI · UIKit · Redux · MVVM-C · Coordinator · Combine · GraphQL/Apollo · Google Maps · Push Notifications"
+                },
+                {
+                    "name" : "Kuna · Senior iOS Developer",
+                    "period" : "Mar 2022 – Jan 2024",
+                    "link" : "",
+                    "description" : "Kyiv. Team: 3 iOS, 3 Android, 1 backend, 1 QA, designer, PM.\n\n• Built trading and exchange flows (crypto ↔ fiat) on top of real-time market data; crash-free rate above 99.8%.\n• RIBs + Combine + GraphQL/Apollo; worked on shared modules: networking, repositories, domain.\n\nProject: Kuna Pro – cryptocurrency trading and exchange app.\n\nTech: Swift · RIBs · Combine · RxSwift · GraphQL/Apollo · SwiftGen · Push Notifications · programmatic UI"
+                },
+                {
+                    "name" : "Uptech · Middle iOS Developer",
+                    "period" : "Jun 2021 – Mar 2022",
+                    "link" : "",
+                    "description" : "Kyiv. Team: 3 iOS, 3 Android, 2 backend, 1 QA, designer, PM.\n\n• Worked with clients directly: gathered requirements, shipped features for Harbor (emergency preparedness) and Cardless (cashback).\n• Refactored flows to Redux/TCA, cut redundant network requests.\n\nTech: Swift · Redux · TCA · Combine · RxSwift · Moya · Alamofire · Google APIs · SwiftGen"
+                },
+                {
+                    "name" : "Forte Group · iOS Developer",
+                    "period" : "Feb 2020 – Jun 2021",
+                    "link" : "",
+                    "description" : "Kyiv. Team: 4 iOS, 5 Android, 3 backend, 2 QA, designer, PM.\n\n• Rebuilt video-call and chat screens on Redux, added backend-driven UI.\n• Integrated payments (Masterpass), charts, multi-target configs, pre-call flows, production logging.\n• Integrated TensorFlow for on-device document recognition.\n\nProjects: Extended Care, Alpha Insurance, Tezpay, Vostok, Obank – healthcare, insurance and mobile banking apps.\n\nTech: Swift · Objective-C · Redux · TensorFlow · WebexSDK · Masterpass · Firebase · Alamofire · SnapKit"
+                },
+                {
+                    "name" : "Trust Sourcing · Junior iOS Developer",
+                    "period" : "Aug 2018 – Feb 2020",
+                    "link" : "",
+                    "description" : "Kyiv. Team: 3 iOS, 2 Android, 3 frontend, 5 backend, 1 QA, 2 designers, PM, PO.\n\n• Client-server integration, custom UI, auth, maps/location, filtering, distance calculations for several consumer apps.\n• Found and fixed memory leaks with Instruments; built a Share Extension that reads website/PDF text aloud.\n\nProjects: Mr.Tomato, Pocket Snap, Gym, Speechify, OnRad.\n\nTech: Swift · MVC · Core Data · Firebase · Alamofire · MapKit · Google Maps/Places/Distances · Push Notifications"
+                }
+            ]
+        },
+        {
+            "type" : "additional",
+            "title" : "Additional information",
+            "hobbies" : [
+                "Hill climbing",
+                "Playing volleyball",
+                "Riding a mountain bike",
+                "Walking to the gym",
+                "Psychology",
+                "Meditation"
+            ],
+            "english" : "Upper-Intermediate",
+            "ukrainian" : "Native",
+            "community" : "Point-Free community member"
+        }
+    ]
 }
