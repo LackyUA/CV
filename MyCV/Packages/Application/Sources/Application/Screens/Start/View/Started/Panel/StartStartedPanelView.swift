@@ -6,7 +6,7 @@
 import CoreUI
 import SwiftUI
 
-/// Shows the owner's name above the section buttons.
+/// Shows the owner's name above the section cards.
 struct StartStartedPanelView: View {
 
     let configuration: StartStartedPanelViewConfiguration
@@ -23,8 +23,6 @@ struct StartStartedPanelView: View {
                 .frame(height: Constants.rowHeight)
 
             StartStartedSectionsView(configuration: configuration.sections)
-                .padding(.horizontal, Spacing.m)
-                .padding(.bottom, Spacing.s)
         }
     }
 

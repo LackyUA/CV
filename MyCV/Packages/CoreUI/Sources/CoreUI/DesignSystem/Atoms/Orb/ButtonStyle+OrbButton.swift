@@ -1,14 +1,14 @@
 //
-//  ButtonStyle+StartOrbButton.swift
+//  ButtonStyle+OrbButton.swift
 //  CoreUI
 //
 
 import SwiftUI
 
-extension ButtonStyle where Self == StartOrbButtonStyle {
+extension ButtonStyle where Self == OrbButtonStyle {
 
     /// A button style that shows the button as a round Liquid Glass orb.
-    public static var startOrb: StartOrbButtonStyle {
+    public static var orb: OrbButtonStyle {
         .init(
             default: .init(
                 foregroundColor: Colors.neonCyan.swiftUIColor,

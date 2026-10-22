@@ -342,8 +342,8 @@ struct StartInitialView: View {
             Button(configuration.startButtonTitle) {
                 configuration.start()
             }
-            .buttonStyle(.startOrb)
-            .startOrbButtonExpanded(configuration.isStarting)
+            .buttonStyle(.orb)
+            .orbButtonExpanded(configuration.isStarting)
         }
     }
 }

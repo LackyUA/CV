@@ -52,7 +52,7 @@ private struct ExperienceRow: View {
                 Spacer(minLength: 0)
 
                 Image(systemName: "chevron.right")
-                    .typography(.Interface.footnote)
+                    .typography(.Interface.footnoteSemibold)
                     .foregroundStyle(Colors.textSecondary.swiftUIColor)
             }
             .padding(.vertical, Spacing.xs)

@@ -6,7 +6,9 @@
 import CoreUI
 import SwiftUI
 
-/// Shows a glass button for each section of the CV.
+/// Shows a scrollable list with an entry card for each section of the CV.
+///
+/// Each card shows the title and the description of its section.
 struct StartStartedSectionsView: View {
 
     let configuration: StartStartedSectionsViewConfiguration
@@ -14,22 +16,48 @@ struct StartStartedSectionsView: View {
     // MARK: - View
 
     var body: some View {
-        VStack(spacing: Spacing.xs) {
-            ForEach(configuration.sections) { section in
-                Button {
-                    section.select()
-                } label: {
-                    Text(section.title)
-                        .typography(.Interface.buttonLarge)
-                        .foregroundStyle(Colors.textPrimary.swiftUIColor)
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .rounded(.infinity)
-                        .backgroundBlur(.regular, tint: Colors.glassFill.swiftUIColor)
-                        .border(color: Colors.glassStroke.swiftUIColor, lineWidth: .m)
-                        .boxShadow(.glass)
+        ScrollView {
+            VStack(spacing: Spacing.xs) {
+                ForEach(configuration.sections) { section in
+                    Button {
+                        section.select()
+                    } label: {
+                        EntryCard(verbatim: section.title, description: section.description)
+                    }
+                    .buttonStyle(.entryCard)
                 }
-                .buttonStyle(.plain)
             }
+            .padding(.horizontal, Spacing.m)
+            .padding(.vertical, Spacing.s)
         }
+        .scrollIndicators(.hidden)
     }
+}
+
+#Preview {
+    StartStartedSectionsView(
+        configuration: .init(
+            sections: [
+                .init(
+                    id: .init(rawValue: 0),
+                    title: "Contacts",
+                    description: "Ways to reach me: my location, e-mail address, and phone number.",
+                    select: {}
+                ),
+                .init(
+                    id: .init(rawValue: 1),
+                    title: "Profile",
+                    description: "A short overview of my experience and main technology stack.",
+                    select: {}
+                ),
+                .init(
+                    id: .init(rawValue: 2),
+                    title: "Skills",
+                    description: "The languages, frameworks, and tools that I use, grouped by area.",
+                    select: {}
+                ),
+            ]
+        )
+    )
+    .background(Colors.bg200.swiftUIColor)
 }
