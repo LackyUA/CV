@@ -7,8 +7,17 @@
 public struct Contacts: Decodable, Hashable, Sendable {
 
     /// Creates the contact details.
-    public init(title: String, address: String, email: String, mobile: String, git: String, linkedin: String) {
+    public init(
+        title: String,
+        description: String,
+        address: String,
+        email: String,
+        mobile: String,
+        git: String,
+        linkedin: String
+    ) {
         self.title = title
+        self.description = description
         self.address = address
         self.email = email
         self.mobile = mobile
@@ -18,6 +27,9 @@ public struct Contacts: Decodable, Hashable, Sendable {
 
     /// The title of the section, as the screen shows it.
     public let title: String
+
+    /// A short text of one to three sentences that tells what the section contains.
+    public let description: String
 
     /// The city and country of residence.
     public let address: String

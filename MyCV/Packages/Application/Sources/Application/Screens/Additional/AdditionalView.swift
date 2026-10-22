@@ -59,6 +59,7 @@ private struct AdditionalEntryView: View {
             viewModel: AdditionalViewModel(
                 additional: Additional(
                     title: "Additional information",
+                    description: "My hobbies, language levels, and community membership.",
                     hobbies: ["Hill climbing", "Playing volleyball"],
                     english: "Upper-Intermediate",
                     ukrainian: "Native",

@@ -84,6 +84,7 @@ private struct SkillsSectionHeader: View {
             viewModel: SkillsViewModel(
                 skills: Skills(
                     title: "Skills",
+                    description: "The tools that I use, grouped by area.",
                     sections: [
                         .init(title: "Languages", items: ["Swift", "Python"]),
                         .init(title: "UI", items: ["SwiftUI", "UIKit", "Atomic Design"]),

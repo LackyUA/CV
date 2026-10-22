@@ -3,6 +3,7 @@
         {
             "type" : "contacts",
             "title" : "Contacts",
+            "description" : "Ways to reach me: my location, e-mail address, phone number, and links to my GitHub and LinkedIn profiles.",
             "address" : "Ivano-Frankivsk, Ukraine",
             "email" : "ddmutro2@gmail.com",
             "mobile" : "+380668422448",
@@ -12,7 +13,8 @@
         {
             "type" : "summary",
             "title" : "Profile",
-            "description" : "Senior iOS Engineer, 8+ years in production apps: e-commerce, crypto trading, fintech, healthcare. Main stack – Swift, SwiftUI/UIKit, Swift Concurrency, Combine. Led three architecture migrations (RxSwift → Combine → async/await), built one app from scratch as the only iOS developer, set up modular SPM codebases and release tooling. Apps I worked on last held crash-free rate above 99.8%.",
+            "description" : "A short overview of my experience, main technology stack, and key achievements as an iOS engineer. Selected highlights from my production work follow it.",
+            "profile" : "Senior iOS Engineer, 8+ years in production apps: e-commerce, crypto trading, fintech, healthcare. Main stack – Swift, SwiftUI/UIKit, Swift Concurrency, Combine. Led three architecture migrations (RxSwift → Combine → async/await), built one app from scratch as the only iOS developer, set up modular SPM codebases and release tooling. Apps I worked on last held crash-free rate above 99.8%.",
             "highlights" : [
                 "Wrote shell scripts for release branches, version bumps and TestFlight uploads – no third-party CI/CD needed. Together with a strict git flow this meant a release could be cut from the dev branch at any moment. The main win was not only speed but fewer human errors: version numbers, tags, commits and release notes were always correct.",
                 "Migrated production codebases through three generations: UIKit/RxSwift → UIKit/Combine → SwiftUI + Swift Concurrency.",
@@ -23,6 +25,7 @@
         {
             "type" : "skills",
             "title" : "Skills",
+            "description" : "The languages, frameworks, and tools that I use, grouped by area. The groups include UI, concurrency, architecture, networking, infrastructure, analytics, and AI-assisted development.",
             "sections" : [
                 {
                     "title" : "Languages",
@@ -121,6 +124,7 @@
         {
             "type" : "education",
             "title" : "Education",
+            "description" : "My school, my university degree in Computer Engineering, and the iOS development courses that I completed.",
             "school" : "Ukrainian grammar school No1.",
             "university" : {
                 "name" : "Ivano-Frankivsk National University of Oil and Gas",
@@ -137,6 +141,7 @@
         {
             "type" : "experience",
             "title" : "Experience",
+            "description" : "My work history, from the most recent position to the oldest. Each position shows the team, my responsibilities, the project, and the technologies.",
             "positions" : [
                 {
                     "name" : "MAUDAU · Senior iOS Developer",
@@ -179,6 +184,7 @@
         {
             "type" : "additional",
             "title" : "Additional information",
+            "description" : "My hobbies, my language levels, and my community membership.",
             "hobbies" : [
                 "Hill climbing",
                 "Playing volleyball",

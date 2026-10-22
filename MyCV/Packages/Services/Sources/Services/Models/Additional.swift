@@ -7,8 +7,16 @@
 public struct Additional: Decodable, Hashable, Sendable {
 
     /// Creates the additional information.
-    public init(title: String, hobbies: [String], english: String, ukrainian: String, community: String) {
+    public init(
+        title: String,
+        description: String,
+        hobbies: [String],
+        english: String,
+        ukrainian: String,
+        community: String
+    ) {
         self.title = title
+        self.description = description
         self.hobbies = hobbies
         self.english = english
         self.ukrainian = ukrainian
@@ -17,6 +25,9 @@ public struct Additional: Decodable, Hashable, Sendable {
 
     /// The title of the section, as the screen shows it.
     public let title: String
+
+    /// A short text of one to three sentences that tells what the section contains.
+    public let description: String
 
     /// The hobbies, in CV order.
     public let hobbies: [String]

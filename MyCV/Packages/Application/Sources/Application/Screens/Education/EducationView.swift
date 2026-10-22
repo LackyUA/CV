@@ -184,6 +184,7 @@ private struct CoursesPage: View {
             viewModel: EducationViewModel(
                 education: Education(
                     title: "Education",
+                    description: "My school, university degree, and courses.",
                     school: "Ukrainian grammar school No1.",
                     university: .init(
                         name: "Ivano-Frankivsk National University of Oil and Gas",

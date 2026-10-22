@@ -35,8 +35,9 @@ public struct Education: Decodable, Hashable, Sendable {
     }
 
     /// Creates the education details.
-    public init(title: String, school: String, university: University, courses: [String]) {
+    public init(title: String, description: String, school: String, university: University, courses: [String]) {
         self.title = title
+        self.description = description
         self.school = school
         self.university = university
         self.courses = courses
@@ -44,6 +45,9 @@ public struct Education: Decodable, Hashable, Sendable {
 
     /// The title of the section, as the screen shows it.
     public let title: String
+
+    /// A short text of one to three sentences that tells what the section contains.
+    public let description: String
 
     /// The name of the school.
     public let school: String
