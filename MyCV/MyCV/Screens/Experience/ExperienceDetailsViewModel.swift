@@ -15,14 +15,14 @@ final class ExperienceDetailsViewModel {
         self.item = item
     }
 
-    /// Controls the alert that explains that the project code is not public.
+    /// Controls the alert that explains that the project has no public link.
     var showsUnavailableAlert = false
 
     var title: String { item.title }
     var period: String { item.period }
     var description: String { item.description }
 
-    /// Link to the project repository, or `nil` when the code is not public.
+    /// Link to the project page or repository, or `nil` when the project has no public link.
     var projectURL: URL? {
         guard !item.link.isEmpty else { return nil }
         return URL(string: item.link)

@@ -9,6 +9,10 @@ import SwiftUI
 @main
 struct MyCVApp: App {
 
+    init() {
+        AppDependencies.register()
+    }
+
     var body: some Scene {
         WindowGroup {
             RootView()

@@ -4,6 +4,7 @@
 //
 
 import CoreUI
+import Services
 import SwiftUI
 
 /// Shows the start screen for the current state of the view model.
@@ -58,5 +59,5 @@ struct StartView: View {
 }
 
 #Preview {
-    StartView(viewModel: StartViewModel(router: RootRouter()))
+    StartView(viewModel: StartViewModel(router: RootRouter(service: ServiceBuilder.makeAPIService())))
 }

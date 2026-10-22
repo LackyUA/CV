@@ -71,11 +71,11 @@ struct StartStartedView: View {
             configuration: .init(
                 profileBadge: .init(image: Image(decorative: Images.profileImageCyber)),
                 panel: .init(
-                    name: .init(firstName: "Dmytro", lastName: "Dobrovolskyy"),
+                    name: .init(firstName: "Dmytro", lastName: "Dobrovolskyi"),
                     sections: .init(
                         sections: [
                             .init(id: .init(rawValue: .contacts), title: "Contacts", select: {}),
-                            .init(id: .init(rawValue: .summary), title: "Objective & summary", select: {}),
+                            .init(id: .init(rawValue: .summary), title: "Profile", select: {}),
                             .init(id: .init(rawValue: .skills), title: "Skills", select: {}),
                         ]
                     )

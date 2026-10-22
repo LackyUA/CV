@@ -3,64 +3,39 @@
 //  MyCVTests
 //
 
-import XCTest
+import Services
+import Testing
 @testable import MyCV
 
-class MyCVTests: XCTestCase {
+/// Decodes the bundled `Content.json` to catch schema drift between the data and the models.
+struct ContentDecodingTests {
 
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
+    @Test
+    func contentDecodes() async throws {
+        let content = try await ServiceBuilder.makeAPIService().fetchContent()
 
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
+        #expect(content.contacts.title == "Contacts")
+        #expect(!content.contacts.email.isEmpty)
+        #expect(!content.contacts.linkedin.isEmpty)
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
+        #expect(content.summary.title == "Profile")
+        #expect(!content.summary.description.isEmpty)
+        #expect(!content.summary.highlights.isEmpty)
 
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-    
-    func testModels() {
-        printTitle(models: [
-            Contacts(),
-            Summary(),
-            Skills(),
-            Education(),
-            Experience(),
-            Additional()
-            ])
-    }
-    
-    func printTitle(models: [Codable]) {
-        for model in models {
-            if let model = model as? Contacts {
-                sleep(0)
-                print(model.title)
-            } else if let model = model as? Summary {
-                sleep(1)
-                print(model.title)
-            } else if let model = model as? Skills {
-                sleep(1)
-                print(model.title)
-            } else if let model = model as? Education {
-                sleep(1)
-                print(model.title)
-            } else if let model = model as? Experience {
-                sleep(1)
-                print(model.iosDeveloping)
-            } else if let model = model as? Additional {
-                sleep(1)
-                print(model.title)
-            }
-        }
+        #expect(content.skills.title == "Skills")
+        #expect(content.skills.sections.first?.title == "Languages")
+        #expect(content.skills.sections.allSatisfy { !$0.items.isEmpty })
+
+        #expect(content.education.title == "Education")
+        #expect(!content.education.university.name.isEmpty)
+
+        #expect(content.experience.title == "Experience")
+        #expect(!content.experience.positions.isEmpty)
+        #expect(content.experience.positions.allSatisfy { !$0.name.isEmpty && !$0.period.isEmpty })
+
+        #expect(content.additional.title == "Additional information")
+        #expect(!content.additional.english.isEmpty)
+        #expect(!content.additional.ukrainian.isEmpty)
     }
 
 }

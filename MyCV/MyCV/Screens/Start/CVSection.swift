@@ -18,7 +18,7 @@ enum CVSection: CaseIterable, Identifiable {
     var title: String {
         switch self {
         case .contacts: "Contacts"
-        case .summary: "Objective & summary"
+        case .summary: "Profile"
         case .skills: "Skills"
         case .education: "Education"
         case .experience: "Experience"

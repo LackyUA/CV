@@ -5,12 +5,13 @@
 
 import Foundation
 import Observation
+import Services
 
 @MainActor
 @Observable
 final class ExperienceViewModel {
 
-    init(service: APIServiceProtocol = APIService(), router: any Router<ExperienceRouter.Route>) {
+    init(service: APIService, router: any Router<ExperienceRouter.Route>) {
         self.service = service
         self.router = router
     }
@@ -20,15 +21,15 @@ final class ExperienceViewModel {
 
     func load() async {
         do {
-            let experience = try await service.fetch(Experience.self)
+            let experience = try await service.fetchContent().experience
             title = experience.title
-            items = experience.iosDeveloping.enumerated().map { index, entry in
+            items = experience.positions.enumerated().map { index, position in
                 ExperienceItem(
                     id: index,
-                    title: entry["name"] ?? "",
-                    period: entry["period"] ?? "",
-                    link: entry["link"] ?? "",
-                    description: entry["description"] ?? ""
+                    title: position.name,
+                    period: position.period,
+                    link: position.link,
+                    description: position.description
                 )
             }
         } catch {
@@ -43,7 +44,7 @@ final class ExperienceViewModel {
 
     // MARK: - Private Properties
 
-    private let service: APIServiceProtocol
+    private let service: APIService
     private let router: any Router<ExperienceRouter.Route>
 
 }
