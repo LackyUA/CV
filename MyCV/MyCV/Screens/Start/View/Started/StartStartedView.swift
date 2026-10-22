@@ -69,7 +69,10 @@ struct StartStartedView: View {
 
         StartStartedView(
             configuration: .init(
-                profileBadge: .init(image: Image(decorative: Images.profileImageCyber)),
+                profileBadge: .init(
+                    image: Image(decorative: Images.profileImageCyber),
+                    glitchImage: Image(decorative: Images.profileImage)
+                ),
                 panel: .init(
                     name: .init(firstName: "Dmytro", lastName: "Dobrovolskyi"),
                     sections: .init(
