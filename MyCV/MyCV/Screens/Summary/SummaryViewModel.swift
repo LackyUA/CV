@@ -5,44 +5,55 @@
 
 import Foundation
 import Observation
+import Services
 
 @MainActor
 @Observable
 final class SummaryViewModel {
 
-    /// A single sentence of the summary, rendered as its own paragraph.
+    /// One block of the summary text, rendered as its own paragraph.
     struct Paragraph: Identifiable, Equatable {
         let id: Int
         let text: String
     }
 
-    private(set) var title = ""
-    private(set) var paragraphs: [Paragraph] = []
-
-    private let service: APIServiceProtocol
-
-    init(service: APIServiceProtocol = APIService()) {
+    init(service: APIService) {
         self.service = service
     }
 
+    private(set) var title = ""
+    private(set) var paragraphs: [Paragraph] = []
+
     func load() async {
         do {
-            let summary = try await service.fetch(Summary.self)
+            let summary = try await service.fetchContent().summary
             title = summary.title
-            paragraphs = Self.makeParagraphs(from: summary.description)
+            paragraphs = Self.makeParagraphs(description: summary.description, highlights: summary.highlights)
         } catch {
             print(error)
         }
     }
 
-    /// Splits the description into sentences so each one can be shown as a separate paragraph.
-    private static func makeParagraphs(from description: String) -> [Paragraph] {
-        description
-            .split(separator: ".")
-            .enumerated()
-            .map { index, sentence in
-                Paragraph(id: index, text: sentence.trimmingCharacters(in: .whitespacesAndNewlines) + ".")
-            }
+    // MARK: - Private Properties
+
+    private let service: APIService
+
+    // MARK: - Private Methods
+
+    /// The profile description first, then each highlight as a bullet paragraph.
+    private static func makeParagraphs(description: String, highlights: [String]) -> [Paragraph] {
+        let texts = [description] + highlights.map { Constants.bullet + $0 }
+        return texts.enumerated().map { index, text in
+            Paragraph(id: index, text: text)
+        }
+    }
+
+    // MARK: - Constants
+
+    private enum Constants {
+
+        /// The prefix of a highlight paragraph.
+        static let bullet = "• "
     }
 
 }

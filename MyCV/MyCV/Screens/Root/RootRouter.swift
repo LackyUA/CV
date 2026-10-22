@@ -3,10 +3,13 @@
 //  MyCV
 //
 
+import Core
+import Services
 import SwiftUI
 
 /// Root of the router graph. Owns the navigation path and builds the start screen and the section screens.
 /// Child routers, such as `experienceRouter`, push onto the same path.
+/// The router is the composition root: it resolves the service from the container and passes it to the view models.
 @MainActor
 @Observable
 final class RootRouter: Router {
@@ -16,7 +19,7 @@ final class RootRouter: Router {
         case section(CVSection)
     }
 
-    init(service: APIServiceProtocol = APIService()) {
+    init(service: APIService = DependencyContainer.shared.resolve((any APIService).self)) {
         self.service = service
         experienceRouter = ExperienceRouter(service: service)
         experienceRouter.parent = self
@@ -52,5 +55,5 @@ final class RootRouter: Router {
 
     // MARK: - Private Properties
 
-    private let service: APIServiceProtocol
+    private let service: APIService
 }

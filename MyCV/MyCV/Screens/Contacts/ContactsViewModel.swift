@@ -5,6 +5,7 @@
 
 import Foundation
 import Observation
+import Services
 
 @MainActor
 @Observable
@@ -30,18 +31,16 @@ final class ContactsViewModel {
         let action: Action?
     }
 
-    private(set) var title = ""
-    private(set) var rows: [Row] = []
-
-    private let service: APIServiceProtocol
-
-    init(service: APIServiceProtocol = APIService()) {
+    init(service: APIService) {
         self.service = service
     }
 
+    private(set) var title = ""
+    private(set) var rows: [Row] = []
+
     func load() async {
         do {
-            let contacts = try await service.fetch(Contacts.self)
+            let contacts = try await service.fetchContent().contacts
             title = contacts.title
             rows = Self.makeRows(from: contacts)
         } catch {
@@ -49,14 +48,19 @@ final class ContactsViewModel {
         }
     }
 
+    // MARK: - Private Properties
+
+    private let service: APIService
+
+    // MARK: - Private Methods
+
     private static func makeRows(from contacts: Contacts) -> [Row] {
         [
             Row(id: "address", title: "Address", details: contacts.address, icon: nil, action: nil),
             Row(id: "email", title: "E-mail", details: contacts.email, icon: nil, action: nil),
-            Row(id: "skype", title: "Skype", details: contacts.skype, icon: nil, action: nil),
             Row(id: "mobile", title: "Mobile", details: contacts.mobile, icon: .call, action: .call(number: contacts.mobile)),
-            Row(id: "github", title: "Github", details: contacts.git, icon: .web, action: openAction(for: contacts.git)),
-            Row(id: "facebook", title: "Facebook", details: contacts.facebook, icon: .web, action: openAction(for: contacts.facebook))
+            Row(id: "github", title: "GitHub", details: contacts.git, icon: .web, action: openAction(for: contacts.git)),
+            Row(id: "linkedin", title: "LinkedIn", details: contacts.linkedin, icon: .web, action: openAction(for: contacts.linkedin))
         ]
     }
 

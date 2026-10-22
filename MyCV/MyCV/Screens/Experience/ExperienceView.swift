@@ -4,6 +4,7 @@
 //
 
 import CoreUI
+import Services
 import SwiftUI
 
 struct ExperienceView: View {
@@ -67,7 +68,7 @@ private struct ExperienceRow: View {
 
 #Preview {
     NavigationStack {
-        RootRouter().experienceRouter.rootView()
+        RootRouter(service: ServiceBuilder.makeAPIService()).experienceRouter.rootView()
     }
     .tint(Colors.textPrimary.swiftUIColor)
 }

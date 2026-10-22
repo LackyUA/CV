@@ -4,6 +4,7 @@
 //
 
 import CoreUI
+import Services
 import SwiftUI
 
 struct ContactsView: View {
@@ -102,7 +103,7 @@ private struct ContactRow: View {
 
 #Preview {
     NavigationStack {
-        ContactsView(viewModel: ContactsViewModel())
+        ContactsView(viewModel: ContactsViewModel(service: ServiceBuilder.makeAPIService()))
     }
     .tint(Colors.textPrimary.swiftUIColor)
 }
