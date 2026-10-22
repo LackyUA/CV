@@ -52,7 +52,7 @@ private struct ExperienceRow: View {
                 Spacer(minLength: 0)
 
                 Image(systemName: "chevron.right")
-                    .typography(.Interface.footnote)
+                    .typography(.Interface.footnoteSemibold)
                     .foregroundStyle(Colors.textSecondary.swiftUIColor)
             }
             .padding(.vertical, Spacing.xs)
@@ -68,6 +68,7 @@ private struct ExperienceRow: View {
         RootRouter(service: ServiceBuilder.makeAPIService()).experienceRouter.rootView(
             experience: Experience(
                 title: "Experience",
+                description: "My work history.",
                 positions: [
                     .init(name: "MAUDAU · Senior iOS Developer", period: "Feb 2026 – Sep 2026", link: "", description: ""),
                     .init(name: "Loca · Senior iOS Developer", period: "Feb 2024 – Feb 2026", link: "", description: ""),

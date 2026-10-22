@@ -32,13 +32,17 @@ public struct Experience: Decodable, Hashable, Sendable {
     }
 
     /// Creates the job entries.
-    public init(title: String, positions: [Position]) {
+    public init(title: String, description: String, positions: [Position]) {
         self.title = title
+        self.description = description
         self.positions = positions
     }
 
     /// The title of the section, as the screen shows it.
     public let title: String
+
+    /// A short text of one to three sentences that tells what the section contains.
+    public let description: String
 
     /// The job positions, from the most recent to the oldest.
     public let positions: [Position]

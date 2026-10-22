@@ -8,7 +8,7 @@ import SwiftUI
 /// A stack of shadow layers that matches a `box-shadow` list in the design system.
 ///
 /// Design-system blur values use CSS pixels. The SwiftUI radius of each layer is half of the CSS value.
-public struct BoxShadow {
+public struct BoxShadow: Sendable {
 
     /// Layers drawn back to front.
     public let layers: [BoxShadowElevation]

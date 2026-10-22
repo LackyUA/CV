@@ -61,7 +61,8 @@ private struct SummaryText: View {
             viewModel: SummaryViewModel(
                 summary: Summary(
                     title: "Profile",
-                    description: "Senior iOS Engineer with 8+ years in production apps.",
+                    description: "A short overview of my experience, stack, and achievements.",
+                    profile: "Senior iOS Engineer with 8+ years in production apps.",
                     highlights: [
                         "Migrated production codebases from UIKit/RxSwift to SwiftUI and Swift Concurrency.",
                         "Shipped on-device image classification in a banking onboarding flow.",

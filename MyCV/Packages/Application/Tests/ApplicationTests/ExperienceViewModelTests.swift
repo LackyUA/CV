@@ -33,6 +33,7 @@ struct ExperienceViewModelTests {
 
     private static let experience = Experience(
         title: "Experience",
+        description: "",
         positions: [
             .init(name: "Gym", period: "4 months", link: "", description: ""),
             .init(name: "Road signs", period: "2 months", link: "", description: ""),

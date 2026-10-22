@@ -6,7 +6,7 @@
 import CoreUI
 import SwiftUI
 
-/// Shows the night panel with the owner's name and the section buttons.
+/// Shows the night panel with the owner's name and the section cards.
 ///
 /// The panel slides up from the bottom. The profile badge scales in on the top edge of the panel.
 struct StartStartedView: View {
@@ -77,9 +77,24 @@ struct StartStartedView: View {
                     name: .init(firstName: "Dmytro", lastName: "Dobrovolskyi"),
                     sections: .init(
                         sections: [
-                            .init(id: .init(rawValue: 0), title: "Contacts", select: {}),
-                            .init(id: .init(rawValue: 1), title: "Profile", select: {}),
-                            .init(id: .init(rawValue: 2), title: "Skills", select: {}),
+                            .init(
+                                id: .init(rawValue: 0),
+                                title: "Contacts",
+                                description: "Ways to reach me: my location, e-mail address, and phone number.",
+                                select: {}
+                            ),
+                            .init(
+                                id: .init(rawValue: 1),
+                                title: "Profile",
+                                description: "A short overview of my experience and main technology stack.",
+                                select: {}
+                            ),
+                            .init(
+                                id: .init(rawValue: 2),
+                                title: "Skills",
+                                description: "The languages, frameworks, and tools that I use, grouped by area.",
+                                select: {}
+                            ),
                         ]
                     )
                 )

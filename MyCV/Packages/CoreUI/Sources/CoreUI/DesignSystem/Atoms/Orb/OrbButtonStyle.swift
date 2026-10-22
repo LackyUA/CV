@@ -1,5 +1,5 @@
 //
-//  StartOrbButtonStyle.swift
+//  OrbButtonStyle.swift
 //  CoreUI
 //
 
@@ -9,14 +9,14 @@ import SwiftUI
 ///
 /// The orb glows cyan and shows the label in uppercase Orbitron.
 /// When the user presses the orb, the glass gets a cyan tint and the orb scales down.
-/// To expand the orb and fade it out, apply ``SwiftUICore/View/startOrbButtonExpanded(_:)``.
+/// To expand the orb and fade it out, apply ``SwiftUICore/View/orbButtonExpanded(_:)``.
 ///
 /// ```swift
 /// Button("Start", action: start)
-///     .buttonStyle(.startOrb)
-///     .startOrbButtonExpanded(isExpanding)
+///     .buttonStyle(.orb)
+///     .orbButtonExpanded(isExpanding)
 /// ```
-public struct StartOrbButtonStyle: ButtonStyle {
+public struct OrbButtonStyle: ButtonStyle {
 
     // MARK: - ButtonStyle
 
@@ -50,7 +50,7 @@ public struct StartOrbButtonStyle: ButtonStyle {
 
 private struct ContentView: View {
 
-    let configuration: ButtonStyleConfiguration, style: StartOrbButtonStyle
+    let configuration: ButtonStyleConfiguration, style: OrbButtonStyle
 
     // MARK: - View
 
@@ -75,7 +75,7 @@ private struct ContentView: View {
             .boxShadow(resolvedStyle.glow)
             .contentShape(.circle)
             .scaleEffect(scale)
-            .animation(.spring(response: 0.45, dampingFraction: 0.8), value: configuration.isPressed)
+            .animation(.press, value: configuration.isPressed)
             .opacity(isExpanded ? 0 : 1)
             .allowsHitTesting(!isExpanded)
             .accessibilityHidden(isExpanded)
@@ -86,10 +86,10 @@ private struct ContentView: View {
 
     // MARK: - Private Properties
 
-    @Environment(\.startOrbButtonExpanded)
+    @Environment(\.orbButtonExpanded)
     private var isExpanded
 
-    private var resolvedStyle: StartOrbButtonStyle.Resolved {
+    private var resolvedStyle: OrbButtonStyle.Resolved {
         configuration.isPressed ? style.pressed : style.default
     }
 
@@ -127,8 +127,8 @@ private struct ContentView: View {
                 isExpanded = true
             }
         }
-        .buttonStyle(.startOrb)
-        .startOrbButtonExpanded(isExpanded)
+        .buttonStyle(.orb)
+        .orbButtonExpanded(isExpanded)
     }
     .overlay(alignment: .bottom) {
         Button("Reset") {

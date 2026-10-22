@@ -22,6 +22,7 @@ struct StartStartedProfileBadgeView: View {
             Rectangle()
                 .fill(Colors.neonCyan.swiftUIColor)
                 .frame(height: Constants.borderWidth)
+                .boxShadow(.glowCyan, shape: .rect)
 
             currentImage
                 .resizable()
@@ -51,7 +52,7 @@ struct StartStartedProfileBadgeView: View {
         static let size: CGFloat = 120
 
         /// The width of the neon ring and of the horizon line.
-        static let borderWidth: CGFloat = size / 20
+        static let borderWidth: CGFloat = size / 40
 
         /// The range of the pause between two glitches, in seconds.
         static let glitchPause: ClosedRange<TimeInterval> = 3...4

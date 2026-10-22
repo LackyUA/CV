@@ -104,6 +104,7 @@ private struct ContactRow: View {
             viewModel: ContactsViewModel(
                 contacts: Contacts(
                     title: "Contacts",
+                    description: "Ways to reach me.",
                     address: "Ivano-Frankivsk, Ukraine",
                     email: "name@example.com",
                     mobile: "+380000000000",

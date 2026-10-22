@@ -62,6 +62,24 @@ public enum ContentSection: Decodable, Hashable, Sendable {
         }
     }
 
+    /// A short text of one to three sentences that tells what the section contains.
+    public var description: String {
+        switch self {
+        case .contacts(let contacts):
+            contacts.description
+        case .summary(let summary):
+            summary.description
+        case .skills(let skills):
+            skills.description
+        case .education(let education):
+            education.description
+        case .experience(let experience):
+            experience.description
+        case .additional(let additional):
+            additional.description
+        }
+    }
+
     // MARK: - Private Types
 
     private enum CodingKeys: String, CodingKey {

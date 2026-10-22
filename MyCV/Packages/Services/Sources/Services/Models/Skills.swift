@@ -23,13 +23,17 @@ public struct Skills: Decodable, Hashable, Sendable {
     }
 
     /// Creates the skill groups.
-    public init(title: String, sections: [Section]) {
+    public init(title: String, description: String, sections: [Section]) {
         self.title = title
+        self.description = description
         self.sections = sections
     }
 
     /// The title of the section, as the screen shows it.
     public let title: String
+
+    /// A short text of one to three sentences that tells what the section contains.
+    public let description: String
 
     /// The skill groups, in CV order.
     public let sections: [Section]
