@@ -5,55 +5,45 @@
 
 import SwiftUI
 
-/// A Liquid Glass card that shows a title and an optional description.
+/// A Liquid Glass card that shows a title, a description, or both.
 ///
 /// On iOS 26 and later, the card uses the native Liquid Glass effect. On earlier versions, it uses a backdrop blur.
 ///
 /// Without a description, the card shows a larger title in a compact card, for example a menu item.
 /// With a description, the card shows a headline over body text, for example a CV fact or a paragraph.
+/// Without a title, the card shows only the body text.
 ///
 /// The card is static by default. To make it selectable, use it as the label of a button with the
 /// ``EntryCardButtonStyle`` style. A selectable card shows a disclosure chevron.
 ///
 /// ```swift
-/// EntryCard(verbatim: "Languages", description: "Ukrainian, English")
+/// EntryCard(configuration: .init(title: "Languages", description: "Ukrainian, English"))
 ///
 /// Button(action: openSkills) {
-///     EntryCard(verbatim: "Skills")
+///     EntryCard(configuration: .init(title: "Skills"))
 /// }
 /// .buttonStyle(.entryCard)
 /// .entryCardSelected(isSkillsSelected)
 /// ```
 public struct EntryCard: View {
 
-    /// Creates a card with a localized title and an optional localized description.
+    /// Creates a card that shows the text of a configuration.
     ///
-    /// - Parameters:
-    ///   - title: The title of the card.
-    ///   - description: The text under the title. The default value is `nil`, which shows the title only.
-    public init(_ title: LocalizedStringResource, description: LocalizedStringResource? = nil) {
-        self.title = Text(title)
-        self.description = description.map { Text($0) }
-    }
-
-    /// Creates a card with a title and an optional description that the card shows without localization.
-    ///
-    /// - Parameters:
-    ///   - title: The title of the card.
-    ///   - description: The text under the title. The default value is `nil`, which shows the title only.
-    public init(verbatim title: String, description: String? = nil) {
-        self.title = Text(verbatim: title)
-        self.description = description.map { Text(verbatim: $0) }
+    /// - Parameter configuration: The title and the description of the card.
+    public init(configuration: EntryCardConfiguration) {
+        self.configuration = configuration
     }
 
     public var body: some View {
         HStack(spacing: Spacing.s) {
             VStack(alignment: .leading, spacing: Spacing.xs) {
-                title
-                    .typography(description == nil ? .Interface.buttonLarge : .Interface.headline)
+                if let title = configuration.title {
+                    Text(verbatim: title)
+                        .typography(hasDescription ? .Interface.headline : .Interface.buttonLarge)
+                }
 
-                if let description {
-                    description
+                if let description = configuration.description {
+                    Text(verbatim: description)
                         .typography(.Interface.body)
                 }
             }
@@ -69,8 +59,8 @@ public struct EntryCard: View {
         .foregroundStyle(Colors.textPrimary.swiftUIColor)
         .multilineTextAlignment(.leading)
         .padding(.horizontal, Spacing.m)
-        .padding(.vertical, description == nil ? Spacing.s : Spacing.m)
-        .frame(minHeight: description == nil ? Spacing.xxl : nil)
+        .padding(.vertical, hasDescription ? Spacing.m : Spacing.s)
+        .frame(minHeight: hasDescription ? nil : Spacing.xxl)
         .rounded(.xl)
         .backgroundGlass(tint: appearance.tintColor, isInteractive: appearance.isInteractive)
         .border(color: appearance.strokeColor, lineWidth: .m, isEnabled: showsBorder)
@@ -80,14 +70,18 @@ public struct EntryCard: View {
 
     // MARK: - Private Properties
 
-    private let title: Text
-    private let description: Text?
+    private let configuration: EntryCardConfiguration
 
     @Environment(\.entryCardAppearance)
     private var interactiveAppearance
 
     private var appearance: EntryCardAppearance {
         interactiveAppearance ?? .plain
+    }
+
+    /// A Boolean value that indicates whether the card shows body text.
+    private var hasDescription: Bool {
+        configuration.description != nil
     }
 
     /// A Boolean value that indicates whether the card draws its rim.
@@ -111,8 +105,11 @@ public struct EntryCard: View {
 
 #Preview("Static") {
     VStack(spacing: Spacing.l) {
-        EntryCard(verbatim: "Languages", description: "Ukrainian, English")
-        EntryCard(verbatim: "Music production")
+        EntryCard(configuration: .init(title: "Languages", description: "Ukrainian, English"))
+        EntryCard(configuration: .init(title: "Music production"))
+        EntryCard(
+            configuration: .init(description: "Shipped on-device image classification in a banking onboarding flow.")
+        )
     }
     .padding(Spacing.m)
     .frame(maxHeight: .infinity)
@@ -128,14 +125,19 @@ public struct EntryCard: View {
             Button {
                 selection = section
             } label: {
-                EntryCard(verbatim: section)
+                EntryCard(configuration: .init(title: section))
             }
             .buttonStyle(.entryCard)
             .entryCardSelected(selection == section)
         }
 
         Button {} label: {
-            EntryCard(verbatim: "Objective", description: "I wish to grow as an iOS developer and lead a team.")
+            EntryCard(
+                configuration: .init(
+                    title: "Objective",
+                    description: "I wish to grow as an iOS developer and lead a team."
+                )
+            )
         }
         .buttonStyle(.entryCard)
         .padding(.top, Spacing.l)

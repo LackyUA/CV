@@ -14,7 +14,7 @@ import SwiftUI
 ///
 /// ```swift
 /// Button(action: openSkills) {
-///     EntryCard(verbatim: "Skills")
+///     EntryCard(configuration: .init(title: "Skills"))
 /// }
 /// .buttonStyle(.entryCard)
 /// .entryCardSelected(isSkillsSelected)

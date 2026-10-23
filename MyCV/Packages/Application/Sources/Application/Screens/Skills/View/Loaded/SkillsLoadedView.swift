@@ -30,7 +30,7 @@ struct SkillsLoadedView: View {
 
                     VStack(spacing: Spacing.xs) {
                         ForEach(configuration.sections) { section in
-                            EntryCard(verbatim: section.title, description: section.description)
+                            EntryCard(configuration: section.card)
                         }
                     }
                     .padding(.horizontal, Spacing.m)
@@ -63,8 +63,8 @@ struct SkillsLoadedView: View {
                 title: "Skills",
                 headerImage: Image(decorative: Images.skills),
                 sections: [
-                    .init(id: .init(rawValue: 0), title: "Languages", description: "Swift, Python"),
-                    .init(id: .init(rawValue: 1), title: "UI", description: "SwiftUI, UIKit, Atomic Design"),
+                    .init(id: .init(rawValue: 0), card: .init(title: "Languages", description: "Swift, Python")),
+                    .init(id: .init(rawValue: 1), card: .init(title: "UI", description: "SwiftUI, UIKit, Atomic Design")),
                 ]
             )
         )

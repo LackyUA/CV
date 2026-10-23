@@ -47,8 +47,7 @@ final class SkillsViewModel {
             sections: skills.sections.enumerated().map { index, section in
                 .init(
                     id: .init(rawValue: index),
-                    title: section.title,
-                    description: section.items.joined(separator: ", ")
+                    card: .init(title: section.title, description: section.items.joined(separator: ", "))
                 )
             }
         )

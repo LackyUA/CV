@@ -86,7 +86,7 @@ struct StartViewModelTests {
         guard case .started(let currentState) = viewModel.state else {
             return nil
         }
-        return currentState.configuration.panel.sections.sections.map(\.title)
+        return currentState.configuration.panel.sections.sections.compactMap(\.card.title)
     }
 
 }
