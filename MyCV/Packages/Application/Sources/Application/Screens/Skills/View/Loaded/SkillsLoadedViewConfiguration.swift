@@ -4,6 +4,7 @@
 //
 
 import Core
+import CoreUI
 import SwiftUI
 
 struct SkillsLoadedViewConfiguration: Equatable {
@@ -14,11 +15,8 @@ struct SkillsLoadedViewConfiguration: Equatable {
         /// The identifier of the card. The raw value is the position of the group in the CV.
         let id: UniqueIdentifier<Self, Int>
 
-        /// The name of the group, such as `Languages`.
-        let title: String
-
-        /// The skills of the group, separated by commas.
-        let description: String
+        /// The name of the group, such as `Languages`, and the skills of the group, separated by commas.
+        let card: EntryCardConfiguration
     }
 
     /// The title of the navigation bar.

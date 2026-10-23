@@ -4,6 +4,7 @@
 //
 
 import Core
+import CoreUI
 
 struct StartStartedSectionsViewConfiguration: Equatable {
 
@@ -13,11 +14,8 @@ struct StartStartedSectionsViewConfiguration: Equatable {
         /// The identifier of the card. The raw value is the position of the section in the CV.
         let id: UniqueIdentifier<Self, Int>
 
-        /// The title of the card.
-        let title: String
-
-        /// The text under the title. It tells what the section contains.
-        let description: String
+        /// The title of the section and the text under it, which tells what the section contains.
+        let card: EntryCardConfiguration
 
         /// Opens the section.
         @NullEquatable

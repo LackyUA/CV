@@ -15,7 +15,7 @@ struct ContentDecodingTests {
 
         #expect(content.sections.map(\.title) == [
             "Contacts",
-            "Profile",
+            "Summary",
             "Skills",
             "Education",
             "Experience",

@@ -148,8 +148,7 @@ final class StartViewModel {
                     sections: sections.enumerated().map { index, section in
                         .init(
                             id: .init(rawValue: index),
-                            title: section.title,
-                            description: section.description,
+                            card: .init(title: section.title, description: section.description),
                             // The loaded sections do not change, so the action can keep its section.
                             select: { [weak self] in
                                 self?.select(section)

@@ -79,20 +79,26 @@ struct StartStartedView: View {
                         sections: [
                             .init(
                                 id: .init(rawValue: 0),
-                                title: "Contacts",
-                                description: "Ways to reach me: my location, e-mail address, and phone number.",
+                                card: .init(
+                                    title: "Contacts",
+                                    description: "Ways to reach me: my location, e-mail address, and phone number."
+                                ),
                                 select: {}
                             ),
                             .init(
                                 id: .init(rawValue: 1),
-                                title: "Profile",
-                                description: "A short overview of my experience and main technology stack.",
+                                card: .init(
+                                    title: "Profile",
+                                    description: "A short overview of my experience and main technology stack."
+                                ),
                                 select: {}
                             ),
                             .init(
                                 id: .init(rawValue: 2),
-                                title: "Skills",
-                                description: "The languages, frameworks, and tools that I use, grouped by area.",
+                                card: .init(
+                                    title: "Skills",
+                                    description: "The languages, frameworks, and tools that I use, grouped by area."
+                                ),
                                 select: {}
                             ),
                         ]
